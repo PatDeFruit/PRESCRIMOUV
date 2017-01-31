@@ -47,7 +47,7 @@
 	margin-top : 5px;
 }
 
-#conteneurEntretien
+#conteneurMedecin
 {
 	border : 2px #c0001f solid;
 	border-radius : 10px;
@@ -55,7 +55,7 @@
 	height : 220px;
 	margin-right : 5px;
 }
-#conteneurSante
+#conteneurMutuelle
 {
 	border : 2px #c0001f solid;
 	border-radius : 10px;

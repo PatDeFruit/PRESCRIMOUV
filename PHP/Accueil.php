@@ -40,22 +40,21 @@
 			<div id = "conteneurGauche">
 				<fieldset id="conteneurPatient">
 					<center><legend> Patient </legend></center>
-					<input type="button" id="boutonPatient" value="Liste Patient" onclick="self.location.href='../index.php'">
-					<input type="button" id="boutonPatient" value="Ajout Patient" onclick="self.location.href='../index.php'">
+					<input type="button" id="boutonPatient" value="Liste Patient" onclick="self.location.href='ListePatient.php'">
+					<input type="button" id="boutonPatient" value="Ajout Patient" onclick="self.location.href='AjoutPatient.php'">
 				</fieldset>
 				
 				
 				<div id = "conteneurGaucheBas">
-					<fieldset id="conteneurEntretien">
-						<center><legend> Entretiens </legend></center>
-						<input type="button" id="boutonEntretien" value="Initial" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonEntretien" value="Intermédiaire" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonEntretien" value="Final" onclick="self.location.href='../index.php'">
+					<fieldset id="conteneurMedecin">
+						<center><legend> Médecins </legend></center>
+						<input type="button" id="boutonSante" value="Liste Médecins" onclick="self.location.href='ListeMedecin.php'">
+						<input type="button" id="boutonSante" value="Ajout Médecin" onclick="self.location.href='AjoutMedecin.php'">
 					</fieldset>
-					<fieldset id="conteneurSante">
-						<center><legend> Sante </legend></center>
-						<input type="button" id="boutonSante" value="Médecins" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonSante" value="Mutuelles" onclick="self.location.href='../index.php'">
+					<fieldset id="conteneurMutuelle">
+						<center><legend> Mutuelles </legend></center>
+						<input type="button" id="boutonSante" value="Liste Mutuelles" onclick="self.location.href='ListeMutuelle.php'">
+						<input type="button" id="boutonSante" value="Ajout Mutuelle" onclick="self.location.href='AjoutMutuelle.php'">
 					</fieldset>
 				</div>
 			</div>
@@ -67,10 +66,10 @@
 				</fieldset>
 				<fieldset id="conteneurAutre">
 					<center><legend>  Autre </legend></center>
-						<input style="margin-top : 0px" type="button" id="boutonAutre" value="Activités" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonAutre" value="Intervenants" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonAutre" value="Centres" onclick="self.location.href='../index.php'">
-						<input type="button" id="boutonAutre" value="Créneaux" onclick="self.location.href='../index.php'">
+						<input style="margin-top : 0px" type="button" id="boutonAutre" value="Activités" onclick="self.location.href='ListeActivite.php'">
+						<input type="button" id="boutonAutre" value="Intervenants" onclick="self.location.href='ListeIntervenant.php'">
+						<input type="button" id="boutonAutre" value="Centres" onclick="self.location.href='ListeCentre.php'">
+						<input type="button" id="boutonAutre" value="Créneaux" onclick="self.location.href='ListeCreneau.php'">
 				</fieldset>
 			</div>
 		</div>
