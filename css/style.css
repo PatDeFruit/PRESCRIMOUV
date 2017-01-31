@@ -1,0 +1,168 @@
+/* code css du site web */ 
+
+#connexion
+{
+	width: 300px; /* On a indiqué une largeur (obligatoire) */
+    margin: auto; /* On peut donc demander à ce que le bloc soit centré avec auto */
+    border: 2px solid red;
+	border-radius : 10px;
+    text-align: justify;
+	margin-top : 18%;
+	padding-bottom : 10px;
+	left: 50%;
+	right: 50%;
+	top: 50%;
+}
+
+#conteneurPrincipale
+{
+	width : 1150px;
+	height : 440px;
+	display: flex;
+}
+
+#conteneurGauche
+{
+	width : 300px;
+	height : 440px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-right : 5px;
+	justify-content: space-between;
+	
+}
+#conteneurPatient
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 300px;
+	height : 220px;
+}
+
+#conteneurGaucheBas
+{
+	width : 300px;
+	height : 220px;
+	display: flex;
+	margin-top : 5px;
+}
+
+#conteneurEntretien
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 150px;
+	height : 220px;
+	margin-right : 5px;
+}
+#conteneurSante
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 150px;
+	height : 220px;
+}
+
+#conteneurDroit
+{
+	width : 850px;
+	height : 440px;
+	display: flex;
+	margin-left : 10px;
+}
+
+#conteneurStat
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 830px;
+	height : 350px;
+	margin-bottom : 5px;
+}
+#conteneurAutre
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 830px;
+	height : 90px;
+	align-right: 0px;
+	align-left: 0px;
+}
+
+#legendCo{
+	width: 100%;
+	padding: 0;
+    margin-bottom: 20px;
+	font-size: 21px;
+    line-height: inherit;
+	color: white;
+    border: 0;
+	border-radius: 7px 7px 0px 0px;
+    border-bottom: 1px solid #c0001f;
+	background-color : #e52f2f;
+}
+
+legend {
+    display: block;
+    width: 100%;
+    font-size: 21px;
+	margin-bottom : 0px;
+    line-height: inherit;
+    color: white;
+    border: 0;
+	border-radius: 7px 7px 0px 0px;
+    border-bottom: 1px solid #c0001f;
+	background-color : #e52f2f;
+}
+
+footer {
+    margin: 50px 0;
+    position: relative;
+    bottom: 0;
+}
+
+#boutonPatient{
+	background-color:#E9967A;
+	color:black; 
+	font-weight:bold;
+	height : 145px;
+	width : 130px;
+	margin-top : 20px;
+	margin-left : 8px;
+	margin-right : 8px;
+}
+
+#boutonEntretien{
+	background-color:#E9967A;
+	color:black; 
+	font-weight:bold;
+	position :center;
+	height : 50px;
+	width : 125px;
+	margin-top : 8px;
+	margin-left : 8px;
+	margin-right : 8px;
+}
+
+#boutonSante{
+	background-color:#E9967A;
+	color:black; 
+	font-weight:bold;
+	position :center;
+	height : 76px;
+	width : 125px;
+	margin-top : 10px;
+	margin-bottom: 1px;
+	margin-left : 8px;
+	margin-right : 8px;
+}
+
+#boutonAutre{
+	background-color:#E9967A;
+	color:black; 
+	font-weight:bold;
+	height : 42px;
+	width : 191px;
+	margin-top : 6px;
+	margin-left : 9px;
+}
