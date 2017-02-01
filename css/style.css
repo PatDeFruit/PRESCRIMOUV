@@ -16,8 +16,7 @@
 
 #conteneurPrincipale
 {
-	width : 1150px;
-	height : 440px;
+	width : 1125px;
 	display: flex;
 }
 
@@ -71,6 +70,29 @@
 	margin-left : 10px;
 }
 
+#conteneurTotal
+{
+	width : 1125px;
+	display: flex;
+	margin-left : 10px;
+}
+
+
+#conteneurInterieur
+{
+	border : 2px #c0001f solid;
+	border-radius : 10px;
+	width : 1125px;
+}
+
+#afficherInfosPatient
+{
+	width : 1100px;
+	height : 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
 #conteneurStat
 {
 	border : 2px #c0001f solid;
@@ -115,10 +137,9 @@ legend {
 	background-color : #e52f2f;
 }
 
-footer {
-    margin: 50px 0;
-    position: relative;
-    bottom: 0;
+.footer {
+     display: table-row;
+    height: 1px;
 }
 
 #boutonPatient{
@@ -166,3 +187,21 @@ footer {
 	margin-top : 6px;
 	margin-left : 9px;
 }
+
+#tableauPatient
+{
+	width : 1100px;
+	height : 435px;
+}
+
+
+
+
+.process-step .btn:focus{outline:none}
+.process{display:table;width:75%;position:relative}
+.process-row{display:table-row;}
+.process-step button[disabled]{opacity:1 !important;filter: alpha(opacity=100) !important}
+.process-row:before{top:40px;bottom:0;position:absolute;content:" ";width:100%;height:1px;background-color:#ccc;z-order:0}
+.process-step{display:table-cell;text-align:center;position:relative}
+.process-step p{margin-top:4px}
+.btn-circle{width:80px;height:80px;text-align:center;font-size:12px;border-radius:50%}

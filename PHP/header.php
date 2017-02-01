@@ -26,7 +26,7 @@
                     </li>
                     <li class="dropdown">
                     <li>
-                        <a href="../index.php">
+                        <a href="deconnexion.php">
                             <span class="glyphicon glyphicon-off text-center"></span>
                         </a>
                     </li>

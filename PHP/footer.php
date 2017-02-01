@@ -1,5 +1,5 @@
 <!-- Footer -->
-        <footer>
+        <footer class="footer">
 		<br/>
             <div class="row">
                 <div class="col-lg-12">

@@ -2,11 +2,11 @@
 	session_start();
 	session_destroy();
 
-	include("variableSession.php");
+	include("../BDD/variableSession.php");
 	
-	echo '<p> id de connexion : '.$id.' </p>';
-	echo '<p> mail de connexion : '.$Mail.' </p>';
-	echo '<p> level de connexion : '.$lvl.' </p>';
+						echo '<p> id de connexion : '.$id.' </p>';
+						echo '<p> mail de connexion : '.$email_coordinateur.' </p>';
+		
 	
 	if ($id==0) erreur(ERR_IS_CO);
 	else{
