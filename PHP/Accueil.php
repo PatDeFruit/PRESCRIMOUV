@@ -32,8 +32,8 @@
 		session_start();
 
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
-		include("BDD/variableSession.php");
-		include("BDD/connexionBDD.php");
+		include("../BDD/variableSession.php");
+		include("../BDD/connexionBDD.php");
 		?>
 
 </head>
