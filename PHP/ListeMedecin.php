@@ -66,7 +66,7 @@
 								Prénom
 								</th>
 								<th class="text-center">
-								Num Adeli
+								Numéro Adeli
 								</th>
 								<th>
 								
@@ -78,9 +78,9 @@
 								$query->execute();
 								;
 								while($data=$query->fetch()){
-									echo '<tr><td width="10%" class="text-center">'.$data['id_medecin'].'</td><td width="20%" class="text-center">'.$data['nom_medecin'].'</td><td width="20%" class="text-center">'.$data['prenom_medecin'].'</td><td width="20%" class="text-center">'.$data['num_adeli'].'</td>';
+									echo '<tr><td width="15%" class="text-center">'.$data['id_medecin'].'</td><td width="25%" class="text-center">'.$data['nom_medecin'].'</td><td width="25%" class="text-center">'.$data['prenom_medecin'].'</td><td width="25%" class="text-center">'.$data['num_adeli'].'</td>';
 									
-									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherMedecin.php?idMedecin='.$data['id_medecin'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="#"><span class="glyphicon glyphicon-edit"></span> </a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-inbox"></span> </a></td>';
+									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherMedecin.php?idMedecin='.$data['id_medecin'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="#"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();

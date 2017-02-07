@@ -82,74 +82,67 @@
 								$query->CloseCursor();
 					?>
 							  
-							  <div class="tab-content">
-							   <div id="ficheResume" class="tab-pane fade active in">				
-								<h3>Informations Medecin </h3> 
-								<form class="form-horizontal">
+					<div class="tab-content">
+						<div id="ficheResume" class="tab-pane fade active in">				
+							<h3>Informations Medecin </h3> 
+							<form class="form-horizontal">
 								<fieldset>
-								
 								<table class="table">
 								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="firstname">Nom</label>  
-								  <div class="col-md-5">
-								  <?php
-									echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
-									?>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="firstname">Nom</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
+												?>
 									
-								  </div>
-								</div>
-								</tr>
-								</td>
+											</div>
+										</div>
+									</td>
 
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="lastname">Prénom</label>  
-								  <div class="col-md-5">
-								  <?php
-								  echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';
-								  ?>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="lastname">Prénom</label>  
+											<div class="col-md-5">
+												<?php
+													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';
+												?>
 									
-								  </div>
-								</div>
-								</td>
+											</div>
+										</div>
+									</td>
 								</tr>
 
 								<table class="table">
 								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="numAdeli">Numéro Adeli</label>  
-								  <div class="col-md-5">
-								  <?php
-									echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" class="form-control input-md" required="" disabled="disabled" type="text">';
-								?>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" class="form-control input-md" required="" disabled="disabled" type="text">';
+												?>
 									
-								  </div>
-								</div>
+											</div>
+										</div>
+									</td>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="adresseMedecin" name="adresseMedecin" value="'.$adresseMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
 								</tr>
-								</td>
-									
-								<table class="table">
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
-								  <div class="col-md-5">
-								  <?php
-									echo '<input id="adresseMedecin" name="adresseMedecin" value="'.$adresseMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
-								?>
-									
-								  </div>
-								</div>
-								</tr>
-								</td>
-								
 								<table>
 								
 								<table class="table">								
