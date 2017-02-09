@@ -89,7 +89,7 @@
 									} else if($data['id_statut']==5){
 										echo'<td width="20%" class="text-center"><span class="label label-danger">'.$data['statut'].' </span>';
 									}
-									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherPatient.php?idPatient='.$data['id_patient'].'&statutPatient='.$data['statut'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="#"><span class="glyphicon glyphicon-edit"></span> </a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-inbox"></span> </a></td>';
+									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherPatient.php?idPatient='.$data['id_patient'].'&statutPatient='.$data['statut'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="ModifierPatient.php?idPatient='.$data['id_patient'].'&statutPatient='.$data['statut'].'"><span class="glyphicon glyphicon-edit"></span> </a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-inbox"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();
