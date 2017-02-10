@@ -86,7 +86,7 @@
 								while($data=$query->fetch()){
 									$adresseComp = $data['adresse_centre'].' '.$data['CP_centre'].' '.$data['ville_centre'];
 									echo '<tr><td width="8%" class="text-center">'.$data['id_centre'].'</td><td width="15%" class="text-center">'.$data['nom_centre'].'</td><td width="25%" class="text-center">'.$adresseComp.'</td><td width="15%" class="text-center">'.$data['tel_centre'].'</td><td width="15%" class="text-center">'.$data['email_centre'].'</td><td width="20%" class="text-center">'.$data['type_centre'].'</td>';
-									// echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifierCentre.php?idCentre='.$data['id_centre'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifierCentre.php?idCentre='.$data['id_centre'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();
