@@ -68,9 +68,6 @@
 								<th class="text-center">
 								Numéro Adeli
 								</th>
-								<th>
-								
-								</th>
 							</thead>
 
 							<?php
