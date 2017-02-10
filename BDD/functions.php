@@ -33,4 +33,11 @@ function msg_connexion_INFO($msg='')
    exit('<center><div class="alert alert-success" role="alert">'.$mess.'
 						<p>Cliquez <a href="PHP/Accueil.php">ici</a> pour aller à la page suivante</p></div></center>');
 }
+
+function msg_deconnexion_INFO($msg='')
+{
+   $mess=($msg!='')? $msg: '';
+   exit('<center><div class="alert alert-warning" role="alert">'.$mess.'
+						<p>Cliquez <a href="../index.php">ici</a> pour accéder à l\'accueil</p></div></center>');
+}
 ?>

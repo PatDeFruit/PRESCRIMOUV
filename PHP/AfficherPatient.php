@@ -48,7 +48,7 @@
     <!-- Page Content -->
     <div class="container">
 	<?php 
-		$idPatient = $_GET['idPatient']; 
+		$idPatient = $_GET['idPatient'];
 		$statutPatient = $_GET['statutPatient'];
 	?>
 

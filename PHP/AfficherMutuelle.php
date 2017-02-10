@@ -48,7 +48,8 @@
     <!-- Page Content -->
     <div class="container">
 	<?php 
-		$idMedecin = $_GET['idMedecin']; 
+		$idMutuelle = $_GET['idMutuelle'];
+
 	?>
 
         <!-------------------------- Container --------------------------------->
@@ -59,32 +60,31 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="#"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-pencil navbar-nav"></span></a> Mèdecin  n°'.$idMedecin.' </center></legend>'; ?>
+					<?php echo'<center><legend><a href="ListeMutuelle.php"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-pencil navbar-nav"></span></a> Mutuelle  n°'.$idMutuelle.' </center></legend>'; ?>
 					
 					</br>
 					<center>
 					<?php
 								// REQUETE PATIENT
-								$query=$bdd->prepare('SELECT id_medecin, nom_medecin, prenom_medecin, num_adeli, adresse_medecin, CP_medecin, ville_medecin, email_medecin, tel_medecin FROM medecins WHERE id_medecin = :idMedecin');
-								$query->bindValue(':idMedecin',$idMedecin, PDO::PARAM_STR);
+								$query=$bdd->prepare('SELECT id_mutuelle, nom_mutuelle, adresse_mutuelle, CP_mutuelle, ville_mutuelle, email_mutuelle, tel_mutuelle FROM mutuelles WHERE id_mutuelle = :idMutuelle');
+								$query->bindValue(':idMutuelle',$idMutuelle, PDO::PARAM_STR);
 								$query->execute();
 								$data = $query->fetch();
 								
-								$nomMedecin = $data['nom_medecin'];
-								$prenomMedecin = $data['prenom_medecin'];
-								$numAdeli = $data['num_adeli'];
-								$adresseMedecin = $data['adresse_medecin'];
-								$cpMedecin = $data['CP_medecin'];
-								$villeMedecin = $data['ville_medecin'];
-								$mailMedecin = $data['email_medecin'];
-								$telMedecin = $data['tel_medecin'];
+								$nomMutuelle = $data['nom_mutuelle'];
+								$adresseMutuelle = $data['adresse_mutuelle'];
+								$cpMutuelle = $data['CP_mutuelle'];
+								$villeMutuelle = $data['ville_mutuelle'];
+								$mailMutuelle = $data['email_mutuelle'];
+								$telMutuelle = $data['tel_mutuelle'];
 								
 								$query->CloseCursor();
-					?>
-							  
+								
+					?>			
+					
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
-							<h3>Informations Medecin </h3> 
+							<h3>Informations Mutuelle </h3> 
 							<form class="form-horizontal">
 								<fieldset>
 								<table class="table">
@@ -95,78 +95,23 @@
 											<label class="col-md-4 control-label" for="firstname">Nom</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
+													echo '<input id="firstname" name="firstname" value="'.$nomMutuelle.'" class="form-control input-md" required="" disabled="disabled" type="text">';
 												?>
 									
 											</div>
 										</div>
 									</td>
-
-									<td>
-									<!-- Text input-->
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="lastname">Prénom</label>  
-											<div class="col-md-5">
-												<?php
-													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';
-												?>
-									
-											</div>
-										</div>
-									</td>
-								</tr>
 
 								<table class="table">
 								<tr>
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli</label>  
+											<label class="col-md-4 control-label" for="adresseMutuelle">Adresse</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" class="form-control input-md" required="" disabled="disabled" type="text">';
+													echo '<input id="adresseMutuelle" name="adresseMutuelle" value="'.$adresseMutuelle.'" class="form-control input-md" required="" disabled="disabled" type="text">';
 												?>
-									
-											</div>
-										</div>
-									</td>
-									<td>
-									<!-- Text input-->
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
-											<div class="col-md-5">
-												<?php
-													echo '<input id="adresseMedecin" name="adresseMedecin" value="'.$adresseMedecin.'" class="form-control input-md" required="" disabled="disabled" type="text">';
-												?>
-									
-											</div>
-										</div>
-									</td>
-								</tr>
-								
-								<table class="table">								
-								<tr>
-									<td>
-									<!-- Text input-->
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="city">Code postal</label>  
-											<div class="col-md-3">
-												<?php
-													echo'<input id="city" name="city" value="'.$cpMedecin.'" class="form-control input-md" disabled="disabled" type="number">';
-												?>
-									
-											</div>
-										</div>
-									</td>
-		
-									<td>
-									<!-- Text input-->
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="state">Ville</label>  
-											<div class="col-md-5">
-											<?php
-												echo'<input id="state" name="state" value="'.$villeMedecin.'" class="form-control input-md" disabled="disabled" type="text">';
-											?>
 									
 											</div>
 										</div>
@@ -178,10 +123,40 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
+								  <label class="col-md-4 control-label" for="city">Code postal</label>  
+								  <div class="col-md-3">
+								  <?php
+								  echo'<input id="city" name="city" value="'.$cpMutuelle.'" class="form-control input-md" disabled="disabled" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+		
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="state">Ville</label>  
+								  <div class="col-md-5">
+								  <?php
+								  echo'<input id="state" name="state" value="'.$villeMutuelle.'" class="form-control input-md" disabled="disabled" type="text">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<table>
+								
+								<table class="table">								
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
 								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" value="'.$telMedecin.'" class="form-control input-md" disabled="disabled" type="tel">';
+								  echo' <input id="phone" name="phone" value="'.$telMutuelle.'" class="form-control input-md" disabled="disabled" type="tel">';
 								  ?>
 									
 								  </div>
@@ -196,7 +171,7 @@
 								  <label class="col-md-2 control-label" for="email">Email</label>  
 								  <div class="col-md-8">
 								  <?php
-								  echo'<input id="email" name="email" value="'.$mailMedecin.'" class="form-control input-md" disabled="disabled" required="" type="email">';
+								  echo'<input id="email" name="email" value="'.$mailMutuelle.'" class="form-control input-md" disabled="disabled" required="" type="email">';
 								  ?>
 									
 								  </div>

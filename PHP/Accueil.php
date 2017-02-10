@@ -50,7 +50,7 @@
         <div id="conteneurPrincipale">
 			<div id = "conteneurGauche">
 				<fieldset id="conteneurPatient">
-					<center><legend> Patient </legend></center>
+					<center><legend> Patients </legend></center>
 					<input type="button" id="boutonPatient" value="Liste Patient" onclick="self.location.href='ListePatient.php'">
 					<input type="button" id="boutonPatient" value="Ajout Patient" onclick="self.location.href='AjoutPatient.php'">
 				</fieldset>
@@ -76,7 +76,7 @@
 					<center><img src="../images/patientstats.png"/></center>
 				</fieldset>
 				<fieldset id="conteneurAutre">
-					<center><legend>  Autre </legend></center>
+					<center><legend>  Autres </legend></center>
 						<input style="margin-top : 0px" type="button" id="boutonAutre" value="Activités" onclick="self.location.href='ListeActivite.php'">
 						<input type="button" id="boutonAutre" value="Intervenants" onclick="self.location.href='ListeIntervenant.php'">
 						<input type="button" id="boutonAutre" value="Centres" onclick="self.location.href='ListeCentre.php'">
