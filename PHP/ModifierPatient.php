@@ -60,7 +60,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="ListePatient.php"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-floppy-disk navbar-nav"></span></a> Patient  n°'.$idPatient.' </center></legend>'; ?>
+					<?php echo'<center><legend> Patient  n°'.$idPatient.' </center></legend>'; ?>
 					
 					</br>
 					<center>
