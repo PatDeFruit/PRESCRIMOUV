@@ -9,24 +9,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="../../images/logo_prescrimouv.png" height="70px"/>
+                <img src="../images/logo_prescrimouv.png" height="70px"/>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
 					<li>
-                        <a href="../Settings/Settings.php">
+                        <a href="Settings/Settings.php">
                             <span class="glyphicon glyphicon-cog text-center"></span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Accueil.php">
+                        <a href="Accueil.php">
                             <span class="glyphicon glyphicon-home text-center"></span>
                         </a>
                     </li>
                     <li class="dropdown">
                     <li>
-                        <a href="../deconnexion.php">
+                        <a href="deconnexion.php">
                             <span class="glyphicon glyphicon-off text-center"></span>
                         </a>
                     </li>
