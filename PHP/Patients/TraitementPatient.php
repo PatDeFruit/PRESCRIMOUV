@@ -457,7 +457,7 @@
 						$distTheo2 = (7.57*$taille2) - (5.02*$agePatient2) - (1.76* $poids2) - 309;
 						$pourcTheo2 = $DistReelleTM2 - $distTheo2;
 					} else if($sexePat2 == 1){
-						$distTheo2= (2.11*$taille2 - (5.78*$agePatient2) - (2.99* $poids2+ 667;
+						$distTheo2= (2.11*$taille2) - (5.78*$agePatient2) - (2.99* $poids2)+ 667;
 						$pourcTheo2= $DistReelleTM2 - $distTheo2;
 					}
 				
@@ -546,32 +546,32 @@
 					$query->CloseCursor();	
 				
 				//Requete modifications Test equilibre
-				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedDYO1.'" WHERE pied= "0" AND yeux_ouverts = "0" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien1)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedDYO2.'" WHERE pied= "0" AND yeux_ouverts = "0" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();	
-				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedDYF1.'" WHERE pied= "0" AND yeux_ouverts = "1" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien1)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedDYF2.'" WHERE pied= "0" AND yeux_ouverts = "1" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();	
-				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedGYO1.'" WHERE pied= "1" AND yeux_ouverts = "0" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien1)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedGYO2.'" WHERE pied= "1" AND yeux_ouverts = "0" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();	
-				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedGYF1.'" WHERE pied= "1" AND yeux_ouverts = "1" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien1)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE test_equilibre SET temps ="'.$PiedGYF2.'" WHERE pied= "1" AND yeux_ouverts = "1" AND id_test_equilibre IN (Select id_test_equilibre FROM a_pour_result WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();
 				
 				//Requete modification Test Assis Debout
-				$query=$bdd->prepare('UPDATE test_assis SET nb_repet ="'.$NbRepet1.'", FC_fin ="'.$FreqCard1.'", FC_2min ="'.$FreqCard2.'" WHERE id_test_assis IN (Select id_test_assis FROM entretiens WHERE id_entretien = :idEntretien1)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE test_assis SET nb_repet ="'.$NbRepet2.'", FC_fin ="'.$FreqCardF.'", FC_2min ="'.$FreqCard2min.'" WHERE id_test_assis IN (Select id_test_assis FROM entretiens WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();	
 					
 				//Requete modification WHOQOL
-				$query=$bdd->prepare('UPDATE whoqol SET eval_qualite_vie ="'.$QDV1.'", satisfaction_sante = "'.$QDV2.'", douleur_physique = "'.$SPhy1.'", traitement_quotidien ="'.$SPhy2.'", aimer_vie ="'.$SPsy1.'", sens_vie ="'.$SPsy2.'", concentration ="'.$SPsy3.'", securite_vie ="'.$SEnv1.'", environnement_sain ="'.$SEnv2.'", apparence ="'.$SPsy4.'", energie_vie ="'.$SPhy3.'", argent ="'.$SEnv3.'", acces_info_vie ="'.$SEnv4.'", pratique_loisir ="'.$SEnv5.'", deplacement ="'.$SPhy4.'", sommeil ="'.$SPhy5.'", taches_vie ="'.$SPhy6.'", act_pro ="'.$SPhy7.'", vous ="'.$SPsy5.'", relation ="'.$SRel1.'", vie_sexuelle ="'.$SRel2.'", amis_soutien ="'.$SRel3.'", lieu_vie ="'.$SEnv6.'", acces_service ="'.$SEnv7.'", moyen_transport ="'.$SEnv8.'", sentiment_negatif ="'.$SPsy6.'", score_qdv ="'.$scoreTotQDV1.'", score_phy ="'.$scoreTotPhy1.'", score_psy ="'.$scoreTotPsy1.'", score_relation ="'.$scoreTotRel1.'", score_env ="'.$scoreTotEnv1.'" WHERE id_test_assis IN (Select id_test_assis FROM entretiens WHERE id_entretien = :idEntretien3)');
-					$query->bindValue(':idEntretien1',$idEntretien1, PDO::PARAM_STR);
+				$query=$bdd->prepare('UPDATE whoqol SET eval_qualite_vie ="'.$QDV12.'", satisfaction_sante = "'.$QDV22.'", douleur_physique = "'.$SPhy12.'", traitement_quotidien ="'.$SPhy22.'", aimer_vie ="'.$SPsy12.'", sens_vie ="'.$SPsy22.'", concentration ="'.$SPsy32.'", securite_vie ="'.$SEnv12.'", environnement_sain ="'.$SEnv22.'", apparence ="'.$SPsy42.'", energie_vie ="'.$SPhy32.'", argent ="'.$SEnv32.'", acces_info_vie ="'.$SEnv42.'", pratique_loisir ="'.$SEnv52.'", deplacement ="'.$SPhy42.'", sommeil ="'.$SPhy52.'", taches_vie ="'.$SPhy62.'", act_pro ="'.$SPhy72.'", vous ="'.$SPsy52.'", relation ="'.$SRel12.'", vie_sexuelle ="'.$SRel22.'", amis_soutien ="'.$SRel32.'", lieu_vie ="'.$SEnv62.'", acces_service ="'.$SEnv72.'", moyen_transport ="'.$SEnv82.'", sentiment_negatif ="'.$SPsy62.'", score_qdv ="'.$scoreTotQDV2.'", score_phy ="'.$scoreTotPhy2.'", score_psy ="'.$scoreTotPsy2.'", score_relation ="'.$scoreTotRel2.'", score_env ="'.$scoreTotEnv2.'" WHERE id_test_assis IN (Select id_test_assis FROM entretiens WHERE id_entretien = :idEntretien3)');
+					$query->bindValue(':idEntretien3',$idEntretien3, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();	
 					
@@ -581,17 +581,13 @@
 					$query->execute();
 					$query->CloseCursor();
 				
-				echo'<center><div class="alert alert-success" role="alert"> Modification effectuée </div></center>';
-				
-
-					{
-					echo'<center><div class="alert alert-danger" role="alert"> Impossible d\'effectuer les changements </div></center>';
+				echo'<center><div class="alert alert-success" role="alert"> Modification effectuée </div></center>';	
+					
+				} else {
+					
+				echo'<center><div class="alert alert-danger" role="alert"> Impossible d\'effectuer les changements </div></center>';
 				}
-			
-			//FORMULAIRE MODIFICATION ENTRETIEN INTERMEDIAIRE - ModifierPatient.php
-			
-			
-			//FORMULAIRE MODIFICATION ENTRETIEN FINAL - ModifierPatient.php
+
 			
 							
 								?>

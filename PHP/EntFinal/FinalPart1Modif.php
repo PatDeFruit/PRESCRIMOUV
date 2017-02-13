@@ -188,7 +188,7 @@
 								  <label class="col-md-4 control-label" for="goal6mois">Objectifs pour les 3 prochains mois</label>  
 								   <div class="col-md-8">
 								<?php
-								$query=$bdd->prepare('SELECT id_motivation, motivation FROM motivations WHERE id_motivation NOT IN (SELECT id_motivation FROM motivations JOIN a_pour_motivation USING(id_motivation) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1 OR id_entretien = :id_entretien2 OR id_entretien = :id_entretien3)');
+								$query=$bdd->prepare('SELECT id_objectif, objectif FROM objectifs WHERE id_objectif NOT IN (SELECT id_objectif FROM a_pour_objectif WHERE id_entretien = :id_entretien1 OR id_entretien = :id_entretien2 OR id_entretien = :id_entretien3)');
 								$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
 								$query->bindValue(':id_entretien2',$id_entretien2, PDO::PARAM_STR);
 								$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
@@ -196,8 +196,8 @@
 								
 								while($data = $query->fetch()){									
 									echo'<span class="button-checkbox">
-									<button type="button" class="btn" data-color="primary" >'.$data['motivation'].'</button>
-									<input type="checkbox" name="checkMotiv3[]" id="checkMotiv3[]" value="'.$data['id_motivation'].'" class="hidden" />
+									<button type="button" class="btn" data-color="primary" >'.$data['objectif'].'</button>
+									<input type="checkbox" name="checkMotiv3[]" id="checkMotiv3[]" value="'.$data['id_objectif'].'" class="hidden" />
 								</span>';
 								}
 								

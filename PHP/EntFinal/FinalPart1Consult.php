@@ -72,13 +72,13 @@
 								  <label class="col-md-4 control-label" for="freinsInit2">Rappel des freins initiaux</label>  
 								  <div class="col-md-4">
 								  <?php
-								  $query=$bdd->prepare('SELECT id_frein, frein, id_entretien FROM freins JOIN a_pour_frein USING(id_frein) JOIN entretien USING(id_entretien) WHERE id_entretien = :id_entretien1');
+								  $query=$bdd->prepare('SELECT id_obstacle, obstacle, id_entretien FROM obstacles JOIN a_pour_obstacle USING(id_obstacle) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1');
 								$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
 								$query->execute();
 								
 								while($data = $query->fetch()){									
 									echo'<ul class="nav nav-list">
-									  <li class="list-group-item">'.$data['frein'].'</li>
+									  <li class="list-group-item">'.$data['obstacle'].'</li>
 									</ul>';
 								}
 								
@@ -95,13 +95,13 @@
 								  <label class="col-md-4 control-label" for="freins6mois">Etat des freins à 6 mois</label>  
 								  <div class="col-md-4">
 								  <?php
-								  $query=$bdd->prepare('SELECT id_frein, frein, id_entretien FROM freins JOIN a_pour_frein USING(id_frein) JOIN entretien USING(id_entretien) WHERE id_entretien = :id_entretien3');
+								  $query=$bdd->prepare('SELECT id_obstacle, obstacle, id_entretien FROM obstacles JOIN a_pour_obstacle USING(id_obstacle) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien3');
 								$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
 								$query->execute();
 								
 								while($data = $query->fetch()){									
 									echo'<ul class="nav nav-list">
-									  <li class="list-group-item">'.$data['frein'].'</li>
+									  <li class="list-group-item">'.$data['obstacle'].'</li>
 									</ul>';
 								}
 								
@@ -160,7 +160,7 @@
 								  <label class="col-md-4 control-label" for="goalInit2">Rappel des objectifs</label>  
 								  <div class="col-md-4">
 								  <?php
-								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretien USING(id_entretien) WHERE id_entretien = :id_entretien1');
+								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1');
 								$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
 								$query->execute();
 								
@@ -183,7 +183,7 @@
 								  <label class="col-md-4 control-label" for="goal6mois">Objectifs pour les 3 prochains mois</label>  
 								  <div class="col-md-4">
 								  <?php
-								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretien USING(id_entretien) WHERE id_entretien = :id_entretien3');
+								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien3');
 								$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
 								$query->execute();
 								
