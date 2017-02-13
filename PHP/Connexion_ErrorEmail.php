@@ -12,11 +12,11 @@
     <title>PRESCRIMOUV</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/portfolio-item.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/style.css">
+    <link href="../css/portfolio-item.css" rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,9 +35,9 @@
 		session_start();
 
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
-		include("BDD/variableSession.php");
-		include("BDD/connexionBDD.php");
-		include("PHP/header_index.php"); 
+		include("../BDD/variableSession.php");
+		include("../BDD/connexionBDD.php");
+		include("./header_connexion.php"); 
 	?> 
 
     <!-- Page Content -->
@@ -54,15 +54,17 @@
 					<fieldset id="connexion">
 						<center>
 							<legend id="legendCo"> Connexion </legend>
-							<form method="post" action="index.php">
+							<form method="post" action="../index.php">
 								<p>
 									<label for="email_coordinateur"> Adresse mail :</label> &nbsp <input name="email_coordinateur" type="text" id="email_coordinateur" autofocus placeholder="Adresse mail" size="20" /><br />
 								</p>
 								</p>
-									<label for="pswd"> Mot de passe :</label><input type="password" name="pswd" id="pswd" size="20"/>
+									<label for="pswd"> Mot de passe :</label><input type="password" name="pswd" id="pswd" size="20" />
 								</p>
 								<input type="submit" value="Connexion" /></p>
 							</form>
+							<BR/>
+							<font color ="red"> <b> Adresse mail ou mot de passe non renseigné ! </b> </font>
 						</center>
 					</fieldset>
 					<p>
@@ -106,7 +108,7 @@
         <!-------------------------- /Container --------------------------------->
 
         
-    <?php include("PHP/footer.php"); ?> 
+    <?php include("../PHP/footer.php"); ?> 
     </div>
     <!-- /content -->
 

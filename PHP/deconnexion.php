@@ -40,7 +40,7 @@
 	<!-- Page Content -->
 	<div class="container">
 		<?php
-			msg_deconnexion_INFO(MSG_DECO);
+			header('Location: http://localhost/prescrimouv/index.php');
 		
 			include("footer.php");
 		?> 

@@ -22,9 +22,13 @@ function msg_connexion_ERROR($msg='')
 
 function msg_connexion_WARNING($msg='')
 {
-   $mess=($msg!='')? $msg: '';
-   exit('<center><div class="alert alert-warning" role="alert"> '.$mess.'
-						<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d\'accueil</p></div></center>');
+   //$mess=($msg!='')? $msg: '';
+   //exit('<center><div class="alert alert-warning" role="alert"> '.$mess.'
+   //					<p>Cliquez <a href="./index.php">ici</a> pour revenir à la page d\'accueil</p></div></center>');
+						
+	$message='Voici un message en javascript écrit par php';
+	echo '<script type="text/javascript">window.alert("'.$message.'");</script>';
+
 }
 
 function msg_connexion_INFO($msg='')
