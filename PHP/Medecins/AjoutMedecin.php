@@ -72,7 +72,7 @@
 											<label class="col-md-4 control-label" for="firstname">Nom</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="firstname" name="firstname" value=" " class="form-control input-md" required=" " type="text">';
+													echo '<input id="firstname" name="firstname" value="" placeholder="" class="form-control input-md" required=" " type="text">';
 												?>
 									
 											</div>
@@ -85,7 +85,7 @@
 											<label class="col-md-4 control-label" for="lastname">Prénom</label>  
 											<div class="col-md-5">
 												<?php
-													echo'<input id="lastname" name="lastname" value=" " class="form-control input-md" required="" type="text">';
+													echo'<input id="lastname" name="lastname" value="" placeholder="" class="form-control input-md" required="" type="text">';
 												?>
 									
 											</div>
@@ -101,7 +101,7 @@
 											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value=" " class="form-control input-md" required="" type="text">';
+													echo '<input id="numAdeli" name="numAdeli" value="" placeholder="" class="form-control input-md" required="" type="text">';
 												?>
 									
 											</div>
@@ -113,7 +113,7 @@
 											<label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="adresseMedecin" name="adresseMedecin"  class="form-control input-md"  type="text">';
+													echo '<input id="adresseMedecin" name="adresseMedecin" value="" placeholder="" class="form-control input-md"  type="text">';
 												?>
 									
 											</div>
@@ -128,7 +128,7 @@
 											<label class="col-md-4 control-label" for="city">Code postal</label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="city" name="city" class="form-control input-md"  type="number">';
+													echo'<input id="city" name="city" value="" placeholder="" class="form-control input-md"  type="number">';
 												?>
 									
 											</div>
@@ -141,7 +141,7 @@
 											<label class="col-md-4 control-label" for="state">Ville</label>  
 											<div class="col-md-5">
 											<?php
-												echo'<input id="state" name="state" class="form-control input-md"  type="text">';
+												echo'<input id="state" name="state" value="" placeholder="" class="form-control input-md"  type="text">';
 											?>
 									
 											</div>
@@ -157,7 +157,7 @@
 								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" class="form-control input-md" type="tel">';
+								  echo' <input id="phone" name="phone" value="" placeholder="" class="form-control input-md" type="tel">';
 								  ?>
 									
 								  </div>
@@ -172,7 +172,7 @@
 								  <label class="col-md-2 control-label" for="email">Email</label>  
 								  <div class="col-md-8">
 								  <?php
-								  echo'<input id="email" name="email" value="" class="form-control input-md" required="" type="email">';
+								  echo'<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="email">';
 								  ?>
 									
 								  </div>
@@ -181,7 +181,7 @@
 								</tr>
 					
 								</table>
-								<input type="submit" value="Enregistrer" onClick="Enregistrer" name="valid-entInitial" class="btn btn-success btn-xs">
+								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">
 								<br/><br/>
 							</form>	
 					</center>			

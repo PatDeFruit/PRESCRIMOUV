@@ -11,6 +11,22 @@
 	$tel=$_POST['phone'];
 	$email=$_POST['email'];
 	
+	if($adresse==""){
+		$adresse=null;
+	}
+	
+	if($CP==""){
+		$CP=null;
+	}
+	
+	if($ville==""){
+		$ville=null;
+	}
+	
+	if($tel==""){
+		$tel=null;
+	}
+	
 	echo $nomMed;
 	echo $prenomMed;
 	echo $numAdeli;
@@ -19,25 +35,6 @@
 	echo $ville;
 	echo $tel;
 	echo $email;
-	
-	if($adresse=""){
-		$adresse=NULL;
-	}
-	
-	if($CP=""){
-		$CP=NULL;
-	}
-	
-	if($ville=""){
-		$ville=NULL;
-	}
-	
-	if($tel=""){
-		$tel=NULL;
-	}
-	
-	
-	
 	
 	$query=$bdd->prepare('INSERT INTO medecins(nom_medecin,prenom_medecin,num_adeli,adresse_medecin,CP_medecin,ville_medecin,email_medecin,tel_medecin) VALUES (:nomMed,:prenomMed,:numAdeli,:adresse,:CP,:ville,:email,:tel)');
 	$query->bindValue(':nomMed',$nomMed,PDO::PARAM_STR);
@@ -51,5 +48,6 @@
 	
 	$query->execute();
 	
-	//header('Location: http://localhost/prescrimouv/PHP/Medecins/ListeMedecin.php');
+
+	header('Location: http://localhost/prescrimouv/PHP/Medecins/ListeMedecin.php');
 ?>
