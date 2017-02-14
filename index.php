@@ -77,7 +77,7 @@
 					}
 					else //On check le mot de passe
 					{
-						$query=$bdd->prepare('SELECT email_coordinateur, pswd, nom_coordinateur, prenom_coordinateur FROM coordinateur WHERE email_coordinateur = :email_coordinateur');
+						$query=$bdd->prepare('SELECT email_coordinateur, pswd, nom_coordinateur, prenom_coordinateur, id_coordinateur FROM coordinateur WHERE email_coordinateur = :email_coordinateur');
 						$query->bindValue(':email_coordinateur',$_POST['email_coordinateur'], PDO::PARAM_STR);
 						$query->execute();
 						$data=$query->fetch();
@@ -87,6 +87,7 @@
 							$_SESSION['email_coordinateur'] = $data['email_coordinateur'];
 							$_SESSION['nom_coordinateur'] = $data['nom_coordinateur'];
 							$_SESSION['prenom_coordinateur'] = $data['prenom_coordinateur'];
+							$_SESSION['id_coordinateur'] = $data['id_coordinateur'];
 							header('Location: http://localhost/prescrimouv/PHP/Accueil.php');
 							
 						}

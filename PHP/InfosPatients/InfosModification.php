@@ -11,6 +11,22 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
+								  <label class="col-md-4 control-label" for="numSS">Numéro SS</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="numSS" name="numSS" value="'.$numSecu.'" class="form-control input-md"   type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
 								  <label class="col-md-4 control-label" for="firstname">Nom</label>  
 								  <div class="col-md-5">
 								  <?php
@@ -270,6 +286,47 @@
 								  </div>
 								</div>
 								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-2 control-label" for="mut">Mutuelle</span></a></label>  
+								  <div class="col-md-5">
+										 <select name="idMut" id="idMut" class="form-control">
+										
+										  <?php 
+										  $query=$bdd->prepare('SELECT id_mutuelle, nom_mutuelle FROM mutuelles');
+										$query->execute();
+										while($data = $query->fetch()){
+											 echo'<option value="'.$data['id_mutuelle'].'" ';
+											 if($data['id_mutuelle'] == $idMutuelle){
+												 echo 'selected = "selected"';
+											 }
+											 echo'>'.$data['nom_mutuelle'].'</option>';
+										}
+										$query->CloseCursor();
+										 
+										  ?>
+										</select>						  
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-2 control-label" for="numAffiliation">Numéro Affiliation</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="numAffiliation" name="numAffiliation" value="'.$numAffiliation.'" class="form-control input-md"  type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								
 								</tr>
 								
 						

@@ -208,7 +208,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="med">Médecin prescripteur   <a href="#"><span class="glyphicon glyphicon-eye-open"></span></a></label>  
+								  <label class="col-md-4 control-label" for="med">Médecin prescripteur  </label>  
 								  <div class="col-md-5">
 								  <?php
 								  echo'<input id="med" name="med" value="'.$nomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';

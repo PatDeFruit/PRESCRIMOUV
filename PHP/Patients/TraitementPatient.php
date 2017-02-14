@@ -86,6 +86,7 @@
 			//FORMULAIRE MODIFICATION INFORMATIONS PATIENTS - ModifierPatient.php
 				if($idFormulaire=='form-info'){
 					$idPatient = $_POST['idPat'];
+					$numSS = $_POST['numSS'];
 				$newNomPatient = $_POST['firstname'];
 				$newPrenomPatient = $_POST['lastname'];
 				$newDateN = $_POST['birthdate'];
@@ -99,7 +100,7 @@
 				$newEnfant =$_POST['nbEnfant'];
 				$newProf = $_POST['profession'];
 				
-				$query=$bdd->prepare('UPDATE patients SET nom_patient = "'.$newNomPatient.'", prenom_patient = "'.$newPrenomPatient.'", date_naissance ="'.$newDateN.'", sexe_patient ="'.$newSexeP.'", adresse_patient ="'.$newAdress.'", CP_patient ="'.$newCP.'", ville_patient ="'.$newVille.'", tel_patient ="'.$newTel.'", email_patient="'.$newEmail.'", situation = "'.$newSitu.'", nb_enfant ="'.$newEnfant.'", profession ="'.$newProf.'" WHERE id_patient = :idPatient');
+				$query=$bdd->prepare('UPDATE patients SET nom_patient = "'.$newNomPatient.'", prenom_patient = "'.$newPrenomPatient.'", num_SS = "'.$numSS.'" date_naissance ="'.$newDateN.'", sexe_patient ="'.$newSexeP.'", adresse_patient ="'.$newAdress.'", CP_patient ="'.$newCP.'", ville_patient ="'.$newVille.'", tel_patient ="'.$newTel.'", email_patient="'.$newEmail.'", situation = "'.$newSitu.'", nb_enfant ="'.$newEnfant.'", profession ="'.$newProf.'" WHERE id_patient = :idPatient');
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();
@@ -580,6 +581,10 @@
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();
+					
+				//BILAN A GENERER !!!!!!!!!!!	
+					
+				
 				
 				echo'<center><div class="alert alert-success" role="alert"> Modification effectuée </div></center>';	
 					

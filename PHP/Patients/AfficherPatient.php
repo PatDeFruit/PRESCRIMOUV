@@ -470,6 +470,7 @@
 							  
 							  <?php
 								include('../FicheResume/FicheConsultation.php');
+								include('../InfosPatients/InfosConsultation.php');
 								include('../EntInitial/InitialPart1Consult.php');
 								include('../RicciGagnon/RicciGagnonInitialConsultation.php');
 								include('../TestMarche/TestMarcheInitialConsultation.php');

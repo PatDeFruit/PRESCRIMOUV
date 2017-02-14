@@ -112,6 +112,19 @@
 								
 								$query->CloseCursor();
 								
+								// REQUETE MUTUELLE
+								$query=$bdd->prepare('SELECT id_patient, id_mutuelle, nom_mutuelle, num_affiliation FROM patients JOIN est_affilie USING(id_patient) JOIN mutuelles USING(id_mutuelle) WHERE id_patient = :idPatient');
+								$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
+								$query->execute();
+								$data = $query->fetch();
+								
+								$idMutuelle = $data['id_mutuelle'];
+								$mutuelle = $data['nom_mutuelle'];
+								$numAffiliation = $data['num_affiliation'];
+							
+								
+								$query->CloseCursor();
+								
 								// REQUETE ENTRETIEN1
 									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, RG_CS, RG_APL1, RG_APL2, RG_APL3, RG_APL4, RG_APQ1, RG_APQ2, RG_APQ3, RG_APQ4, scoreCS, scoreAPL, scoreAPQ, score_RG, IMC, AP_anterieure, niveau_AP, activite_actuelle, niveau_AP_souhaite, niveau_CS, date_entretien, id_type_entretien, type_entretien FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien initial"');
 									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
