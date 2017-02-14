@@ -180,7 +180,7 @@
 									
 									$query->CloseCursor();
 								
-								// REQUETE TESTEQPDYO1
+									// REQUETE TESTEQPDYO1
 									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 0 AND yeux_ouverts = 0');
 									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
 									$query->execute();
@@ -194,7 +194,7 @@
 									$data = $query->fetch();
 									$tempsPDYF1 = $data['temps'];
 									$query->CloseCursor();
-								// REQUETE TESTEQPGYF1
+									// REQUETE TESTEQPGYF1
 									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 1 AND yeux_ouverts = 0');
 									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
 									$query->execute();

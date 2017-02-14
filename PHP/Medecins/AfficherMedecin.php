@@ -52,10 +52,7 @@
 	?>
 
         <!-------------------------- Container --------------------------------->
-		
 
-		
-		
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
