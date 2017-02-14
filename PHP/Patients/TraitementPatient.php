@@ -588,7 +588,7 @@
 				echo'<center><div class="alert alert-danger" role="alert"> Impossible d\'effectuer les changements </div></center>';
 				}
 
-			
+			// test pour commit
 							
 								?>
 		</div>
