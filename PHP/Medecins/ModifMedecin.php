@@ -47,8 +47,7 @@
 
     <div class="container">
 	<?php 
-		$idPatient = $_GET['idPatient']; 
-		$statutPatient = $_GET['statutPatient'];
+		$idMedecin = $_GET['idMedecin']; 
 	?>
 
         <!-------------------------- Container --------------------------------->
@@ -59,31 +58,26 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Patient  n°'.$idPatient.' </center></legend>'; ?>
+					<?php echo'<center><legend> Patient  n°'.$idMedecin.' </center></legend>'; ?>
 					
 					</br>
 					<center>
 					<?php
 								// REQUETE PATIENT
-								$query=$bdd->prepare('SELECT id_patient, nom_patient, prenom_patient, num_SS, sexe_patient, date_naissance, adresse_patient, CP_patient, ville_patient, email_patient, tel_patient, nb_enfant, profession, historique_patho, situation, id_coordinateur, id_statut FROM patients WHERE id_patient = :idPatient');
-								$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
+								$query=$bdd->prepare('SELECT id_medecin, nom_medecin, prenom_medecin, num_adeli, adresse_medecin, CP_medecin, ville_medecin, email_medecin, tel_medecin FROM medecins WHERE id_medecin = :idMedecin');
+								$query->bindValue(':idMedecin',$idMedecin, PDO::PARAM_STR);
 								$query->execute();
 								$data = $query->fetch();
 								
-								$nomPatient = $data['nom_patient'];
-								$prenomPatient = $data['prenom_patient'];
-								$numSecu = $data['num_SS'];
-								$sexePatient = $data['sexe_patient'];
-								$dateNPatient = $data['date_naissance'];
-								$adressePatient = $data['adresse_patient'];
-								$cpPatient = $data['CP_patient'];
-								$villePatient = $data['ville_patient'];
-								$mailPatient = $data['email_patient'];
-								$enfantPatient = $data['nb_enfant'];
-								$telPatient = $data['tel_patient'];
-								$profPatient = $data['profession'];
-								$histoPatient = $data['historique_patho'];
-								$situationPatient = $data['situation'];
+								$nomMedecin = $data['nom_medecin'];
+								$prenomMedecin = $data['prenom_medecin'];
+								$numAdeli = $data['num_adeli'];
+								$adresseMedecin = $data['adresse_medecin'];
+								$cpMedecin = $data['CP_medecin'];
+								$villeMedecin = $data['ville_medecin'];
+								$mailMedecin = $data['email_medecin'];
+								$telMedecin = $data['tel_medecin'];
+								
 								
 								$query->CloseCursor();
 								
@@ -91,11 +85,19 @@
 					</br>
 					<center>
 
-							  
+							
+
+					
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
 							<h3>Modifier Medecin </h3> 
+							
 							<form method="POST" action="ModifierMed.php" class="form-horizontal">
+							
+							<?php
+						
+								echo '<input class="hidden" id="idMedecin" name="idMedecin" value="'.$idMedecin.'" placeholder="" class="form-control input-md" type="text">';
+							?>
 								<fieldset>
 								<table class="table">
 								<tr>
@@ -105,7 +107,7 @@
 											<label class="col-md-4 control-label" for="firstname">Nom*</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="firstname" name="firstname" value="" placeholder="" class="form-control input-md" required=" " type="text">';
+													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" placeholder="" class="form-control input-md" required=" " type="text">';
 												?>
 									
 											</div>
@@ -118,7 +120,7 @@
 											<label class="col-md-4 control-label" for="lastname">Prénom* </label>  
 											<div class="col-md-5">
 												<?php
-													echo'<input id="lastname" name="lastname" value="" placeholder="" class="form-control input-md" required="" type="text">';
+													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" placeholder="" class="form-control input-md" required="" type="text">';
 												?>
 									
 											</div>
@@ -134,7 +136,7 @@
 											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli*</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value="" placeholder="" class="form-control input-md" required="" type="text">';
+													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" placeholder="" class="form-control input-md" required="" type="text">';
 												?>
 									
 											</div>
@@ -146,7 +148,7 @@
 											<label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="adresseMedecin" name="adresseMedecin" value="" placeholder="" class="form-control input-md"  type="text">';
+													echo '<input id="adresseMedecin" name="adresseMedecin" value="'.$adresseMedecin.'" placeholder="" class="form-control input-md"  type="text">';
 												?>
 									
 											</div>
@@ -161,7 +163,7 @@
 											<label class="col-md-4 control-label" for="city">Code postal</label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="city" name="city" value="" placeholder="" class="form-control input-md"  type="number">';
+													echo'<input id="city" name="city" value="'.$cpMedecin.'" placeholder="" class="form-control input-md"  type="number">';
 												?>
 									
 											</div>
@@ -174,7 +176,7 @@
 											<label class="col-md-4 control-label" for="state">Ville</label>  
 											<div class="col-md-5">
 											<?php
-												echo'<input id="state" name="state" value="" placeholder="" class="form-control input-md"  type="text">';
+												echo'<input id="state" name="state" value="'.$villeMedecin.'" placeholder="" class="form-control input-md"  type="text">';
 											?>
 									
 											</div>
@@ -190,7 +192,7 @@
 								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" value="" placeholder="" class="form-control input-md" type="tel">';
+								  echo' <input id="phone" name="phone" value="'.$telMedecin.'" placeholder="" class="form-control input-md" type="tel">';
 								  ?>
 									
 								  </div>
@@ -205,7 +207,7 @@
 								  <label class="col-md-2 control-label" for="email">Email*</label>  
 								  <div class="col-md-8">
 								  <?php
-								  echo'<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="email">';
+								  echo'<input id="email" name="email" placeholder="" value="'.$mailMedecin.'" class="form-control input-md" required="" type="email">';
 								  ?>
 									
 								  </div>
@@ -214,7 +216,9 @@
 								</tr>
 					
 								</table>
-								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">
+						
+								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">'
+								
 								<br/><br/>
 							</form>	
 					</center>			

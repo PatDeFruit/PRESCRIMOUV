@@ -48,6 +48,10 @@
         <!-------------------------- Container --------------------------------->
 		
         <div id="conteneurPrincipale">
+		
+		
+
+
 			<div id = "conteneurGauche">
 				<fieldset id="conteneurPatient">
 					<center><legend> Bénéficiaires </legend></center>

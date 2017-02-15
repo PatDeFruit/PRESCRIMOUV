@@ -2,6 +2,7 @@
 
 	include("../../BDD/connexionBDD.php");
 		
+	$idMedecin = $_POST['idMedecin']; 	
 	$nomMed=$_POST['firstname'];
 	$prenomMed=$_POST['lastname'];
 	$numAdeli=$_POST['numAdeli'];
@@ -26,7 +27,7 @@
 	if($tel==""){
 		$tel=null;
 	}
-	
+	echo $idMedecin;
 	echo $nomMed;
 	echo $prenomMed;
 	echo $numAdeli;
@@ -36,7 +37,7 @@
 	echo $tel;
 	echo $email;
 	
-	$query=$bdd->prepare('INSERT INTO medecins(nom_medecin,prenom_medecin,num_adeli,adresse_medecin,CP_medecin,ville_medecin,email_medecin,tel_medecin) VALUES (:nomMed,:prenomMed,:numAdeli,:adresse,:CP,:ville,:email,:tel)');
+	$query=$bdd->prepare('UPDATE medecins SET nom_medecin=:nomMed,prenom_medecin=:prenomMed,num_adeli=:numAdeli,adresse_medecin=:adresse,CP_medecin=:CP,ville_medecin=:ville,email_medecin=:email,tel_medecin=:tel WHERE id_medecin=:idMed');
 	$query->bindValue(':nomMed',$nomMed,PDO::PARAM_STR);
 	$query->bindValue(':prenomMed',$prenomMed,PDO::PARAM_STR);
 	$query->bindValue(':numAdeli',$numAdeli,PDO::PARAM_STR);
@@ -45,6 +46,7 @@
 	$query->bindValue(':ville',$ville,PDO::PARAM_STR);
 	$query->bindValue(':email',$email,PDO::PARAM_STR);
 	$query->bindValue(':tel',$tel,PDO::PARAM_STR);
+	$query->bindValue(':idMed',$idMedecin,PDO::PARAM_STR);
 	
 	$query->execute();
 	
