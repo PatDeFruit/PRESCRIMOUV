@@ -297,6 +297,10 @@
 			$query->execute();
 			$query->CloseCursor();
 		
+			$query=$bdd->prepare('INSERT INTO stats_perso(id_patient) VALUES("'.$idPatient.'")');
+			$query->execute();
+			$query->CloseCursor();
+			
 			
 	?>
 

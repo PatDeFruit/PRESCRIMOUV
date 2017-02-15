@@ -583,7 +583,219 @@
 					$query->CloseCursor();
 					
 				//BILAN A GENERER !!!!!!!!!!!	
-					
+				
+				// REQUETE ENTRETIEN1
+									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, score_RG, IMC, niveau_AP, niveau_CS, id_type_entretien, type_entretien FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien initial"');
+									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									
+									$id_entretien1 = $data['id_entretien'];
+									$type_entretien1 = $data['type_entretien'];
+									$taille1 = $data['taille'];
+									$poids1 = $data['poids'];
+									$FC_repos1 = $data['FC_repos'];
+									$SPO2_repos1 = $data['SPO2_repos'];
+									$mgrasse1 = $data['m_grasse'];
+									$mhydrique1 = $data['m_hydrique'];
+									$mmuscu1 = $data['m_muscu'];
+									$scoreRG1 = $data['score_RG'];
+									$imc1 = $data['IMC'];
+									$nivAP1 = $data['niveau_AP'];
+									$nivCS1 = $data['niveau_CS'];
+									
+									
+									$query->CloseCursor();
+								
+								// REQUETE TESTMARCHE1
+									$query=$bdd->prepare('SELECT id_test_marche, dist_theo, dist_reelle, pour_theo, id_entretien FROM test_marche JOIN entretiens USING(id_test_marche) WHERE id_entretien = :id_entretien1');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									
+									
+									$distTheo = $data['dist_theo'];
+									$distReelle = $data['dist_reelle'];
+									$pourTheo = $data['pour_theo'];
+								
+									
+									
+									$query->CloseCursor();
+								
+									// REQUETE TESTEQPDYO1
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 0 AND yeux_ouverts = 0');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPDYO1 = $data['temps'];
+									$query->CloseCursor();
+									// REQUETE TESTEQPDYF1
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 0 AND yeux_ouverts = 1');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPDYF1 = $data['temps'];
+									$query->CloseCursor();
+									// REQUETE TESTEQPGYF1
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 1 AND yeux_ouverts = 0');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPGYO1 = $data['temps'];
+									$query->CloseCursor();
+									// REQUETE TESTEQPGYF1
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien1 AND pied = 1 AND yeux_ouverts = 1');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPGYF1 = $data['temps'];
+									$query->CloseCursor();
+									
+									// REQUETE TEST AD1
+									$query=$bdd->prepare('SELECT id_test_assis, nb_repet, FC_fin, FC_2min, id_entretien FROM test_assis JOIN entretiens USING(id_test_assis) WHERE id_entretien = :id_entretien1');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$nbRepet = $data['nb_repet'];
+									$FCfinAD = $data['FC_fin'];
+									$FC2minAD = $data['FC_2min'];
+									$query->CloseCursor();
+									
+									// REQUETE WHOQOL1
+									$query=$bdd->prepare('SELECT id_entretien, id_whoqol, score_qdv, score_phy, score_psy, score_relation, score_env FROM whoqol JOIN entretiens USING(id_whoqol) WHERE id_entretien = :id_entretien1');
+									$query->bindValue(':id_entretien1',$id_entretien1, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+								
+									$scoreQDV1 = $data['score_qdv'];
+									$scorePHY1 = $data['score_phy'];
+									$scorePSY1 = $data['score_psy'];
+									$scoreREL1 = $data['score_relation'];
+									$scoreENV1 = $data['score_env'];
+									$query->CloseCursor();
+									
+									// REQUETE ENTRETIEN3
+									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, score_RG, IMC, niveau_AP, niveau_CS, id_type_entretien, type_entretien FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien final"');
+									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									
+									$id_entretien3 = $data['id_entretien'];
+									$type_entretien3 = $data['type_entretien'];
+									$taille3 = $data['taille'];
+									$poids3 = $data['poids'];
+									$FC_repos3 = $data['FC_repos'];
+									$SPO2_repos3 = $data['SPO2_repos'];
+									$mgrasse3 = $data['m_grasse'];
+									$mhydrique3 = $data['m_hydrique'];
+									$mmuscu3 = $data['m_muscu'];
+									$scoreRG3 = $data['score_RG'];
+									$imc3 = $data['IMC'];
+									$nivAP3 = $data['niveau_AP'];
+									$nivCS3 = $data['niveau_CS'];
+									
+									$query->CloseCursor();
+								
+								// REQUETE TESTMARCHE2
+									$query=$bdd->prepare('SELECT id_test_marche, dist_theo, dist_reelle, pour_theo, id_entretien FROM test_marche JOIN entretiens USING(id_test_marche) WHERE id_entretien = :id_entretien3');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									
+									
+									$distTheo2 = $data['dist_theo'];
+									$distReelle2 = $data['dist_reelle'];
+									$pourTheo2 = $data['pour_theo'];						
+									
+									
+									$query->CloseCursor();
+								
+								// REQUETE TESTEQPDYO2
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien3 AND pied = 0 AND yeux_ouverts = 0');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPDYO2 = $data['temps'];
+									$query->CloseCursor();
+									// REQUETE TESTEQPDYF2
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien3 AND pied = 0 AND yeux_ouverts = 1');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPDYF2 = $data['temps'];
+									$query->CloseCursor();
+								// REQUETE TESTEQPGYF2
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien3 AND pied = 1 AND yeux_ouverts = 0');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPGYO2 = $data['temps'];
+									$query->CloseCursor();
+									// REQUETE TESTEQPGYF2
+									$query=$bdd->prepare('SELECT id_test_equilibre, temps, pied, yeux_ouverts, id_entretien FROM test_equilibre JOIN a_pour_result USING(id_test_equilibre) WHERE id_entretien = :id_entretien3 AND pied = 1 AND yeux_ouverts = 1');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$tempsPGYF2 = $data['temps'];
+									$query->CloseCursor();
+									
+									// REQUETE TEST AD2
+									$query=$bdd->prepare('SELECT id_test_assis, nb_repet, FC_fin, FC_2min, id_entretien FROM test_assis JOIN entretiens USING(id_test_assis) WHERE id_entretien = :id_entretien3');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									$nbRepet2 = $data['nb_repet'];
+									$FCfinAD2 = $data['FC_fin'];
+									$FC2minAD2 = $data['FC_2min'];
+									$query->CloseCursor();
+									
+									// REQUETE WHOQOL2
+									$query=$bdd->prepare('SELECT id_entretien, id_whoqol, score_qdv, score_phy, score_psy, score_relation, score_env FROM whoqol JOIN entretiens USING(id_whoqol) WHERE id_entretien = :id_entretien3');
+									$query->bindValue(':id_entretien3',$id_entretien3, PDO::PARAM_STR);
+									$query->execute();
+									$data = $query->fetch();
+									
+									$scoreQDV2 = $data['score_qdv'];
+									$scorePHY2 = $data['score_phy'];
+									$scorePSY2 = $data['score_psy'];
+									$scoreREL2 = $data['score_relation'];
+									$scoreENV2 = $data['score_env'];
+									$query->CloseCursor();
+				
+				
+								$deltaTaille = $taille3 - $taille1;
+								$deltaPoids = $poids3 - $poids1;
+								$deltaIMC = $imc3 - $imc1;
+								$deltaMH = $mhydrique3 - $mhydrique1;
+								$deltaMG = $mgrasse3 - $mgrasse1;
+								$deltaMM = $mmuscu3 - $mmuscu1;
+								$deltaFC = $FC_repos3 - $FC_repos1;
+								$deltaSP = $SPO2_repos3 - $SPO2_repos1;
+								$deltaAP = $nivAP3 - $nivAP1;
+								$deltaCS = $nivCS3 - $nivCS1;
+								$deltaRG = $scoreRG3 - $scoreRG1;
+								$deltaTDMDist = $distReelle2 - $distReelle1;
+								$deltaTDMPour = $pourTheo2 - $pourTheo1;
+								$deltaPDYO = $tempsPDYO2 - $tempsPDYO1;
+								$deltaPDYF = $tempsPDYF2 - $tempsPDYF1;
+								$deltaPGYO = $tempsPGYO2 - $tempsPGYO1;
+								$deltaPGYF = $tempsPGYF2 - $tempsPGYF1;
+								$deltaADrepet = $nbRepet2 - $nbRepet1;
+								$deltaQDV = $scoreQDV2 - $scoreQDV1;
+								$deltaPhy = $scorePHY2 - $scorePHY1;
+								$deltaPsy = $scorePSY2 - $scorePSY1;
+								$deltaRel = $scoreREL2 - $scoreREL1;
+								$deltaEnv = $scoreENV2 - $scoreENV1;
+								
+								
+								
+								$query=$bdd->prepare('UPDATE stats_perso SET delta_poids ="'.$deltaPoids.'", delta_taille ="'.$deltaTaille.'", delta_IMC ="'.$deltaIMC.'", delta_m_grasse ="'.$deltaMG.'", delta_m_hydrique ="'.$deltaMH.'", delta_m_muscu ="'.$deltaMM.'",
+								delta_FC_repos ="'.$deltaFC.'", delta_SPO2_repos ="'.$deltaSP.'", delta_RG ="'.$deltaRG.'", delta_TDM_distance ="'.$deltaTDMDist.'", delta_TDM_theo ="'.$deltaTDMPour.'", delta_D_YO ="'.$deltaPDYO.'", 
+								delta_D_YF ="'.$deltaPDYF.'", delta_G_YO ="'.$deltaPGYO.'", delta_G_YF ="'.$deltaPGYF.'", delta_assis_repet ="'.$deltaADrepet.'", delta_WHOQOL_qdv ="'.$deltaQDV.'", delta_WHOQOL_phy ="'.$deltaPhy.'", 
+								delta_WHOQOL_psy ="'.$deltaPsy.'", delta_WHOQOL_relation ="'.$deltaRel.'", delta_WHOQOL_env ="'.$deltaEnv.'", delta_CS ="'.$deltaCS.'", delta_AP ="'.$deltaAP.'" WHERE id_patient ="'.$idPatient.'"');
+								$query->execute();
+								$query->CloseCursor();
+				
 				
 				
 				echo'<center><div class="alert alert-success" role="alert"> Modification effectuée </div></center>';	

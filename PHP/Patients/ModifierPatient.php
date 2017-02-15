@@ -67,8 +67,20 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Patient  n°'.$idPatient.' </center></legend>'; ?>
-					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()"><span class="glyphicon glyphicon-arrow-left"></span></a> Patient  n°'.$idPatient.'</center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListePatient.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					</br>
 					<center>
 					<?php
