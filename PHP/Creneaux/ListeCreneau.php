@@ -79,7 +79,7 @@
 								;
 								while($data=$query->fetch()){
 									echo '<tr><td width="15%" class="text-center">'.$data['id_creneau'].'</td><td width="15%" class="text-center">'.$data['jour_creneau'].'</td><td width="25%" class="text-center">'.$data['heure_creneau_debut'].'</td><td width="25%" class="text-center">'.$data['heure_creneau_fin'].'</td>';
-									// echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifierPatient.php?idPatient='.$data['id_patient'].'&statutPatient='.$data['statut'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifCreneau.php?idCreneau='.$data['id_creneau'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();

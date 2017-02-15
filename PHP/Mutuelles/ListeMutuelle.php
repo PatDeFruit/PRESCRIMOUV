@@ -83,9 +83,8 @@
 								while($data=$query->fetch()){
 									$adresseComp = $data['adresse_mutuelle'].' '.$data['CP_mutuelle'].' '.$data['ville_mutuelle'];
 									echo '<tr><td width="10%" class="text-center">'.$data['id_mutuelle'].'</td><td width="20%" class="text-center">'.$data['nom_mutuelle'].'</td><td width="20%" class="text-center">'.$adresseComp.'</td><td width="20%" class="text-center">'.$data['email_mutuelle'].'</td><td width="20%" class="text-center">'.$data['tel_mutuelle'].'</td>';
-									
-									
-									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherMutuelle.php?idMutuelle='.$data['id_mutuelle'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="#"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+																
+									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherMutuelle.php?idMutuelle='.$data['id_mutuelle'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="ModifMutuelle.php?idMutuelle='.$data['id_mutuelle'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();

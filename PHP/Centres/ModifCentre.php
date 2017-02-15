@@ -47,7 +47,7 @@
 
     <div class="container">
 	<?php 
-		$idMedecin = $_GET['idMedecin']; 
+		$idCentre = $_GET['idCentre']; 
 	?>
 
         <!-------------------------- Container --------------------------------->
@@ -58,25 +58,24 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Médecin  n°'.$idMedecin.' </center></legend>'; ?>
+					<?php echo'<center><legend> Lieu de pratique  n°'.$idCentre.' </center></legend>'; ?>
 					
 					</br>
 					<center>
 					<?php
-								// REQUETE MEDECINS
-								$query=$bdd->prepare('SELECT id_medecin, nom_medecin, prenom_medecin, num_adeli, adresse_medecin, CP_medecin, ville_medecin, email_medecin, tel_medecin FROM medecins WHERE id_medecin = :idMedecin');
-								$query->bindValue(':idMedecin',$idMedecin, PDO::PARAM_STR);
+								// REQUETE LIEU DE PRATIQUE
+								$query=$bdd->prepare('SELECT id_centre, nom_centre, adresse_centre, CP_centre, ville_centre, tel_centre, email_centre, type_centre FROM centres');
+								$query->bindValue(':idCentre',$idCentre, PDO::PARAM_STR);
 								$query->execute();
 								$data = $query->fetch();
 								
-								$nomMedecin = $data['nom_medecin'];
-								$prenomMedecin = $data['prenom_medecin'];
-								$numAdeli = $data['num_adeli'];
-								$adresseMedecin = $data['adresse_medecin'];
-								$cpMedecin = $data['CP_medecin'];
-								$villeMedecin = $data['ville_medecin'];
-								$mailMedecin = $data['email_medecin'];
-								$telMedecin = $data['tel_medecin'];
+								$nomCentre = $data['nom_centre'];
+								$adresseCentre = $data['adresse_centre'];
+								$cpCentre = $data['CP_centre'];
+								$villeCentre = $data['ville_centre'];
+								$telCentre = $data['tel_centre'];
+								$mailCentre = $data['email_centre'];
+								$typeCentre = $data['type_centre'];
 								
 								
 								$query->CloseCursor();
@@ -90,13 +89,13 @@
 					
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
-							<h3>Modifier Medecin </h3> 
+							<h3>Modifier Lieu de pratique</h3> 
 							
-							<form method="POST" action="ModifierMed.php" class="form-horizontal">
+							<form method="POST" action="ModifierCentre.php" class="form-horizontal">
 							
 							<?php
 						
-								echo '<input class="hidden" id="idMedecin" name="idMedecin" value="'.$idMedecin.'" placeholder="" class="form-control input-md" type="text">';
+								echo '<input class="hidden" id="idCentre" name="idCentre" value="'.$idCentre.'" placeholder="" class="form-control input-md" type="text">';
 							?>
 								<fieldset>
 								<table class="table">
@@ -104,23 +103,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="firstname">Nom*</label>  
+											<label class="col-md-4 control-label" for="nom">Nom*</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" placeholder="" class="form-control input-md" required=" " type="text">';
-												?>
-									
-											</div>
-										</div>
-									</td>
-
-									<td>
-									<!-- Text input-->
-										<div class="form-group">
-											<label class="col-md-4 control-label" for="lastname">Prénom* </label>  
-											<div class="col-md-5">
-												<?php
-													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" placeholder="" class="form-control input-md" required="" type="text">';
+													echo '<input id="nom" name="nom" value="'.$nomCentre.'" class="form-control input-md" required=" " type="text">';
 												?>
 									
 											</div>
@@ -133,88 +119,92 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli*</label>  
+											<label class="col-md-4 control-label" for="adresse">Adresse*</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" placeholder="" class="form-control input-md" required="" type="text">';
+													echo '<input id="adresse" name="adresse" value="'.$adresseCentre.'" class="form-control input-md"  required=" " type="text">';
 												?>
 									
 											</div>
 										</div>
 									</td>
+								</tr>
+								<table class="table">
+								<tr>
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="adresseMedecin">Adresse</label>  
+											<label class="col-md-4 control-label" for="CP">Code Postale*</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="adresseMedecin" name="adresseMedecin" value="'.$adresseMedecin.'" placeholder="" class="form-control input-md"  type="text">';
+													echo '<input id="CP" name="CP" value="'.$cpCentre.'" class="form-control input-md"  required=" " type="number">';
 												?>
 									
 											</div>
 										</div>
 									</td>
-																	
-								<table class="table">								
+								</tr>
+								<table class="table">
 								<tr>
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="city">Code postal</label>  
-											<div class="col-md-3">
+											<label class="col-md-4 control-label" for="ville">Ville*</label>  
+											<div class="col-md-5">
 												<?php
-													echo'<input id="city" name="city" value="'.$cpMedecin.'" placeholder="" class="form-control input-md"  type="number">';
+													echo '<input id="ville" name="ville" value="'.$villeCentre.'" class="form-control input-md"  required=" " type="text">';
 												?>
 									
 											</div>
 										</div>
 									</td>
-		
+								</tr>
+								</table>
+								<table class="table">
+								<tr>
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="state">Ville</label>  
+											<label class="col-md-4 control-label" for="tel">Telephone*</label>  
 											<div class="col-md-5">
-											<?php
-												echo'<input id="state" name="state" value="'.$villeMedecin.'" placeholder="" class="form-control input-md"  type="text">';
-											?>
+												<?php
+													echo '<input id="tel" name="tel" value="'.$telCentre.'" class="form-control input-md"  required=" " type="text">';
+												?>
 									
 											</div>
 										</div>
 									</td>
 								</tr>
-								
-								<table class="table">								
+								<table class="table">
 								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
-								  <div class="col-md-5">
-								 <?php
-								  echo' <input id="phone" name="phone" value="'.$telMedecin.'" placeholder="" class="form-control input-md" type="tel">';
-								  ?>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="email" name="email" value="'.$mailCentre.'" class="form-control input-md"  required=" " type="text">';
+												?>
 									
-								  </div>
-								</div>
-								</td>
+											</div>
+										</div>
+									</td>
 								</tr>
-							
+								<table class="table">
 								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-2 control-label" for="email">Email*</label>  
-								  <div class="col-md-8">
-								  <?php
-								  echo'<input id="email" name="email" placeholder="" value="'.$mailMedecin.'" class="form-control input-md" required="" type="email">';
-								  ?>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="typeCentre">Type Centre*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="typeCentre" name="typeCentre" value="'.$typeCentre.'" class="form-control input-md"  required=" " type="text">';
+												?>
 									
-								  </div>
-								</div>
-								</td>
+											</div>
+										</div>
+									</td>
 								</tr>
-					
 								</table>
 						
 								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">'

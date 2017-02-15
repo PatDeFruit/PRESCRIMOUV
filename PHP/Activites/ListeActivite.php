@@ -76,7 +76,7 @@
 								;
 								while($data=$query->fetch()){
 									echo '<tr><td width="15%" class="text-center">'.$data['id_activite'].'</td><td width="25%" class="text-center">'.$data['activite'].'</td><td width="25%" class="text-center">'.$data['type_activite'].'</td>';
-									// echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifierPatient.php?idPatient='.$data['id_patient'].'&statutPatient='.$data['statut'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifActivite.php?idActivite='.$data['id_activite'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();

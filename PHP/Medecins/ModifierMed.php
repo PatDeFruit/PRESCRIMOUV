@@ -27,15 +27,6 @@
 	if($tel==""){
 		$tel=null;
 	}
-	echo $idMedecin;
-	echo $nomMed;
-	echo $prenomMed;
-	echo $numAdeli;
-	echo $adresse;
-	echo $CP;
-	echo $ville;
-	echo $tel;
-	echo $email;
 	
 	$query=$bdd->prepare('UPDATE medecins SET nom_medecin=:nomMed,prenom_medecin=:prenomMed,num_adeli=:numAdeli,adresse_medecin=:adresse,CP_medecin=:CP,ville_medecin=:ville,email_medecin=:email,tel_medecin=:tel WHERE id_medecin=:idMed');
 	$query->bindValue(':nomMed',$nomMed,PDO::PARAM_STR);
