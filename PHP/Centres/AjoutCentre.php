@@ -17,6 +17,8 @@
     <!-- Custom CSS -->
     <link href="../../css/portfolio-item.css" rel="stylesheet">
 	<link rel="stylesheet" href="../../CSS/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script type="text/javascript" src="../../js/functions.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -24,6 +26,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+	
+	 <?php 
+	
+	
+		//Cette fonction doit être appelée avant tout code html
+		session_start();
+
+		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
+		include("../../BDD/variableSession.php");
+		include("../../BDD/connexionBDD.php");
+		
+		?>
 
 </head>
 
@@ -34,20 +48,148 @@
     <!-- Page Content -->
     <div class="container">
 
+
         <!-------------------------- Container --------------------------------->
-		
+
         <div id="conteneurPrincipale">
-			
+			<div id="conteneurTotal">
+				<fieldset id="conteneurInterieur">		
+					
+					</br>
+					<center>
+
+							  
+					<div class="tab-content">
+						<div id="ficheResume" class="tab-pane fade active in">				
+							<h3> Ajout Centre </h3> 
+							<form method="POST" action="EnregistrerCentre.php" class="form-horizontal">
+								<fieldset>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="nom">Nom*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="nom" name="nom" value="" class="form-control input-md" required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="adresse">Adresse*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="adresse" name="adresse" value="" class="form-control input-md"  required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="CP">Code Postale*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="CP" name="CP" value="" class="form-control input-md"  required=" " type="number">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="ville">Ville*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="ville" name="ville" value="" class="form-control input-md"  required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								</table>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="tel">Telephone*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="tel" name="tel" value="" class="form-control input-md"  required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="email" name="email" value="" class="form-control input-md"  required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="typeCentre">Type Centre*</label>  
+											<div class="col-md-5">
+												<?php
+													echo '<input id="typeCentre" name="typeCentre" value="" class="form-control input-md"  required=" " type="text">';
+												?>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								</table>
+								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">
+								<br/><br/>
+							</form>	
+					</center>			
+				</fieldset>
+			</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->
 	
-    <?php include("../footer.php"); ?> 
+    <?php include("../footer.php"); 
+		?> 
     </div>
     <!-- /content -->
 
     <!-- jQuery -->
     <script src="../../js/jquery.js"></script>
+	<script src="../../js/functions.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../../js/bootstrap.min.js"></script>

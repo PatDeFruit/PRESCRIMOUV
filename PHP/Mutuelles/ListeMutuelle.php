@@ -54,7 +54,7 @@
 				<fieldset id="conteneurInterieur">
 					<center><legend> Liste des Mutuelles </legend></center>
 					<center>
-						<table id="tableauMutuelle" class="table-hover">
+						<table id="tableauPatient" class="table-hover">
 							<thead>
 								<th class="text-center">
 								Identifiant

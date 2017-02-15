@@ -54,7 +54,7 @@
 				<fieldset id="conteneurInterieur">
 					<center><legend> Liste des lieux de pratique </legend></center>
 					<br/>
-					<center><input type="button" id="boutonAutre" value="Ajout lieu de pratique" onclick="self.location.href='AjoutLieuPratique.php'"></center>
+					<center><input type="button" id="boutonAutre" value="Ajout lieu de pratique" onclick="self.location.href='AjoutCentre.php'"></center>
 					<br/><br/>
 					<center>
 						<table id="tableauPatient" class="table-hover">

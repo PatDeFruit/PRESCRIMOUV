@@ -141,6 +141,7 @@ legend {
 	position : absolute;
 	bottom : 0;
     display: table-row;
+	height : 1px;
 }
 
 #boutonPatient{

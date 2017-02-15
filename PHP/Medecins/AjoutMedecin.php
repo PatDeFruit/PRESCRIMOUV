@@ -69,7 +69,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="firstname">Nom</label>  
+											<label class="col-md-4 control-label" for="firstname">Nom*</label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="firstname" name="firstname" value="" placeholder="" class="form-control input-md" required=" " type="text">';
@@ -82,7 +82,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="lastname">Prénom</label>  
+											<label class="col-md-4 control-label" for="lastname">Prénom* </label>  
 											<div class="col-md-5">
 												<?php
 													echo'<input id="lastname" name="lastname" value="" placeholder="" class="form-control input-md" required="" type="text">';
@@ -98,7 +98,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli</label>  
+											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli*</label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="numAdeli" name="numAdeli" value="" placeholder="" class="form-control input-md" required="" type="text">';
@@ -169,7 +169,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="email">Email</label>  
+								  <label class="col-md-2 control-label" for="email">Email*</label>  
 								  <div class="col-md-8">
 								  <?php
 								  echo'<input id="email" name="email" placeholder="" class="form-control input-md" required="" type="email">';
