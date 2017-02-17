@@ -205,6 +205,7 @@
 								echo'<input type="submit"  value="Terminer le programme" class=\'btn btn-success btn-xs\' ">';
 								}
 								?> 
+								<br/><br/>
 								</fieldset>
 								</form>
 								

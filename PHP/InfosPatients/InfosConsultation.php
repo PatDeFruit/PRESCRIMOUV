@@ -1,5 +1,5 @@
 <div id="infoPatient" class="tab-pane fade">
-								<h3>Informations Patient </h3> 
+								<h3>Informations Bénéficiaire </h3> 
 								<form class="form-horizontal" method="post">
 								<fieldset>
 								<?php
@@ -231,6 +231,7 @@
 								</div>
 								</td>
 								</tr>
+								</table>
 								<?php
 								if($statutPatient == "Actif - Entretien initial"){
 								echo'<input type="submit" name="valid-infos" value="Passer à l\'entretien intermédiaire" class=\'btn btn-success btn-xs\' ">';
@@ -241,8 +242,7 @@
 								echo'<input type="submit" name="valid-infos" value="Terminer le programme" class=\'btn btn-success btn-xs\' ">';
 								}
 								?>
-						
-								</table>
+								<br/><br/>
 								</fieldset>
 								</form>
 

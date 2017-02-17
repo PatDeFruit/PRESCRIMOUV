@@ -588,6 +588,7 @@
 								</div>			
 								</td>
 								</tr>
+								</table>
 								<?php 
 									}
 								if($statutPatient == "Actif - Entretien initial"){
@@ -595,7 +596,7 @@
 								}
 								
 								?>
-								</table> 
+								 
 								</br>
 								</br>
 								
