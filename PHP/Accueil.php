@@ -77,7 +77,8 @@
 			<div id = "ConteneurDroit">
 				<fieldset id="conteneurStat">
 					<center><legend> Statistiques </legend></center>
-					<center><img src="../images/patientstats.png"/></center>
+					<img style="margin-left : 20px; margin-top : 15px;" src="../images/patientstats.png"/>
+					<input style="float : right; margin-right : 70px; margin-bottom : 10px; margin-top:135px;" type="button" id="boutonAutre" value="Plus de statistiques" onclick="self.location.href='Statistiques/AfficherStatistiques.php'">
 				</fieldset>
 				<fieldset id="conteneurAutre">
 					<center><legend>  Autres </legend></center>
