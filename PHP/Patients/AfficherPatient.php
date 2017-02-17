@@ -60,7 +60,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Patient  n°'.$idPatient.' </center></legend>'; ?>
+					<?php echo'<center><legend> Bénéficiaire  n°'.$idPatient.' </center></legend>'; ?>
 					
 					</br>
 					<center>

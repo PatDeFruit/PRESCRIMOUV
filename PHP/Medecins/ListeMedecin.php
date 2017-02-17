@@ -48,11 +48,14 @@
     <div class="container">
 
         <!-------------------------- Container --------------------------------->
-		
+			
            <div id="conteneurPrincipale">
-			<div id="conteneurTotal">
+			<div id="conteneurTotal">	
 				<fieldset id="conteneurInterieur">
 					<center><legend> Liste des médecins </legend></center>
+					<br/>
+					<center><input type="button" id="boutonAutre" value="Ajout médecin" onclick="self.location.href='AjoutMedecin.php'"></center>
+					<br/><br/>
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>

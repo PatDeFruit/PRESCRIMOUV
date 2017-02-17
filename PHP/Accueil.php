@@ -56,7 +56,7 @@
 				<fieldset id="conteneurPatient">
 					<center><legend> Bénéficiaires </legend></center>
 					<input type="button" id="boutonPatient" value="Bénéficiaires" onclick="self.location.href='Patients/ListePatient.php'">
-					<input type="button" id="boutonPatient" value="Ajout Patient" onclick="self.location.href='Patients/AjoutPatient.php'">
+					<input type="button" id="boutonPatient" value="Ajout bénéficaire" onclick="self.location.href='Patients/AjoutPatient.php'">
 				</fieldset>
 				
 				

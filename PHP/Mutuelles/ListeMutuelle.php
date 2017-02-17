@@ -53,6 +53,9 @@
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
 					<center><legend> Liste des Mutuelles </legend></center>
+					<br/>
+					<center><input type="button" id="boutonAutre" value="Ajout mutuelle" onclick="self.location.href='AjoutMutuelle.php'"></center>
+					<br/><br/>
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>

@@ -50,7 +50,7 @@
         <div id="conteneurPrincipale">
 		<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Ajouter un patient </center></legend>'; ?>
+					<?php echo'<center><legend> Ajouter un bénéficiaire </center></legend>'; ?>
 					
 					</br>
 					<center>

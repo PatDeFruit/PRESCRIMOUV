@@ -52,7 +52,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des patients </legend></center>
+					<center><legend> Liste des bénéficiaires </legend></center>
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>
