@@ -190,6 +190,18 @@ legend {
 	margin-left : 9px;
 }
 
+#boutonSettings{
+	background-color:#E9967A;
+	color:black; 
+	font-weight:bold;
+	height : 42px;
+	width : 191px;
+	margin-top : 6px;
+	margin-bottom:6px;
+	margin-left : 10px;
+	margin-right: 10px;
+}
+
 #tableauPatient
 {
 	width : 1100px;

@@ -16,7 +16,7 @@
 
     <!-- Custom CSS -->
     <link href="../../css/portfolio-item.css" rel="stylesheet">
-	<link rel="stylesheet" href="../../CSS/style.css">
+	<link rel="stylesheet" href="../../css/style.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -36,8 +36,19 @@
 
         <!-------------------------- Container --------------------------------->
 		
-        <div id="conteneurPrincipale">
-			
+		<div id="conteneurPrincipale">
+			<div id="conteneurTotal">
+				<fieldset id="conteneurInterieur">
+					<center><legend> Settings </legend></center>
+					<br/>
+					<center>
+					<input type="button" id="boutonAutre" value="Bénéficiaires archivés" onclick="self.location.href='ListePatientSettings.php'">
+					<input type="button" id="boutonAutre" value="Gestion Coordinateurs" onclick="self.location.href='ListeCoordinateur.php'">
+					</center>
+					<br/><br/>
+					
+				</fieldset>
+			</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->
