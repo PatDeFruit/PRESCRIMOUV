@@ -16,7 +16,7 @@
 <head>
 
     <meta charset="utf-8">
-	
+		<META HTTP-EQUIV="Refresh" CONTENT="2;URL=../Accueil.php">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -305,7 +305,7 @@
 	?>
 
 	
-	<?php echo'<center><div class="alert alert-success" role="alert"> Archivage effectué ! </div></center>';
+	<?php echo'<center><div class="alert alert-success" role="alert"> Ajout effectué ! </div></center>';
 	
 	?>
 	
