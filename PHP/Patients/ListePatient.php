@@ -74,7 +74,7 @@
 							</thead>
 
 							<?php
-								$query=$bdd->prepare('SELECT id_patient, nom_patient, prenom_patient, statut, id_statut FROM patients JOIN statuts USING(id_statut)');
+								$query=$bdd->prepare('SELECT id_patient, nom_patient, prenom_patient, statut, id_statut FROM patients JOIN statuts USING(id_statut) ORDER BY nom_patient');
 								$query->execute();
 								;
 								while($data=$query->fetch()){

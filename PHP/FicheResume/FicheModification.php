@@ -85,34 +85,26 @@
 								<div class="form-group">
 								  <label class="col-md-2 control-label" >Dimension bioclinique</label>  
 								<div class="col-md-8">
+								<select multiple size="5" name="check[]">
 								<?php
 								$query=$bdd->prepare('SELECT pathologie, id_pathologie FROM pathologies WHERE id_pathologie IN (SELECT id_pathologie FROM patients JOIN est_diagnostique USING(id_patient) JOIN pathologies USING(id_pathologie) WHERE id_patient = :idPatient)');
 								$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 								$query->execute();
 								
-								while($data = $query->fetch()){									
-									echo'<span class="button-checkbox">
-									<button type="button" class="btn" data-color="primary" disabled="disabled">'.$data['pathologie'].'</button>
-									<input type="checkbox" value="'.$data['id_pathologie'].'" class="hidden" checked />
-								</span>';
+								while($data = $query->fetch()){
+									  echo'<option value="'.$data['id_pathologie'].'" selected="selected">'.$data['pathologie'].'</option>';
 								}
-								
 								$query->CloseCursor();
 								
 								$query=$bdd->prepare('SELECT pathologie, id_pathologie FROM pathologies WHERE id_pathologie NOT IN (SELECT id_pathologie FROM patients JOIN est_diagnostique USING(id_patient) JOIN pathologies USING(id_pathologie) WHERE id_patient = :idPatient)');
 								$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 								$query->execute();
-								
-								while($data = $query->fetch()){									
-									echo'<span class="button-checkbox">
-									<button type="button" class="btn" data-color="primary" >'.$data['pathologie'].'</button>
-									<input type="checkbox" name="check[]" id="check[]" value="'.$data['id_pathologie'].'" class="hidden" />
-								</span>';
+								while($data = $query->fetch()){
+									  echo'<option value="'.$data['id_pathologie'].'">'.$data['pathologie'].'</option>';
 								}
-								
-								$query->CloseCursor();
-								
-								  ?>
+									$query->CloseCursor();
+									?>
+							</select>
 								</div>
 								</div>
 								</td>
@@ -226,14 +218,8 @@
 								
 								</fieldset>
 								<?php
-								if($statutPatient == "Actif - Entretien initial"){
-								echo'<input type="submit" value="Passer à l\'entretien intermédiaire" class=\'btn btn-success btn-xs\' ">';
-								
-								} else if($statutPatient == "Actif - Entretien intermédiaire"){
-								echo'<input type="submit"  value="Passer à l\'entretien final" class=\'btn btn-success btn-xs\' ">';
-								} else if($statutPatient == "Actif - Entretien final"){
-								echo'<input type="submit"  value="Terminer le programme" class=\'btn btn-success btn-xs\' ">';
-								}
+								echo'<input type="submit" value="Enregistrer les modifications" class=\'btn btn-success btn-xs\' ">';
+
 								?> 
 								</br>
 								</br>

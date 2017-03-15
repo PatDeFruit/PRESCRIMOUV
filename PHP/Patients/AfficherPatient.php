@@ -105,7 +105,7 @@
 								$query->CloseCursor();
 								
 								// REQUETE ENTRETIEN1
-									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, scoreCS, scoreAPL, scoreAPQ, score_RG, IMC, AP_anterieure, niveau_AP, activite_actuelle, niveau_AP_souhaite, niveau_CS, date_entretien, id_type_entretien, type_entretien FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien initial"');
+									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, scoreCS, scoreAPL, scoreAPQ, score_RG, IMC, AP_anterieure, niveau_AP, activite_actuelle, niveau_AP_souhaite, niveau_CS, date_entretien, id_type_entretien, type_entretien, dernier_palier, temps_palier_suiv, cote_difficulte, capacite_aerobie, pourc_mets, percentile, mets_sante, borg_fin_test, motif_fin_test FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien initial"');
 									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 									$query->execute();
 									$data = $query->fetch();
@@ -130,6 +130,16 @@
 									$nivAPvoulue1 = $data['niveau_AP_souhaite'];
 									$nivCS1 = $data['niveau_CS'];
 									$dateEntretien1 = $data['date_entretien'];
+									$dernier_palier = $data['dernier_palier'];
+									$temps_palier_suiv = $data['temps_palier_suiv'];
+									$cote_difficulte = $data['cote_difficulte'];
+									$capacite_aerobie = $data['capacite_aerobie'];
+									$pourc_mets = $data['pourc_mets'];
+									$percentile = $data['percentile'];
+									$mets_sante = $data['mets_sante'];
+									$borg_fin_test = $data['borg_fin_test'];
+									$motif_fin_test = $data['motif_fin_test'];
+									
 									
 									
 									$query->CloseCursor();
@@ -235,7 +245,7 @@
 									$query->CloseCursor();
 									
 									// REQUETE ENTRETIEN3
-									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, scoreCS, scoreAPL, scoreAPQ, score_RG, IMC, niveau_AP, niveau_CS, date_entretien, commentaire, solutions_freins, ressenti_positif, ressenti_negatif, AP_envisagee_apres, id_type_entretien, type_entretien FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien final"');
+									$query=$bdd->prepare('SELECT id_patient, id_entretien, taille, poids, FC_repos, SPO2_repos, m_grasse, m_hydrique, m_muscu, scoreCS, scoreAPL, scoreAPQ, score_RG, IMC, niveau_AP, niveau_CS, date_entretien, commentaire, solutions_freins, ressenti_positif, ressenti_negatif, AP_envisagee_apres, id_type_entretien, type_entretien, dernier_palier, temps_palier_suiv, cote_difficulte, capacite_aerobie, pourc_mets, percentile, mets_sante, borg_fin_test, motif_fin_test FROM patients JOIN entretiens USING(id_patient) JOIN type_entretien USING(id_type_entretien) WHERE id_patient = :idPatient AND type_entretien = "Entretien final"');
 									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 									$query->execute();
 									$data = $query->fetch();
@@ -262,6 +272,15 @@
 									$positif3 = $data['ressenti_positif'];
 									$negatif3 = $data['ressenti_negatif'];
 									$APenvisagee3 = $data['AP_envisagee_apres'];
+									$dernier_palier2 = $data['dernier_palier'];
+									$temps_palier_suiv2 = $data['temps_palier_suiv'];
+									$cote_difficulte2 = $data['cote_difficulte'];
+									$capacite_aerobie2 = $data['capacite_aerobie'];
+									$pourc_mets2 = $data['pourc_mets'];
+									$percentile2 = $data['percentile'];
+									$mets_sante2 = $data['mets_sante'];
+									$borg_fin_test2 = $data['borg_fin_test'];
+									$motif_fin_test2 = $data['motif_fin_test'];
 									
 									
 									$query->CloseCursor();
@@ -348,7 +367,7 @@
 									
 									// REQUETE STAT PATIENTS
 									$query=$bdd->prepare('SELECT id_stats, delta_poids, delta_taille, delta_IMC, delta_m_grasse, delta_m_hydrique, delta_m_muscu, delta_FC_repos, delta_SPO2_repos, delta_RG, delta_TDM_distance, delta_TDM_theo, 
-									delta_D_YO, delta_D_YF, delta_G_YO, delta_G_YF, delta_assis_repet, delta_WHOQOL_qdv, delta_WHOQOL_phy, delta_WHOQOL_env, delta_WHOQOL_psy, delta_WHOQOL_relation, delta_CS, delta_AP, id_patient FROM stats_perso WHERE id_patient = :idPatient');
+									delta_D_YO, delta_D_YF, delta_G_YO, delta_G_YF, delta_assis_repet, delta_WHOQOL_qdv, delta_WHOQOL_phy, delta_WHOQOL_env, delta_WHOQOL_psy, delta_WHOQOL_relation, delta_CS, delta_AP, id_patient, deltaMETS, deltaAero FROM stats_perso WHERE id_patient = :idPatient');
 									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 									$query->execute();
 									$data = $query->fetch();
@@ -375,6 +394,8 @@
 									$deltaRel =$data['delta_WHOQOL_relation'];
 									$deltaCS = $data['delta_CS'];
 									$deltaAP = $data['delta_AP'];
+									$deltaMETS = $data['deltaMETS'];
+									$deltaAero = $data['deltaAero'];
 									$query->CloseCursor();
 								
 		

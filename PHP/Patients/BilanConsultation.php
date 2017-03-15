@@ -173,6 +173,38 @@
 								</tr>
 								</table>
 								</br>
+								</br>
+								<h4>Test d'aérobie</h4> 
+								<table class="table">
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="deltaAero">&#916 Capacité Aérobie</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="deltaAero" name="deltaAero" value="'.$deltaAero.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>			
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="deltaMETS">&#916 % METs-Santé</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="deltaMETS" name="deltaMETS" value="'.$deltaMETS.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>			
+								</td>
+								</tr>
+								</table>
 								<h4>Test de marche</h4> 
 								<table class="table">
 								<tr>
@@ -361,7 +393,9 @@
 								</tr>
 								</table>
 								</br>
-								
+								<?php
+								echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="GenererBilan.php?idPatient='.$idPatient.'"><span class="glyphicon glyphicon-download-alt"></span>  Générer le bilan</a></td>';
+								?>
 								</br>
 								</br>
 								</fieldset>

@@ -137,6 +137,16 @@
 				$newNivCSinit = $_POST['nivCS'];
 				$APante = $_POST['APante'];
 				$newNivAPVouluInit = $_POST['nivAPenvisagee'];
+				$palier = $_POST['dernier_palier'];
+				$temps_palier = $_POST['temps_palier_suiv'];
+				$cote_diff = $_POST['cote_difficulte'];
+				$capAero = $_POST['capacite_aero'];
+				$pourMets = $_POST['pourc_mets'];
+				$percentile = $_POST['percentile'];
+				$mets = $_POST['mets_sante'];
+				$borgAero = $_POST['borg_fin_test'];
+				$motifAero = $_POST['motif_fin_test'];
+				
 				
 				$query=$bdd->prepare('SELECT id_entretien FROM entretiens WHERE id_patient = :idPatient AND id_type_entretien = 1');
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
@@ -282,7 +292,7 @@
 				
 				
 				//Requete modification Entretien
-				$query=$bdd->prepare('UPDATE entretiens SET taille = "'.$newTailleInit.'", poids ="'.$newPoidsInit.'", IMC ="'.$newIMCinit.'", m_hydrique ="'.$newMassH.'", m_grasse ="'.$newMassG.'", m_muscu ="'.$newMassM.'", FC_repos ="'.$newFCInit.'", SPO2_repos ="'.$newSatuInit.'", niveau_AP ="'.$newNivAPinit.'",activite_actuelle ="'.$actPhy.'", niveau_CS ="'.$newNivCSinit.'", AP_anterieure="'.$APante.'", niveau_AP_souhaite ="'.$newNivAPVouluInit.'", date_entretien ="'.$newDateInit.'", RG_CS ="'.$CS1.'", RG_APL1 ="'.$APL1.'", RG_APL2 ="'.$APL2.'", RG_APL3 ="'.$APL3.'", RG_APL4 ="'.$APL4.'", RG_APQ1 ="'.$APQ1.'", RG_APQ2 ="'.$APQ2.'", RG_APQ3 ="'.$APQ3.'", RG_APQ4 ="'.$APQ4.'", scoreCS="'.$CS1.'", scoreAPL ="'.$scoreTotalAPL1.'", scoreAPQ ="'.$scoreTotalAPQ1.'", score_RG ="'.$scoreTotalRG1.'" WHERE id_patient = :idPatient AND id_type_entretien = 1');
+				$query=$bdd->prepare('UPDATE entretiens SET taille = "'.$newTailleInit.'", poids ="'.$newPoidsInit.'", IMC ="'.$newIMCinit.'", m_hydrique ="'.$newMassH.'", m_grasse ="'.$newMassG.'", m_muscu ="'.$newMassM.'", FC_repos ="'.$newFCInit.'", SPO2_repos ="'.$newSatuInit.'", niveau_AP ="'.$newNivAPinit.'",activite_actuelle ="'.$actPhy.'", niveau_CS ="'.$newNivCSinit.'", AP_anterieure="'.$APante.'", niveau_AP_souhaite ="'.$newNivAPVouluInit.'", date_entretien ="'.$newDateInit.'", RG_CS ="'.$CS1.'", RG_APL1 ="'.$APL1.'", RG_APL2 ="'.$APL2.'", RG_APL3 ="'.$APL3.'", RG_APL4 ="'.$APL4.'", RG_APQ1 ="'.$APQ1.'", RG_APQ2 ="'.$APQ2.'", RG_APQ3 ="'.$APQ3.'", RG_APQ4 ="'.$APQ4.'", scoreCS="'.$CS1.'", scoreAPL ="'.$scoreTotalAPL1.'", scoreAPQ ="'.$scoreTotalAPQ1.'", score_RG ="'.$scoreTotalRG1.'", dernier_palier="'.$palier.'", temps_palier_suiv="'.$temps_palier.'", cote_difficulte="'.$cote_diff.'", capacite_aerobie="'.$capAero.'", pourc_mets="'.$pourMets.'", percentile="'.$percentile.'", mets_sante="'.$mets.'", borg_fin_test="'.$borgAero.'", motif_fin_test="'.$motifAero.'" WHERE id_patient = :idPatient AND id_type_entretien = 1');
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();
@@ -404,6 +414,15 @@
 				$positif2 = $_POST['positif2'];
 				$negatif2 = $_POST['negatif2'];
 				$APapresProg2 = $_POST['APapresProg2'];
+				$palier2 = $_POST['dernier_palier2'];
+				$temps_palier2 = $_POST['temps_palier_suiv2'];
+				$cote_diff2 = $_POST['cote_difficulte2'];
+				$capAero2 = $_POST['capacite_aero2'];
+				$pourMets2 = $_POST['pourc_mets2'];
+				$percentile2 = $_POST['percentile2'];
+				$mets2 = $_POST['mets_sante2'];
+				$borgAero2 = $_POST['borg_fin_test2'];
+				$motifAero2 = $_POST['motif_fin_test2'];
 				
 				
 				$query=$bdd->prepare('SELECT id_entretien FROM entretiens WHERE id_patient = :idPatient AND id_type_entretien = 3');
@@ -445,6 +464,7 @@
 				$Borg2minTM2 = $_POST['Borg2minTM2'];
 				$DistReelleTM2 = $_POST['DistRelleTM2'];
 				$NbArretTM2 = $_POST['NbArretTM2'];
+
 				
 				$query=$bdd->prepare('SELECT DATEDIFF(CURRENT_DATE, date_naissance)/365.2425 AS age, sexe_patient FROM patients WHERE id_patient = :idPatient');
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
@@ -535,7 +555,7 @@
 				
 				
 				//Requete modification Entretien
-				$query=$bdd->prepare('UPDATE entretiens SET taille = "'.$taille2.'", poids ="'.$poids2.'", IMC ="'.$newIMCFinal.'", m_hydrique ="'.$massH2.'", m_grasse ="'.$massG2.'", m_muscu ="'.$massM2.'", FC_repos ="'.$FCrepos2.'", SPO2_repos ="'.$satuRepos2.'", RG_CS ="'.$CS12.'", RG_APL1 ="'.$APL12.'", RG_APL2 ="'.$APL22.'", RG_APL3 ="'.$APL32.'", RG_APL4 ="'.$APL42.'", RG_APQ1 ="'.$APQ12.'", RG_APQ2 ="'.$APQ22.'", RG_APQ3 ="'.$APQ32.'", RG_APQ4 ="'.$APQ42.'", scoreCS="'.$CS12.'", scoreAPL ="'.$scoreTotalAPL2.'", scoreAPQ ="'.$scoreTotalAPQ2.'", score_RG ="'.$scoreTotalRG2.'" WHERE id_patient = :idPatient AND id_type_entretien = 3');
+				$query=$bdd->prepare('UPDATE entretiens SET taille = "'.$taille2.'", poids ="'.$poids2.'", IMC ="'.$newIMCFinal.'", m_hydrique ="'.$massH2.'", m_grasse ="'.$massG2.'", m_muscu ="'.$massM2.'", FC_repos ="'.$FCrepos2.'", SPO2_repos ="'.$satuRepos2.'", RG_CS ="'.$CS12.'", RG_APL1 ="'.$APL12.'", RG_APL2 ="'.$APL22.'", RG_APL3 ="'.$APL32.'", RG_APL4 ="'.$APL42.'", RG_APQ1 ="'.$APQ12.'", RG_APQ2 ="'.$APQ22.'", RG_APQ3 ="'.$APQ32.'", RG_APQ4 ="'.$APQ42.'", scoreCS="'.$CS12.'", scoreAPL ="'.$scoreTotalAPL2.'", scoreAPQ ="'.$scoreTotalAPQ2.'", score_RG ="'.$scoreTotalRG2.'", dernier_palier="'.$palier2.'", temps_palier_suiv="'.$temps_palier2.'", cote_difficulte="'.$cote_diff2.'", capacite_aerobie="'.$capAero2.'", pourc_mets="'.$pourMets2.'", percentile="'.$percentile2.'", mets_sante="'.$mets2.'", borg_fin_test="'.$borgAero2.'", motif_fin_test="'.$motifAero2.'" WHERE id_patient = :idPatient AND id_type_entretien = 3');
 					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 					$query->execute();
 					$query->CloseCursor();

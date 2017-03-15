@@ -327,3 +327,151 @@
 								</tr>
 								
 								</table>
+								<table class="table">
+								<tr>
+									<td>
+									<!-- Text input-->
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="dernier_palier2">Dernier palier d'aérobie</label>  
+									  <div class="col-md-4">
+									  <?php
+									  echo'<input type="range" name="dernier_palier2" id="dernier_palier2" min="1" max="20" value="'.$dernier_palier2.'"  class="form-control input-md"   onchange="rangePrimaryPalier2.value=value">';
+									  ?>
+									  </div>
+									  <div class="col-md-2">
+									  <?php
+									  echo'<output id="rangePrimaryPalier2">'.$dernier_palier2.'</output>';
+									  ?>
+									  </div>
+									</div>
+									</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="temps_palier_suiv2">Temps au palier suivant</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="temps_palier_suiv2" name="temps_palier_suiv2" value="'.$temps_palier_suiv2.'" class="form-control input-md" type="time">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="cote_difficulte2">Côte de difficulté</label>  
+									  <div class="col-md-4">
+									  <?php
+									  echo'<input type="range" name="cote_difficulte2" id="cote_difficulte2" min="0" max="10" step="0.5" value="'.$cote_difficulte2.'"  class="form-control input-md"   onchange="rangePrimaryCote2.value=value">';
+									  ?>
+									  </div>
+									  <div class="col-md-2">
+									  <?php
+									  echo'<output id="rangePrimaryCote2">'.$cote_difficulte2.'</output>';
+									  ?>
+									  </div>
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="capacite_aero2">Capacité aérobie</label>  
+									  <div class="col-md-4">
+									  <?php
+									  echo'<input type="range" name="capacite_aero2" id="capacite_aero2" min="1" max="25" step="0.5" value="'.$capacite_aerobie2.'"  class="form-control input-md"   onchange="rangePrimaryCap2.value=value">';
+									  ?>
+									  </div>
+									  <div class="col-md-2">
+									  <?php
+									  echo'<output id="rangePrimaryCap2">'.$capacite_aerobie2.'</output>';
+									  ?>
+									  </div>
+									</div>
+									</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="pourc_mets2">% de METs-Santé</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="pourc_mets2" name="pourc_mets2" value="'.$pourc_mets2.'" class="form-control input-md" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="percentile2">Percentile</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="percentile2" name="percentile2" value="'.$percentile2.'" class="form-control input-md" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="mets_sante2">METs-Santé</label>  
+									  <div class="col-md-4">
+									  <?php
+									  echo'<input type="range" name="mets_sante2" id="mets_sante2" min="1" max="25" step="0.1" value="'.$mets_sante2.'"  class="form-control input-md"   onchange="rangePrimaryMETs2.value=value">';
+									  ?>
+									  </div>
+									  <div class="col-md-2">
+									  <?php
+									  echo'<output id="rangePrimaryMETs2">'.$mets_sante2.'</output>';
+									  ?>
+									  </div>
+									</div>
+									</td>
+								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+									<div class="form-group">
+									  <label class="col-md-4 control-label" for="borg_fin_test2">METs-Santé</label>  
+									  <div class="col-md-4">
+									  <?php
+									  echo'<input type="range" name="borg_fin_test2" id="borg_fin_test2" min="1" max="20" value="'.$borg_fin_test2.'"  class="form-control input-md"   onchange="rangePrimaryBorg2.value=value">';
+									  ?>
+									  </div>
+									  <div class="col-md-2">
+									  <?php
+									  echo'<output id="rangePrimaryBorg2">'.$borg_fin_test2.'</output>';
+									  ?>
+									  </div>
+									</div>
+									</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="motif_fin_test2">Motif de fin de test</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="motif_fin_test2" name="motif_fin_test2" value="'.$motif_fin_test2.'" class="form-control input-md"   type="text">';
+								  ?>
+									
+								  </div>
+								</div>			
+								</td>
+								</tr>
+								</table>

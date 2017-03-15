@@ -326,5 +326,114 @@
 								<td>
 								</td>
 								</tr>
-								
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="dernier_palier1">Dernier palier aérobie</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="dernier_palier1" name="dernier_palier1" value="'.$dernier_palier2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="temps_palier1">Temps au palier suivant</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="temps_palier1" name="temps_palier1" value="'.$temps_palier_suiv2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="cote_diff1">Côte de difficulté</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="cote_diff1" name="cote_diff1" value="'.$cote_difficulte2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="capa_aero1">Capacité d'aérobie</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="capa_aero1" name="capa_aero1" value="'.$capacite_aerobie2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="pourc_mets1">% de METs-Santé</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="pourc_mets1" name="pourc_mets1" value="'.$pourc_mets2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="percentile1">Percentile</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="percentile1" name="percentile1" value="'.$percentile2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="borg_fin_test1">Borg en fin de test</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="borg_fin_test1" name="borg_fin_test1" value="'.$borg_fin_test2.'" class="form-control input-md" disabled="disabled" required="" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								</td>
+								<td>
+								</td>
+								</tr>
+								</table>
+								<table class="table">
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="motif_sante1">Motif de fin de test</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="motif_sante1" name="motif_sante1" value="'.$motif_fin_test2.'" class="form-control input-md" disabled="disabled" required="" type="text">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
 								</table>
