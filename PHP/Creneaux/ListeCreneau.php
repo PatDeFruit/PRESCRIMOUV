@@ -52,8 +52,9 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des créneaux </legend></center>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des créneaux</center></legend>'; ?>
 					<br/>
+					<div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout creneau" onclick="self.location.href='AjoutCreneau.php'"></center>
 					<br/><br/>
 					<center>
@@ -86,7 +87,7 @@
 							?>
 						</table>
 					</center>
-					
+					</div>
 				</fieldset>
 			</div>
 		</div>

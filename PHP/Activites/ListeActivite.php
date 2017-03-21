@@ -43,7 +43,13 @@
 <body>
 
     <?php include("../header.php"); ?> 
+					<script>
+						
+						function ouvre_popup(page) {
+						   window.open(page,"nom_popup","menubar=no, status=no, width=700, height=500");
+					   }
 
+						</script>
     <!-- Page Content -->
     <div class="container">
 
@@ -52,8 +58,9 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des activités </legend></center>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des activités</center></legend>'; ?>
 					<br/>
+					<div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout activités" onclick="self.location.href='AjoutActivite.php'"></center>
 					<br/><br/>
 					<center>
@@ -76,14 +83,16 @@
 								;
 								while($data=$query->fetch()){
 									echo '<tr><td width="15%" class="text-center">'.$data['id_activite'].'</td><td width="25%" class="text-center">'.$data['activite'].'</td><td width="25%" class="text-center">'.$data['type_activite'].'</td>';
-									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifActivite.php?idActivite='.$data['id_activite'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifActivite.php?idActivite='.$data['id_activite'].'"><span class="glyphicon glyphicon-edit"></span> </a>
+									<a href="#" class="btn btn-warning btn-xs" onClick="ouvre_popup(\'../Modal/addLiaisonCreneau.php?idActivite='.$data['id_activite'].'\')"><span class="glyphicon glyphicon-time"></span></a>
+									</td>';
 								}
 								
 								$query->CloseCursor();
 							?>
 						</table>
 					</center>
-					
+					</div>
 				</fieldset>
 			</div>
 		</div>

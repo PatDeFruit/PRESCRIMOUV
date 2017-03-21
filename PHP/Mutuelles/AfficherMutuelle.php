@@ -60,9 +60,12 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="ListeMutuelle.php"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-pencil navbar-nav"></span></a> Mutuelle  n°'.$idMutuelle.' </center></legend>'; ?>
+					
+					<?php echo'<center><legend> <a href="ListeMutuelle.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a><a href="ModifMutuelle.php?idMutuelle='.$idMutuelle.'" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-pencil"></span></a> Mutuelle  n°'.$idMutuelle.' </center></legend>'; ?>
+					</br>
 					
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE PATIENT
@@ -186,7 +189,7 @@
 				</fieldset>
 			</div>
 		</div>
-		
+		</div>
         <!-------------------------- /Container --------------------------------->
 	
     <?php include("../footer.php"); 

@@ -58,9 +58,24 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Mutuelle  n°'.$idMutuelle.' </center></legend>'; ?>
+					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Mutuelle  n°'.$idMutuelle.' </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeMutuelle.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE MUTUELLE
@@ -102,7 +117,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="firstname">Nom*</label>  
+											<label class="col-md-4 control-label" for="firstname">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="firstname" name="firstname" value="'.$nomMutuelle.'" class="form-control input-md" required=" " type="text">';
@@ -120,7 +135,7 @@
 											<label class="col-md-4 control-label" for="adresseMutuelle">Adresse</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="adresseMutuelle" name="adresseMutuelle" value="'.$adresseMutuelle.'" class="form-control input-md"  type="text">';
+													echo '<input id="adresseMutuelle" name="adresseMutuelle" value="'.$adresseMutuelle.'" class="form-control input-md"   required=""  type="text">';
 												?>
 									
 											</div>
@@ -135,7 +150,7 @@
 											<label class="col-md-4 control-label" for="city">Code postal</label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="city" name="city" value="'.$cpMutuelle.'" class="form-control input-md"  type="number">';
+													echo'<input id="city" name="city" value="'.$cpMutuelle.'" class="form-control input-md"   required=""  type="number" maxlength="5">';
 												?>
 									
 											</div>
@@ -148,7 +163,7 @@
 											<label class="col-md-4 control-label" for="state">Ville</label>  
 											<div class="col-md-5">
 											<?php
-												echo'<input id="state" name="state" value="'.$villeMutuelle.'" class="form-control input-md"  type="text">';
+												echo'<input id="state" name="state" value="'.$villeMutuelle.'" class="form-control input-md"   required=""  type="text">';
 											?>
 									
 											</div>
@@ -164,7 +179,7 @@
 								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" value="'.$telMutuelle.'" class="form-control input-md" type="tel">';
+								  echo' <input id="phone" name="phone" value="'.$telMutuelle.'" class="form-control input-md" type="tel" maxlength="10">';
 								  ?>
 									
 								  </div>
@@ -176,7 +191,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="email">Email*</label>  
+								  <label class="col-md-2 control-label" for="email">Email <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								  <?php
 								  echo'<input id="email" name="email" value="'.$mailMutuelle.'" class="form-control input-md" required="" type="email">';
@@ -196,7 +211,7 @@
 				</fieldset>
 			</div>
 		</div>
-		
+		</div>
         <!-------------------------- /Container --------------------------------->
 	
     <?php include("../footer.php"); 

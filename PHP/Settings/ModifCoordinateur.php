@@ -58,9 +58,24 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Coordinateur n°'.$idCoordinateur.' </center></legend>'; ?>
+					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Coordinateur n°'.$idCoordinateur.' </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeCoordinateur.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE COORDINATEUR
@@ -174,6 +189,7 @@
 					</center>			
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

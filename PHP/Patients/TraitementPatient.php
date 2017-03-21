@@ -279,15 +279,6 @@
 					$query->CloseCursor();
 				}
 				
-				//Programme
-				
-				$idCentre = $_POST['idCentre'];
-				$idAct = $_POST['idAct'];
-				$idCreneau = $_POST['idCreneau'];
-				$freq = $_POST['freq'];
-				$intensite = $_POST['intensite'];
-				$duree = $_POST['duree'];
-				$nbseanceAFaire = $_POST['nbseanceAFaire'];
 				
 				
 				
@@ -333,21 +324,8 @@
 					$query->execute();
 					$query->CloseCursor();	
 				
-				//Requete modification Doit pratiquer 
-				$query=$bdd->prepare('UPDATE doit_pratiquer SET id_activite ="'.$idAct.'", frequence ="'.$freq.'", duree ="'.$duree.'", intensite ="'.$intensite.'", nb_seances_prevues ="'.$nbseanceAFaire.'" WHERE id_patient = :idPatient');
-					$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
-					$query->execute();
-					$query->CloseCursor();	
 				
-				//Requete modification Créneaux
-				$query=$bdd->prepare('UPDATE se_fait_a SET id_activite ="'.$idAct.'", id_creneau ="'.$idCreneau.'" WHERE id_activite = "'.$idAct.'"');
-					$query->execute();
-					$query->CloseCursor();	
-				
-				//Requete modification Centre
-				$query=$bdd->prepare('UPDATE se_fait_dans SET id_creneau ="'.$idCreneau.'", id_centre ="'.$idCentre.'" WHERE id_creneau = "'.$idCreneau.'"');
-					$query->execute();
-					$query->CloseCursor();		
+									
 				
 				echo'<center><div class="alert alert-success" role="alert"> Modification effectuée </div></center>';
 				
@@ -368,6 +346,8 @@
 					$positif = $_POST['positif'];
 					$negatif = $_POST['negatif'];
 					$APapresProg = $_POST['APapresProg'];
+		
+
 					
 					//Obstackes/Freins
 				$checkFrein2=$_POST['checkFrein2'];
@@ -431,6 +411,7 @@
 					$data = $query -> fetch();
 					$idEntretien3 = $data['id_entretien'];
 					$query->CloseCursor();
+
 				
 				//Score RG
 				$CS12 = $_POST['CS1-2'];

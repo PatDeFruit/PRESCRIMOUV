@@ -52,16 +52,14 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des lieux de pratique </legend></center>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des structures</center></legend>'; ?>
 					<br/>
-					<center><input type="button" id="boutonAutre" value="Ajout lieu de pratique" onclick="self.location.href='AjoutCentre.php'"></center>
+					<div id="afficherInfosPatient">
+					<center><input type="button" id="boutonAutre" value="Ajouter une structure" onclick="self.location.href='AjoutCentre.php'"></center>
 					<br/><br/>
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>
-								<th class="text-center">
-								Identifiant
-								</th>
 								<th class="text-center">
 								Nom
 								</th>
@@ -75,7 +73,7 @@
 								E-mail
 								</th>
 								<th class="text-center">
-								Type de centre
+								Type de structure
 								</th>
 							</thead>
 
@@ -85,7 +83,7 @@
 								;
 								while($data=$query->fetch()){
 									$adresseComp = $data['adresse_centre'].' '.$data['CP_centre'].' '.$data['ville_centre'];
-									echo '<tr><td width="8%" class="text-center">'.$data['id_centre'].'</td><td width="15%" class="text-center">'.$data['nom_centre'].'</td><td width="25%" class="text-center">'.$adresseComp.'</td><td width="15%" class="text-center">'.$data['tel_centre'].'</td><td width="15%" class="text-center">'.$data['email_centre'].'</td><td width="20%" class="text-center">'.$data['type_centre'].'</td>';
+									echo '<tr><td width="15%" class="text-center">'.$data['nom_centre'].'</td><td width="25%" class="text-center">'.$adresseComp.'</td><td width="15%" class="text-center">'.$data['tel_centre'].'</td><td width="15%" class="text-center">'.$data['email_centre'].'</td><td width="20%" class="text-center">'.$data['type_centre'].'</td>';
 									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifCentre.php?idCentre='.$data['id_centre'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
@@ -93,7 +91,7 @@
 							?>
 						</table>
 					</center>
-					
+					</div>
 				</fieldset>
 			</div>
 		</div>

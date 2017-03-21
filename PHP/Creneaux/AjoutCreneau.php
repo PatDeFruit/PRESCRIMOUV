@@ -54,7 +54,20 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">		
-					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Ajouter un créneau</center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeCreneau.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					</br>
 					<center>
 
@@ -69,12 +82,18 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="jour">Jour*</label>  
+											<label class="col-md-4 control-label" for="jour">Jour <span style="color: red">*</span></label>  
 											<div class="col-md-5">
+											<select name="jour" id="jour" class="form-control"  >
 												<?php
-													echo '<input id="jour" name="jour" value="" class="form-control input-md" required=" " type="text">';
+												$query= $bdd->prepare('SELECT * FROM jours');
+												$query->execute();
+												while($data = $query->fetch()){
+													echo '<option value="'.$data['nom_jour'].'" >'.$data['nom_jour'].' </option>';
+												}
+												$query->CloseCursor();
 												?>
-									
+											</select>
 											</div>
 										</div>
 									</td>
@@ -85,12 +104,18 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="heureDeb">Heure Debut*</label>  
+											<label class="col-md-4 control-label" for="heureDeb">Heure Debut <span style="color: red">*</span></label>  
 											<div class="col-md-5">
+												<select name="heureDeb" id="heureDeb" class="form-control"  >
 												<?php
-													echo '<input id="heureDeb" name="heureDeb" value="00:00:00" class="form-control input-md" type="time" required=" " type="text">';
+												$query= $bdd->prepare('SELECT * FROM heures');
+												$query->execute();
+												while($data = $query->fetch()){
+													echo '<option value="'.$data['heure'].'" >'.$data['heure'].' </option>';
+												}
+												$query->CloseCursor();
 												?>
-									
+											</select>
 											</div>
 										</div>
 									</td>
@@ -100,12 +125,18 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="heureFin">Heure Fin*</label>  
+											<label class="col-md-4 control-label" for="heureFin">Heure Fin <span style="color: red">*</span></label>  
 											<div class="col-md-5">
+												<select name="heureFin" id="heureFin" class="form-control"  >
 												<?php
-													echo '<input id="heureFin" name="heureFin" value="00:00:00" class="form-control input-md" type="time" required=" " type="text">';
+												$query= $bdd->prepare('SELECT * FROM heures');
+												$query->execute();
+												while($data = $query->fetch()){
+													echo '<option value="'.$data['heure'].'" >'.$data['heure'].' </option>';
+												}
+												$query->CloseCursor();
 												?>
-									
+											</select>
 											</div>
 										</div>
 									</td>

@@ -40,7 +40,35 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
+								  <label class="col-md-4 control-label" for="phone">Téléphone</label>  
+								  <div class="col-md-5">
+								 <?php
+								  echo' <input id="phone" name="phone" value="'.$telPatient.'" class="form-control input-md" disabled="disabled" type="tel">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+						
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="email">Email</label>  
+								  <div class="col-md-6">
+								  <?php
+								  echo'<input id="email" name="email" value="'.$mailPatient.'" class="form-control input-md" disabled="disabled" required="" type="email">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
 								  <label class="col-md-4 control-label" for="med">Médecin prescripteur</a></label>  
+								  <?php echo'<a href="#" class="btn btn-info btn-xs" onClick="ouvre_popup(\'../Modal/viewMedecinPopUp.php?idMedecin='.$idMedecin.'\')"><span class="glyphicon glyphicon-eye-open"></span></a>';?>
 								  <div class="col-md-5">
 								  <?php
 								  echo'<input id="med" name="med" value="'.$nomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';
@@ -63,15 +91,54 @@
 								</div>
 								</td>
 								</tr>
-								<table>
-								
+								</table>
+								<table class="table">
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="dateEnt1">Date de l'entretien initial</label>  
+								  <div class="col-md-6">
+								  <?php
+								  echo'<input id="dateEnt1" name="dateEnt1" value="'.$dateEntretien1.'" class="form-control input-md" disabled="disabled" required="" type="date">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="dateEnt2">Date de l'entretien intermédiaire</label>  
+								  <div class="col-md-6">
+								  <?php
+								  echo'<input id="dateEnt2" name="dateEnt2" value="'.$dateEntretien2.'" class="form-control input-md" disabled="disabled" required="" type="date">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="dateEnt3">Date de l'entretien final</label>  
+								  <div class="col-md-6">
+								  <?php
+								  echo'<input id="dateEnt3" name="dateEnt3" value="'.$dateEntretien3.'" class="form-control input-md" disabled="disabled" required="" type="date">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								</tr>
+								</table>
 								<table class="table">
 								<tr>
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
 								  <label class="col-md-2 control-label" for="dim">Dimension bioclinique</a></label>  
-								  <div class="col-md-2">
+								  <div class="col-md-6">
 								  <?php
 								  $query=$bdd->prepare('SELECT id_patient, pathologie, id_pathologie FROM patients JOIN est_diagnostique USING(id_patient) JOIN pathologies USING(id_pathologie) WHERE id_patient = :idPatient');
 								$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
@@ -89,6 +156,40 @@
 								</div>
 								</td>
 								</tr>
+								</table>
+								<h3>Les activités pratiquées </h3>
+								<!-- PROGRAMME -->
+								<table  class="table-hover" width="50%">
+											<tr>
+												<th class="text-center">
+													Activité
+												</th>
+												<th>
+												
+												</th>
+											</tr>
+								<?php
+									$query = $bdd->prepare('SELECT id_patient, id_activite, activite FROM doit_pratiquer JOIN activites USING(id_activite) WHERE id_patient =:idPatient');
+									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
+									$query->execute();
+									while($data = $query->fetch()){
+										echo '
+											<tr>
+												<td class="text-center">
+													'.$data['activite'].'
+												</td>
+												<td class="text-center">
+													<a href="#" class="btn btn-success btn-xs" onClick="ouvre_popup(\'../Modal/viewDetailsActivitePopUp.php?idAct='.$data['id_activite'].'&idPatient='.$idPatient.'\')"><span class="glyphicon glyphicon-zoom-in"></span>Plus de détails</a>
+												</td>
+											</tr>
+										';							
+							
+									}
+									$query->CloseCursor();
+								?> 
+								</table>
+								<br /><br />
+								<table class="table">
 								<tr>
 								<td>
 								<!-- Text input-->
@@ -155,46 +256,7 @@
 								</td>
 								</tr>
 								</table>
-								<table class="table">
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="dateEnt1">Date de l'entretien initial</label>  
-								  <div class="col-md-6">
-								  <?php
-								  echo'<input id="dateEnt1" name="dateEnt1" value="'.$dateEntretien1.'" class="form-control input-md" disabled="disabled" required="" type="date">';
-								  ?>
-									
-								  </div>
-								</div>
-								</td>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="dateEnt2">Date de l'entretien intermédiaire</label>  
-								  <div class="col-md-6">
-								  <?php
-								  echo'<input id="dateEnt2" name="dateEnt2" value="'.$dateEntretien2.'" class="form-control input-md" disabled="disabled" required="" type="date">';
-								  ?>
-									
-								  </div>
-								</div>
-								</td>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="dateEnt3">Date de l'entretien final</label>  
-								  <div class="col-md-6">
-								  <?php
-								  echo'<input id="dateEnt3" name="dateEnt3" value="'.$datePrescription.'" class="form-control input-md" disabled="disabled" required="" type="date">';
-								  ?>
-									
-								  </div>
-								</div>
-								</td>
-								</tr>
-								</table>
+								
 								<?php
 								if($statutPatient == "Actif - Entretien initial"){
 								echo'<input type="submit" value="Passer à l\'entretien intermédiaire" class=\'btn btn-success btn-xs\' ">';

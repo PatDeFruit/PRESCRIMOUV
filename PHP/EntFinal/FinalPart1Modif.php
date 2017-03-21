@@ -8,7 +8,7 @@
 									<input name="idFormulaire" type="hidden" value="form-entFinal">
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="dateEnt3">Date de l'entretien final</label>  
+								  <label class="col-md-4 control-label" for="dateEnt3">Date de l'entretien final <span style="color: red">*</span></label>  
 								  <div class="col-md-3">
 								  <?php
 								  echo'<input id="dateEnt3" name="dateEnt3" value="'.$dateEntretien3.'" class="form-control input-md"   required="" type="date">';
@@ -20,10 +20,10 @@
 								<td>
 								<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="nivAP6mois">Niveau d'AP actuel</label>  
+									  <label class="col-md-4 control-label" for="nivAP6mois">Niveau d'AP actuel <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input type="range" name="nivAP6mois" id="nivAP6mois" min="0" max="10" value="'.$nivAP3.'"    class="form-control input-md" onchange="rangePrimary5.value=value">';
+									  echo'<input type="range" name="nivAP6mois" id="nivAP6mois" min="0" max="10" value="'.$nivAP3.'"     required="" class="form-control input-md" onchange="rangePrimary5.value=value">';
 									  ?>
 									  </div>
 									  <div class="col-md-2">
@@ -41,7 +41,7 @@
 								  <label class="col-md-4 control-label" for="comm2">Commentaires</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="comm2" name="comm2" value="'.$commentaire3.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="comm2" name="comm2" value="'.$commentaire3.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -51,10 +51,10 @@
 								<td>
 								<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="nivCS6mois">Comportements sédentaires</label>  
+									  <label class="col-md-4 control-label" for="nivCS6mois">Comportements sédentaires <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input type="range" name="nivCS6mois" id="nivCS6mois" min="0" max="10" value="'.$nivCS3.'"    class="form-control input-md" onchange="rangePrimary6.value=value">';
+									  echo'<input type="range" name="nivCS6mois" id="nivCS6mois" min="0" max="10" value="'.$nivCS3.'"   required=""   class="form-control input-md" onchange="rangePrimary6.value=value">';
 									  ?>
 									  </div>
 									  <div class="col-md-2">
@@ -69,7 +69,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="freinsInit2">Rappel des freins initiaux</label>  
+								  <label class="col-md-4 control-label" for="freinsInit2">Rappel des freins initiaux </label>  
 								  <div class="col-md-4">
 								  <?php
 								   $query=$bdd->prepare('SELECT id_obstacle, obstacle, id_entretien FROM obstacles JOIN a_pour_obstacle USING(id_obstacle) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1');
@@ -92,7 +92,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="freins6mois">Etat des freins à 6 mois</label>  
+								  <label class="col-md-4 control-label" for="freins6mois">Etat des freins à 6 mois <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								<?php				
 							
@@ -123,7 +123,7 @@
 								  <label class="col-md-4 control-label" for="solu2">Solutions</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="solu2" name="solu2" value="'.$solutions3.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="solu2" name="solu2" value="'.$solutions3.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -139,7 +139,7 @@
 								  <label class="col-md-4 control-label" for="positif2">Positifs</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="positif2" name="positif2" value="'.$positif3.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="positif2" name="positif2" value="'.$positif3.'" class="form-control input-md"  type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -152,7 +152,7 @@
 								  <label class="col-md-4 control-label" for="negatif2">Negatifs</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="negatif2" name="negatif2" value="'.$negatif3.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="negatif2" name="negatif2" value="'.$negatif3.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -162,7 +162,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="goalInit2">Rappel des objectifs</label>  
+								  <label class="col-md-4 control-label" for="goalInit2">Rappel des objectifs </label>  
 								  <div class="col-md-4">
 								  <?php
 								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1');
@@ -185,7 +185,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="goal6mois">Objectifs pour les 3 prochains mois</label>  
+								  <label class="col-md-4 control-label" for="goal6mois">Objectifs pour les 3 prochains mois <span style="color: red">*</span></label>  
 								   <div class="col-md-8">
 								<?php
 								$query=$bdd->prepare('SELECT id_objectif, objectif FROM objectifs WHERE id_objectif NOT IN (SELECT id_objectif FROM a_pour_objectif WHERE id_entretien = :id_entretien1 OR id_entretien = :id_entretien2 OR id_entretien = :id_entretien3)');
@@ -197,7 +197,7 @@
 								while($data = $query->fetch()){									
 									echo'<span class="button-checkbox">
 									<button type="button" class="btn" data-color="primary" >'.$data['objectif'].'</button>
-									<input type="checkbox" name="checkMotiv3[]" id="checkMotiv3[]" value="'.$data['id_objectif'].'" class="hidden" />
+									<input type="checkbox" name="checkMotiv3[]" id="checkMotiv3[]" value="'.$data['id_objectif'].'" class="hidden"  />
 								</span>';
 								}
 								
@@ -215,7 +215,7 @@
 								  <label class="col-md-4 control-label" for="APapresProg2">AP envisagée après le programme</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="APapresProg2" name="APapresProg2" value="'.$APenvisagee3.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="APapresProg2" name="APapresProg2" value="'.$APenvisagee3.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -227,7 +227,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="taille2">Taille</label>  
+								  <label class="col-md-4 control-label" for="taille2">Taille <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 									echo '<input id="taille2" name="taille2" value="'.$taille3.'" class="form-control input-md" required=""   type="number">';
@@ -240,7 +240,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="poids2">Poids</label>  
+								  <label class="col-md-4 control-label" for="poids2">Poids <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 								  echo'<input id="poids2" name="poids2" value="'.$poids3.'" class="form-control input-md"   required="" type="number">';
@@ -261,7 +261,7 @@
 								  <label class="col-md-4 control-label" for="massH2">%Masse hydrique</label>  
 								  <div class="col-md-4">
 								  <?php
-									echo '<input id="massH2" name="massH2" value="'.$mhydrique3.'" class="form-control input-md" required=""   type="number">';
+									echo '<input id="massH2" name="massH2" value="'.$mhydrique3.'" class="form-control input-md"    type="number">';
 									?>
 									
 								  </div>
@@ -274,7 +274,7 @@
 								  <label class="col-md-4 control-label" for="massG2">%Masse grasse</label>  
 								  <div class="col-md-4">
 								  <?php
-								  echo'<input id="massG2" name="massG2" value="'.$mgrasse3.'" class="form-control input-md"   required="" type="number">';
+								  echo'<input id="massG2" name="massG2" value="'.$mgrasse3.'" class="form-control input-md"   type="number">';
 								  ?>
 									
 								  </div>
@@ -287,7 +287,7 @@
 								  <label class="col-md-4 control-label" for="massM2">%Masse musculaire</label>  
 								  <div class="col-md-4">
 								  <?php
-								  echo'<input id="massM2" name="massM2" value="'.$mmuscu3.'" class="form-control input-md"   required="" type="number">';
+								  echo'<input id="massM2" name="massM2" value="'.$mmuscu3.'" class="form-control input-md"   type="number">';
 								  ?>
 									
 								  </div>
@@ -299,7 +299,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="FCrepos2">FC Repos</label>  
+								  <label class="col-md-4 control-label" for="FCrepos2">FC Repos <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 									echo '<input id="FCrepos2" name="FCrepos2" value="'.$FC_repos3.'" class="form-control input-md" required=""   type="number">';
@@ -312,7 +312,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="satuRepos2">Saturation O2 Repos</label>  
+								  <label class="col-md-4 control-label" for="satuRepos2">Saturation O2 Repos <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 								  echo'<input id="satuRepos2" name="satuRepos2" value="'.$SPO2_repos3.'" class="form-control input-md"   required="" type="number">';
@@ -382,10 +382,10 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="capacite_aero2">Capacité aérobie</label>  
+									  <label class="col-md-4 control-label" for="capacite_aero2">Capacité aérobie <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input type="range" name="capacite_aero2" id="capacite_aero2" min="1" max="25" step="0.5" value="'.$capacite_aerobie2.'"  class="form-control input-md"   onchange="rangePrimaryCap2.value=value">';
+									  echo'<input type="range" name="capacite_aero2" id="capacite_aero2" min="1" max="25" step="0.5" value="'.$capacite_aerobie2.'"   required="" class="form-control input-md"   onchange="rangePrimaryCap2.value=value">';
 									  ?>
 									  </div>
 									  <div class="col-md-2">
@@ -400,10 +400,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="pourc_mets2">% de METs-Santé</label>  
+								  <label class="col-md-4 control-label" for="pourc_mets2">% de METs-Santé <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
-								  echo'<input id="pourc_mets2" name="pourc_mets2" value="'.$pourc_mets2.'" class="form-control input-md" type="number">';
+								  echo'<input id="pourc_mets2" name="pourc_mets2" value="'.$pourc_mets2.'" class="form-control input-md" type="number" required="" >';
 								  ?>
 									
 								  </div>
@@ -446,7 +446,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="borg_fin_test2">METs-Santé</label>  
+									  <label class="col-md-4 control-label" for="borg_fin_test2">BOrg en fin de test</label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input type="range" name="borg_fin_test2" id="borg_fin_test2" min="1" max="20" value="'.$borg_fin_test2.'"  class="form-control input-md"   onchange="rangePrimaryBorg2.value=value">';
@@ -474,4 +474,5 @@
 								</div>			
 								</td>
 								</tr>
+
 								</table>

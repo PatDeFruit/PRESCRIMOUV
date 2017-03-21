@@ -4,7 +4,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="NbRepet2">Nombre de répétitions</label>  
+									  <label class="col-md-4 control-label" for="NbRepet2">Nombre de répétitions <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input id="NbRepet2" name="NbRepet2" value="'.$nbRepet2.'" class="form-control input-md"   required="" type="number">';
@@ -18,7 +18,7 @@
 									  <label class="col-md-4 control-label" for="FreqCardF">Fréquence Cardiaque Fin</label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input id="FreqCardF" name="FreqCardF" value="'.$FCfinAD2.'" class="form-control input-md"   required="" type="number">';
+									  echo'<input id="FreqCardF" name="FreqCardF" value="'.$FCfinAD2.'" class="form-control input-md"    type="number">';
 									  ?>
 									  </div>
 									</div>
@@ -29,7 +29,7 @@
 									  <label class="col-md-4 control-label" for="FreqCard2min">Fréquence Cardiaque 2 min</label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input id="FreqCard2min" name="FreqCard2min" value="'.$FC2minAD2.'" class="form-control input-md"   required="" type="number">';
+									  echo'<input id="FreqCard2min" name="FreqCard2min" value="'.$FC2minAD2.'" class="form-control input-md"    type="number">';
 									  ?>
 									  </div>
 									</div>

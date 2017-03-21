@@ -53,6 +53,7 @@
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
 					<center><legend> Liste des bénéficiaires archivés </legend></center>
+					<div id="afficherInfosPatient">
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>
@@ -90,6 +91,7 @@
 					
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

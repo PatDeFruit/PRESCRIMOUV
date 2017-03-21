@@ -58,8 +58,21 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Activite n°'.$idActivite.' </center></legend>'; ?>
 					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Activite n°'.$idActivite.' </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeActivite.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					</br>
 					<center>
 					<?php
@@ -96,7 +109,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="activite">Activite*</label>  
+											<label class="col-md-4 control-label" for="activite">Activité <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="activite" name="activite" value="'.$activite.'" class="form-control input-md" required=" " type="text">';
@@ -111,7 +124,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="typeActivite">type d'activité*</label>  
+											<label class="col-md-4 control-label" for="typeActivite">Type d'activité <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="typeActivite" name="typeActivite" value="'.$typeActivite.'" class="form-control input-md"  type="text">';

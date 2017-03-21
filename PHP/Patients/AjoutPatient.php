@@ -50,7 +50,31 @@
         <div id="conteneurPrincipale">
 		<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Ajouter un bénéficiaire </center></legend>'; ?>
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Ajouter un bénéficiaire</center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListePatient.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						function masquer_div(id)
+						{
+						  if (document.getElementById(id).style.display == 'none')
+						  {
+							   document.getElementById(id).style.display = 'block';
+						  }
+						  else
+						  {
+							   document.getElementById(id).style.display = 'none';
+						  }
+						}
+						</script>
 					
 					</br>
 					<center>
@@ -67,10 +91,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="numSS">Numéro SS</label>  
+								  <label class="col-md-4 control-label" for="numSS">Numéro SS <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
-								  echo'<input id="numSS" name="numSS" value="" class="form-control input-md"   type="number">';
+								  echo'<input id="numSS" name="numSS" value="" class="form-control input-md"  required="" type="number" maxlength="15">';
 								  ?>
 									
 								  </div>
@@ -83,7 +107,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="firstname">Nom</label>  
+								  <label class="col-md-4 control-label" for="firstname">Nom  <span style="color: red">*</span></label>  
 								  <div class="col-md-5">
 								  <?php
 									echo '<input id="firstname" name="firstname" value="" class="form-control input-md" required=""   type="text">';
@@ -96,7 +120,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="lastname">Prénom</label>  
+								  <label class="col-md-4 control-label" for="lastname">Prénom  <span style="color: red">*</span></label>  
 								  <div class="col-md-5">
 								  <?php
 								  echo'<input id="lastname" name="lastname" value="" class="form-control input-md"   required="" type="text">';
@@ -111,7 +135,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="birthdate">Date de naissance</label>  
+								  <label class="col-md-4 control-label" for="birthdate">Date de naissance  <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 								  echo'<input id="birthdate" name="birthdate" value="" class="form-control input-md"   required="" type="date">';
@@ -124,9 +148,9 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="sexe">Sexe</label>  
+								  <label class="col-md-4 control-label" for="sexe">Sexe  <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
-								  <select name="idSexe" id="idSexe" class="form-control">
+								  <select name="idSexe" id="idSexe" class="form-control" required="">
 											<?php
 											 echo'<option value="1">Femme</option>';
 											 echo'<option value="0">Homme</option>';
@@ -145,10 +169,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="street">Adresse</label>  
+								  <label class="col-md-2 control-label" for="street">Adresse  <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								  <?php
-								  echo'<input id="street" name="street" value="" class="form-control input-md"   type="text">';
+								  echo'<input id="street" name="street" value="" class="form-control input-md"  required="" type="text">';
 								  ?>
 									
 								  </div>
@@ -162,10 +186,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="city">Code postal</label>  
+								  <label class="col-md-4 control-label" for="city">Code postal  <span style="color: red">*</span></label>  
 								  <div class="col-md-3">
 								  <?php
-								  echo'<input id="city" name="city" value="" class="form-control input-md"   type="number">';
+								  echo'<input id="city" name="city" value="" class="form-control input-md"  required="" type="number" maxlength="5">';
 								  ?>
 									
 								  </div>
@@ -175,10 +199,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="state">Ville</label>  
+								  <label class="col-md-4 control-label" for="state">Ville  <span style="color: red">*</span></label>  
 								  <div class="col-md-5">
 								  <?php
-								  echo'<input id="state" name="state" value="" class="form-control input-md"   type="text">';
+								  echo'<input id="state" name="state" value="" class="form-control input-md"  required="" type="text">';
 								  ?>
 									
 								  </div>
@@ -192,10 +216,10 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
+								  <label class="col-md-2 control-label" for="phone">Téléphone </label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" value="" class="form-control input-md"   type="tel">';
+								  echo' <input id="phone" name="phone" value="" class="form-control input-md"   type="tel" maxlength="10">';
 								  ?>
 									
 								  </div>
@@ -207,7 +231,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="email">Email</label>  
+								  <label class="col-md-2 control-label" for="email">Email  <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								  <?php
 								  echo'<input id="email" name="email" value="" class="form-control input-md"   required="" type="email">';
@@ -278,9 +302,9 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="med">Médecin prescripteur</span></a></label>  
+								  <label class="col-md-2 control-label" for="med">Médecin prescripteur  <span style="color: red">*</span></span></a></label>  
 								  <div class="col-md-5">
-										 <select name="idMed" id="idMed" class="form-control">
+										 <select name="idMed" id="idMed" class="form-control" required="">
 										
 										  <?php 
 										  $query=$bdd->prepare('SELECT nom_medecin, id_medecin FROM medecins');
@@ -300,7 +324,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="datePre">Date de prescription</label>  
+								  <label class="col-md-2 control-label" for="datePre">Date de prescription  <span style="color: red">*</span></label>  
 								  <div class="col-md-4">
 								  <?php
 								  echo'<input id="datePre" name="datePre" value="" class="form-control input-md"   required="" type="date">';

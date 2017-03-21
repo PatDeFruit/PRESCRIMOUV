@@ -54,11 +54,24 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">		
-					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Ajouter un intervenant </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeIntervenant.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					</br>
 					<center>
 
-							  
+							  <div id="afficherInfosPatient">
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
 							<h3> Ajout Intervenant </h3> 
@@ -69,7 +82,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="nom">Nom*</label>  
+											<label class="col-md-4 control-label" for="nom">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="nom" name="nom" value="" class="form-control input-md" required=" " type="text">';
@@ -85,7 +98,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="prenom">Prenom*</label>  
+											<label class="col-md-4 control-label" for="prenom">Prenom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="prenom" name="prenom" value="" class="form-control input-md"  required=" " type="text">';
@@ -100,7 +113,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<label class="col-md-4 control-label" for="email">Email <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="email" name="email" value="" class="form-control input-md"  required=" " type="text">';
@@ -115,16 +128,55 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="tel">Telephone*</label>  
+											<label class="col-md-4 control-label" for="tel">Telephone <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="tel" name="tel" value="" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="tel" name="tel" value="" class="form-control input-md"  required=" " type="text" maxlength="10">';
 												?>
 									
 											</div>
 										</div>
 									</td>
 								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="diplome">Diplôme<span style="color: red">*</span></label>  
+											<div class="col-md-5">
+												<select name="diplome" id="diplome" class="form-control"  required="" >
+												<?php
+													$query=$bdd->prepare('SELECT id_diplome, nom_diplome FROM diplomes');
+													$query->execute;
+													while($query->fetch()){
+														echo'<option value="'.$data['id_diplome'].'">'.$data['nom_diplome'].'</option>';
+													}
+													$query->CloseCursor();
+													
+												?>
+
+										</select>
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="cartePro">Carte professionnelle <span style="color: red">*</span></label>  
+								  <div class="col-md-4">
+								  <select name="cartePro" id="cartePro" class="form-control"  required="" >
+											<option value="1">Oui</option>
+											<option value="0">Non</option>
+										</select>		
+										
+								</div>
+								</div>
+								</td>
+								</tr>
+								
 								</table>
 								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">
 								<br/><br/>
@@ -133,7 +185,7 @@
 				</fieldset>
 			</div>
 		</div>
-		
+		</div>
         <!-------------------------- /Container --------------------------------->
 	
     <?php include("../footer.php"); 

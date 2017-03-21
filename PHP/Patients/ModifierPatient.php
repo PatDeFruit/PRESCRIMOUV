@@ -67,7 +67,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="#" onClick="confirmFunction()"><span class="glyphicon glyphicon-arrow-left"></span></a> Patient  n°'.$idPatient.'</center></legend>'; ?>
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Patient  n°'.$idPatient.'</center></legend>'; ?>
 					<script>
 						function confirmFunction() {
 							var txt;
@@ -80,6 +80,10 @@
 							}
 							document.getElementById("demo").innerHTML = txt;
 						}
+						function ouvre_popup(page) {
+						   window.open(page,"nom_popup","menubar=no, status=no, width=700, height=500");
+					   }
+
 						</script>
 					</br>
 					<center>
@@ -592,159 +596,7 @@
 								include('../EntInitial/InitialPart2Modif.php');
 							  ?>
 							  
-								
-								
-								<table class="table">
-								<h4>Programme proposé </h4> 
-
-								<?php
-									// REQUETE ACTIVITE
-									$query=$bdd->prepare('SELECT id_patient, id_activite, frequence, duree, intensite, nb_seances_prevues, activite, type_activite, id_creneau, jour_creneau, heure_creneau_debut, heure_creneau_fin, id_centre, nom_centre FROM doit_pratiquer JOIN activites USING(id_activite) JOIN se_fait_a USING(id_activite) JOIN creneaux USING(id_creneau) JOIN se_fait_dans USING(id_creneau) JOIN centres USING(id_centre) WHERE id_patient = :idPatient');
-									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
-									$query->execute();
-									while($data = $query->fetch()){
-										?>
-								<tr>
-								<td>		
-
-									<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="centre">Structure</label>  
-								  <div class="col-md-4">
-										 <select name="idCentre" id="idCentre" class="form-control">
-										
-										  <?php 
-										  $query2=$bdd->prepare('SELECT id_centre, nom_centre FROM centres');
-										$query2->execute();
-										while($data2 = $query2->fetch()){
-											 echo'<option value="'.$data2['id_centre'].'" ';
-											 if($data2['nom_centre'] == $data['nom_centre']){
-												 echo 'selected = "selected"';
-											 }
-											 echo'>'.$data2['nom_centre'].'</option>';
-										}
-										$query->CloseCursor();
-										 
-										  ?>
-										</select>						  
-								  </div>
-								</div>
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="typeAct">Structure</label>  
-								  <div class="col-md-4">
-										 <select name="idAct" id="idAct" class="form-control">
-										
-										  <?php 
-										  $query2=$bdd->prepare('SELECT id_activite, activite FROM activites');
-										$query2->execute();
-										while($data2 = $query2->fetch()){
-											 echo'<option value="'.$data2['id_activite'].'" ';
-											 if($data2['activite'] == $data['activite']){
-												 echo 'selected = "selected"';
-											 }
-											 echo'>'.$data2['activite'].'</option>';
-										}
-										$query->CloseCursor();
-										 
-										  ?>
-										</select>						  
-								  </div>
-								</div>								
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="creneau">Créneau</label>  
-								  <div class="col-md-4">
-										 <select name="idCreneau" id="idCreneau" class="form-control">
-										
-										  <?php 
-										  $query2=$bdd->prepare('SELECT id_creneau, jour_creneau, heure_creneau_debut, heure_creneau_fin FROM creneaux');
-										$query2->execute();
-										while($data2 = $query2->fetch()){
-											 echo'<option value="'.$data2['id_creneau'].'" ';
-											 if($data2['jour_creneau'] == $data['jour_creneau'] && $data2['heure_creneau_debut'] == $data['heure_creneau_debut'] && $data2['heure_creneau_fin'] == $data['heure_creneau_fin']){
-												 echo 'selected = "selected"';
-											 }
-											 echo'>'.$data2['jour_creneau'].' de '.$data2['heure_creneau_debut'].' à '.$data2['heure_creneau_fin'].'</option>';
-										}
-										$query->CloseCursor();
-										 
-										  ?>
-										</select>						  
-								  </div>
-								</div>	
-								
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="freq">Fréquence</label>  
-								  <div class="col-md-4">
-								  <?php
-								 echo'<input id="freq" name="freq" value="'.$data['frequence'].'" class="form-control input-md"   required="" type="number">';
-								 ?>
-								  
-								  </div>
-								</div>			
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="intensite">Intensité</label>  
-								  <div class="col-md-4">
-								  <?php
-								 echo'<input id="intensite" name="intensite" value="'.$data['intensite'].'" class="form-control input-md"   required="" type="text">';
-								 ?>
-									
-								  </div>
-								</div>			
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="duree">Durée</label>  
-								  <div class="col-md-4">
-								  <?php
-								 echo'<input id="duree" name="duree" value="'.$data['duree'].'" class="form-control input-md"   required="" type="number">';
-								 ?>
-									
-								  </div>
-								</div>			
-								</td>
-								</tr>
-								<tr>
-								<td>
-								<!-- Text input-->
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="nbseanceAFaire">Nombre de séances à faire</label>  
-								  <div class="col-md-4">
-								 <?php
-								 echo'<input id="nbseanceAFaire" name="nbseanceAFaire" value="'.$data['nb_seances_prevues'].'" class="form-control input-md"   required="" type="number">';
-								 ?>
-									
-								  </div>
-								</div>			
-								</td>
-								</tr>
-								
-								<?php
-									}
-								?>
-								</table>
+							
 								
 								
 								</fieldset>

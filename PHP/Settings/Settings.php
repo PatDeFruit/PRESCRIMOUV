@@ -39,7 +39,7 @@
 		<div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Settings </legend></center>
+					<center><legend><a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Paramètres supplémentaires</center></legend>
 					<br/>
 					<center>
 					<input type="button" id="boutonAutre" value="Bénéficiaires archivés" onclick="self.location.href='ListePatientSettings.php'">

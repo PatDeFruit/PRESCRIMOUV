@@ -58,9 +58,22 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Médecin  n°'.$idMedecin.' </center></legend>'; ?>
-					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Médecin  n°'.$idMedecin.'</center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeMedecin.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE MEDECINS
@@ -104,10 +117,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="firstname">Nom*</label>  
+											<label class="col-md-4 control-label" for="firstname">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'" placeholder="" class="form-control input-md" required=" " type="text">';
+													echo '<input id="firstname" name="firstname" value="'.$nomMedecin.'"  class="form-control input-md" required=" " type="text">';
 												?>
 									
 											</div>
@@ -117,10 +130,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="lastname">Prénom* </label>  
+											<label class="col-md-4 control-label" for="lastname">Prénom <span style="color: red">*</span> </label>  
 											<div class="col-md-5">
 												<?php
-													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" placeholder="" class="form-control input-md" required="" type="text">';
+													echo'<input id="lastname" name="lastname" value="'.$prenomMedecin.'" " class="form-control input-md" required="" type="text">';
 												?>
 									
 											</div>
@@ -133,10 +146,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli*</label>  
+											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'" placeholder="" class="form-control input-md" required="" type="text">';
+													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'"  class="form-control input-md" required="" type="text" maxlength="10">';
 												?>
 									
 											</div>
@@ -163,7 +176,7 @@
 											<label class="col-md-4 control-label" for="city">Code postal</label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="city" name="city" value="'.$cpMedecin.'" placeholder="" class="form-control input-md"  type="number">';
+													echo'<input id="city" name="city" value="'.$cpMedecin.'" placeholder="" class="form-control input-md"  type="number" maxlength="5">';
 												?>
 									
 											</div>
@@ -192,7 +205,7 @@
 								  <label class="col-md-2 control-label" for="phone">Téléphone</label>  
 								  <div class="col-md-5">
 								 <?php
-								  echo' <input id="phone" name="phone" value="'.$telMedecin.'" placeholder="" class="form-control input-md" type="tel">';
+								  echo' <input id="phone" name="phone" value="'.$telMedecin.'" placeholder="" class="form-control input-md" type="tel" maxlength="10">';
 								  ?>
 									
 								  </div>
@@ -204,7 +217,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-2 control-label" for="email">Email*</label>  
+								  <label class="col-md-2 control-label" for="email">Email <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								  <?php
 								  echo'<input id="email" name="email" placeholder="" value="'.$mailMedecin.'" class="form-control input-md" required="" type="email">';
@@ -224,6 +237,7 @@
 					</center>			
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

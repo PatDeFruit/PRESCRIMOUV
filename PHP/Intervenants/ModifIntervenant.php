@@ -58,8 +58,22 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Intervenant  n°'.$idIntervenant.' </center></legend>'; ?>
 					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Intervenant  n°'.$idIntervenant.' </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeIntervenant.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+
+						</script>
 					</br>
 					<center>
 					<?php
@@ -68,6 +82,7 @@
 								$query->bindValue(':idIntervenant',$idIntervenant, PDO::PARAM_STR);
 								$query->execute();
 								$data = $query->fetch();
+								
 								
 								$nomIntervenant = $data['nom_intervenant'];
 								$prenomIntervenant = $data['prenom_intervenant'];
@@ -82,7 +97,7 @@
 
 							
 
-					
+					<div id="afficherInfosPatient">
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
 							<h3>Modifier Intervenant </h3> 
@@ -99,7 +114,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="nom">Nom*</label>  
+											<label class="col-md-4 control-label" for="nom">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="nom" name="nom" value="'.$nomIntervenant.'" class="form-control input-md" required=" " type="text">';
@@ -115,7 +130,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="prenom">Prenom*</label>  
+											<label class="col-md-4 control-label" for="prenom">Prenom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="prenom" name="prenom" value="'.$prenomIntervenant.'" class="form-control input-md"  required=" " type="text">';
@@ -130,7 +145,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<label class="col-md-4 control-label" for="email">Email <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="email" name="email" value="'.$mailIntervenant.'" class="form-control input-md"  required=" " type="text">';
@@ -145,15 +160,81 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="tel">Telephone*</label>  
+											<label class="col-md-4 control-label" for="tel">Telephone <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="tel" name="tel" value="'.$telIntervenant.'" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="tel" name="tel" value="'.$telIntervenant.'" class="form-control input-md"  required=" " type="text" maxlength="10">';
 												?>
 									
 											</div>
 										</div>
 									</td>
+								</tr>
+								<tr>
+									<td>
+									<!-- Text input-->
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="diplome2">Diplôme<span style="color: red">*</span></label>  
+											<div class="col-md-5">
+												<select name="diplome2" id="diplome2" class="form-control"  required="" >
+												<?php
+													$query=$bdd->prepare('SELECT id_intervenant, id_diplome, nom_diplome FROM diplomes JOIN intervenants USING(id_intervenant) WHERE id_intervenant = "'.$idIntervenant.'"');
+													$query->execute;
+													$data = $query->fetch();
+													$idDiplome = $data['id_diplome'];
+													$query->CloseCursor();
+													 
+													$query=$bdd->prepare('SELECT id_intervenant, id_diplome, nom_diplome FROM diplomes');
+													$query->execute();
+													while($data = $query->fetch()){
+													 echo'<option value="'.$data['id_diplome'].'" ';
+													 if($data['id_diplome'] == $idDiplome){
+														 echo 'selected = "selected"';
+													 }
+													 echo'>'.$data['nom_diplome'].'</option>';
+													}
+													$query->CloseCursor();
+												 
+												  ?>
+											</select>	
+									
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="cartePro">Carte professionnelle <span style="color: red">*</span></label>  
+								  <div class="col-md-6">
+								  <select name="cartePro" id="cartePro" class="form-control">
+								  <?php
+													$query=$bdd->prepare('SELECT id_intervenant, cartePro FROM intervenants WHERE id_intervenant = "'.$idIntervenant.'"');
+													$query->execute;
+													$data = $query->fetch();
+													$cartePro = $data['cartePro'];
+													$query->CloseCursor();
+													
+												?>
+											<?php
+											 echo'<option value="1" ';
+											 if($cartePro == 1){
+												 echo 'selected = "selected"';
+											 }
+											 echo' >Oui</option>';
+											 echo'<option value="0" ';
+											 if($cartePro == 0){
+												 echo 'selected = "selected"';
+											 }
+											 echo'>Non</option>';
+										 
+										  ?>
+									</select>		
+										
+								</div>
+								</div>
+								</td>
 								</tr>
 								</table>
 								
@@ -163,6 +244,7 @@
 					</center>			
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

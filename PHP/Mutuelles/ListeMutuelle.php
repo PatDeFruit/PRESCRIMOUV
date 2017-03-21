@@ -52,8 +52,9 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des Mutuelles </legend></center>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des mutuelles </center></legend>'; ?>
 					<br/>
+					<div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout mutuelle" onclick="self.location.href='AjoutMutuelle.php'"></center>
 					<br/><br/>
 					<center>
@@ -97,6 +98,7 @@
 					
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

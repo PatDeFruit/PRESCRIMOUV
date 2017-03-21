@@ -52,8 +52,8 @@
            <div id="conteneurPrincipale">
 			<div id="conteneurTotal">	
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des médecins </legend></center>
-					<br/>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des médecins</center></legend>'; ?>
+					<br/><div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout médecin" onclick="self.location.href='AjoutMedecin.php'"></center>
 					<br/><br/>
 					<center>
@@ -90,6 +90,7 @@
 					
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

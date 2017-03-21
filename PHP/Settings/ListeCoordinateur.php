@@ -52,8 +52,9 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des coordinateurs </legend></center>
+					<?php echo'<center><legend> <a href="Settings.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des coordinateurs</center></legend>'; ?>
 					<br/>
+					<div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout Coordinateur" onclick="self.location.href='AjoutCoordinateur.php'"></center>
 					<br/><br/>
 					<center>
@@ -92,6 +93,7 @@
 					
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

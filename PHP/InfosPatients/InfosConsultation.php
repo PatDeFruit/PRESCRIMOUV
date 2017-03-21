@@ -209,6 +209,7 @@
 								<!-- Text input-->
 								<div class="form-group">
 								  <label class="col-md-4 control-label" for="med">Médecin prescripteur  </label>  
+								  <a data-toggle="modal" data-target="#squarespaceModal" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
 								  <div class="col-md-5">
 								  <?php
 								  echo'<input id="med" name="med" value="'.$nomMedecin.'" class="form-control input-md" disabled="disabled" required="" type="text">';
@@ -231,6 +232,35 @@
 								</div>
 								</td>
 								</tr>
+								<tr>
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="mut">Mutuelle</span></a></label>  
+								  <a data-toggle="modal" data-target="#squarespaceModalMut" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-eye-open"></span></a>
+								  <div class="col-md-5">
+										 <?php
+
+								  echo'<input id="mut" name="mut" value="'.$mutuelle.'" class="form-control input-md" disabled="disabled" required="" type="text">';
+								  ?>					  
+								  </div>
+								</div>
+								</td>
+				
+								<td>
+								<!-- Text input-->
+								<div class="form-group">
+								  <label class="col-md-4 control-label" for="numAffiliation">Numéro Affiliation</label>  
+								  <div class="col-md-4">
+								  <?php
+								  echo'<input id="numAffiliation" name="numAffiliation" value="'.$numAffiliation.'" class="form-control input-md"  disabled="disabled" type="number">';
+								  ?>
+									
+								  </div>
+								</div>
+								</td>
+								
+								</tr>
 								</table>
 								<?php
 								if($statutPatient == "Actif - Entretien initial"){
@@ -247,3 +277,99 @@
 								</form>
 
 							   </div>
+							   <!-- line modal -->
+<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Votre médecin</h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			<?php
+				$query=$bdd->prepare('SELECT * FROM medecins WHERE id_medecin = "'.$idMedecin.'"');
+				$query->execute();
+				$data = $query->fetch();
+			?>
+			<form>
+              <div class="form-group">
+                <label for="nameMed">Nom du médecin</label>
+                <?php echo'<input type="text" class="form-control" id="nameMed" disabled="disabled" value="'.$data['nom_medecin'].'">'; ?>
+              </div>
+              <div class="form-group">
+                <label for="firstnameMed">Prénom du médecin</label>
+                <?php echo'<input type="text" class="form-control" id="firstnameMed" disabled="disabled" value="'.$data['prenom_medecin'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="numAdeli">Numéro Adeli</label>
+                <?php echo'<input type="number" class="form-control" id="numAdeli" disabled="disabled" value="'.$data['num_adeli'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="telMed">Téléphone</label>
+                <?php echo'<input type="tel" class="form-control" id="telMed" disabled="disabled" value="'.$data['tel_medecin'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="emailMed">Email</label>
+                <?php echo'<input type="email" class="form-control" id="emailMed" disabled="disabled" value="'.$data['email_medecin'].'">'; ?>
+              </div>
+            </form>
+			<?php 
+			$query->CloseCursor();
+			?>
+		</div>
+		
+	</div>
+  </div>
+</div>
+  <!-- line modal -->
+<div class="modal fade" id="squarespaceModalMut" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Fermer</span></button>
+			<h3 class="modal-title" id="lineModalLabel">Votre mutuelle</h3>
+		</div>
+		<div class="modal-body">
+			
+            <!-- content goes here -->
+			<?php
+				$query=$bdd->prepare('SELECT * FROM mutuelles WHERE id_mutuelle = "'.$idMutuelle.'"');
+				$query->execute();
+				$data = $query->fetch();
+			?>
+			<form>
+              <div class="form-group">
+                <label for="nameMut">Votre mutuelle</label>
+                <?php echo'<input type="text" class="form-control" id="nameMut" disabled="disabled" value="'.$data['nom_mutuelle'].'">'; ?>
+              </div>
+              <div class="form-group">
+                <label for="adressMut">Adresse</label>
+                <?php echo'<input type="text" class="form-control" id="adressMut" disabled="disabled" value="'.$data['adresse_mutuelle'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="cpMut">Code Postal</label>
+                <?php echo'<input type="number" class="form-control" id="cpMut" disabled="disabled" value="'.$data['CP_mutuelle'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="villeMut">Ville</label>
+                <?php echo'<input type="text" class="form-control" id="villeMut" disabled="disabled" value="'.$data['ville_mutuelle'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="telMut">Téléphone</label>
+                <?php echo'<input type="tel" class="form-control" id="telMut" disabled="disabled" value="'.$data['tel_mutuelle'].'">'; ?>
+              </div>
+			  <div class="form-group">
+                <label for="emailMut">Email</label>
+                <?php echo'<input type="email" class="form-control" id="emailMut" disabled="disabled" value="'.$data['email_mutuelle'].'">'; ?>
+              </div>
+            </form>
+			<?php 
+			$query->CloseCursor();
+			?>
+		</div>
+		
+	</div>
+  </div>
+</div>

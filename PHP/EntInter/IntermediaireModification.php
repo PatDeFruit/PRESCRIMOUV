@@ -8,7 +8,7 @@
 									?>
 									<input name="idFormulaire" type="hidden" value="form-entIntermediaire">
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="dateEnt2">Date de l'entretien intermédiaire</label>  
+								  <label class="col-md-4 control-label" for="dateEnt2">Date de l'entretien intermédiaire <span style="color: red">*</span></label>  
 								  <div class="col-md-3">
 								  <?php
 								  echo'<input id="dateEnt2" name="dateEnt2" value="'.$dateEntretien2.'" class="form-control input-md"   required="" type="date">';
@@ -20,10 +20,10 @@
 								<td>
 								<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="nivAP3mois">Niveau d'AP actuel</label>  
+									  <label class="col-md-4 control-label" for="nivAP3mois">Niveau d'AP actuel <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input type="range" name="nivAP3mois" id="nivAP3mois" min="0" max="10" value="'.$nivAP2.'"    class="form-control input-md" onchange="rangePrimary5.value=value">';
+									  echo'<input type="range" name="nivAP3mois" id="nivAP3mois" min="0" max="10" value="'.$nivAP2.'"   required=""   class="form-control input-md" onchange="rangePrimary5.value=value">';
 									  ?>
 									  </div>
 									  <div class="col-md-2">
@@ -41,7 +41,7 @@
 								  <label class="col-md-4 control-label" for="comm">Commentaires</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="comm" name="comm" value="'.$commentaire.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="comm" name="comm" value="'.$commentaire.'" class="form-control input-md" type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -51,10 +51,10 @@
 								<td>
 								<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="nivCS3mois">Comportements sédentaires</label>  
+									  <label class="col-md-4 control-label" for="nivCS3mois">Comportements sédentaires <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
-									  echo'<input type="range" name="nivCS3mois" id="nivCS3mois" min="0" max="10" value="'.$nivCS2.'"    class="form-control input-md" onchange="rangePrimary4.value=value">';
+									  echo'<input type="range" name="nivCS3mois" id="nivCS3mois" min="0" max="10" value="'.$nivCS2.'"   required=""   class="form-control input-md" onchange="rangePrimary4.value=value">';
 									  ?>
 									  </div>
 									  <div class="col-md-2">
@@ -69,7 +69,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="freinsInit">Rappel des freins initiaux</label>  
+								  <label class="col-md-4 control-label" for="freinsInit">Rappel des freins initiaux </label>  
 								  <div class="col-md-4">
 								  <?php
 								  $query=$bdd->prepare('SELECT id_obstacle, obstacle, id_entretien FROM obstacles JOIN a_pour_obstacle USING(id_obstacle) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1 OR id_entretien = :id_entretien2');
@@ -93,7 +93,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="freins3mois">Etat des freins à 3 mois</label>  
+								  <label class="col-md-4 control-label" for="freins3mois">Etat des freins à 3 mois <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								<?php
 								
@@ -105,7 +105,7 @@
 								while($data = $query->fetch()){									
 									echo'<span class="button-checkbox">
 									<button type="button" class="btn" data-color="primary" >'.$data['obstacle'].'</button>
-									<input type="checkbox" name="checkFrein2[]" id="checkFrein2[]" value="'.$data['id_obstacle'].'" class="hidden" />
+									<input type="checkbox" name="checkFrein2[]" id="checkFrein2[]" value="'.$data['id_obstacle'].'" class="hidden"   />
 								</span>';
 								}
 								
@@ -123,7 +123,7 @@
 								  <label class="col-md-4 control-label" for="solu">Solutions</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="solu" name="solu" value="'.$solutions.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="solu" name="solu" value="'.$solutions.'" class="form-control input-md"   type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -139,7 +139,7 @@
 								  <label class="col-md-4 control-label" for="positif">Positifs</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="positif" name="positif" value="'.$positif.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="positif" name="positif" value="'.$positif.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -152,7 +152,7 @@
 								  <label class="col-md-4 control-label" for="negatif">Negatifs</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="negatif" name="negatif" value="'.$negatif.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="negatif" name="negatif" value="'.$negatif.'" class="form-control input-md"    type="text">';
 								  ?>
 								  </div>
 								</div>
@@ -162,7 +162,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="goalInit">Rappel des objectifs</label>  
+								  <label class="col-md-4 control-label" for="goalInit">Rappel des objectifs </label>  
 								  <div class="col-md-4">
 								  <?php
 								  $query=$bdd->prepare('SELECT id_objectif, objectif, id_entretien FROM objectifs JOIN a_pour_objectif USING(id_objectif) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1 OR id_entretien = :id_entretien2');
@@ -186,7 +186,7 @@
 								<td>
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="goal3mois">Objectifs pour les 3 prochains mois</label>  
+								  <label class="col-md-4 control-label" for="goal3mois">Objectifs pour les 3 prochains mois <span style="color: red">*</span></label>  
 								  <div class="col-md-8">
 								<?php
 								$query=$bdd->prepare('SELECT id_motivation, motivation FROM motivations WHERE id_motivation NOT IN (SELECT id_motivation FROM motivations JOIN a_pour_motivation USING(id_motivation) JOIN entretiens USING(id_entretien) WHERE id_entretien = :id_entretien1 OR id_entretien =:id_entretien2)');
@@ -197,7 +197,7 @@
 								while($data = $query->fetch()){									
 									echo'<span class="button-checkbox">
 									<button type="button" class="btn" data-color="primary" >'.$data['motivation'].'</button>
-									<input type="checkbox" name="checkMotiv2[]" id="checkMotiv2[]" value="'.$data['id_motivation'].'" class="hidden" />
+									<input type="checkbox" name="checkMotiv2[]" id="checkMotiv2[]" value="'.$data['id_motivation'].'" class="hidden"   />
 								</span>';
 								}
 								
@@ -215,12 +215,13 @@
 								  <label class="col-md-4 control-label" for="APapresProg">AP envisagée après le programme</label>  
 								  <div class="col-md-6">
 								  <?php
-								  echo'<input id="APapresProg" name="APapresProg" value="'.$APenvisagee.'" class="form-control input-md"   required="" type="text">';
+								  echo'<input id="APapresProg" name="APapresProg" value="'.$APenvisagee.'" class="form-control input-md"  type="text">';
 								  ?>
 								  </div>
 								</div>
 								</td>
 								</tr>
+
 								</table>
 								
 								<?php

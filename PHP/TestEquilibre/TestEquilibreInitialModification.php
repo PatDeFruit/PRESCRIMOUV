@@ -5,7 +5,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="PiedDYO1">Temps</label>  
+									  <label class="col-md-4 control-label" for="PiedDYO1">Temps <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input id="PiedDYO1" name="PiedDYO1" value="'.$tempsPDYO1.'" class="form-control input-md"   required="" type="number">';
@@ -22,7 +22,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="PiedDYF1">Temps</label>  
+									  <label class="col-md-4 control-label" for="PiedDYF1">Temps <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input id="PiedDYF1" name="PiedDYF1" value="'.$tempsPDYF1.'" class="form-control input-md"   required="" type="number">';
@@ -38,7 +38,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="PiedGYO1">Temps</label>  
+									  <label class="col-md-4 control-label" for="PiedGYO1">Temps <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input id="PiedGYO1" name="PiedGYO1" value="'.$tempsPGYO1.'" class="form-control input-md"   required="" type="number">';
@@ -55,7 +55,7 @@
 									<td>
 									<!-- Text input-->
 									<div class="form-group">
-									  <label class="col-md-4 control-label" for="PiedGYF1">Temps</label>  
+									  <label class="col-md-4 control-label" for="PiedGYF1">Temps <span style="color: red">*</span></label>  
 									  <div class="col-md-4">
 									  <?php
 									  echo'<input id="PiedGYF1" name="PiedGYF1" value="'.$tempsPGYF1.'" class="form-control input-md"   required="" type="number">';

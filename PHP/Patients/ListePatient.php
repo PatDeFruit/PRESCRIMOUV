@@ -52,7 +52,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des bénéficiaires </legend></center>
+					<center><legend><a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des bénéficiaires</center></legend>
 					<center>
 						<table id="tableauPatient" class="table-hover">
 							<thead>
@@ -97,7 +97,8 @@
 					</center>
 					
 				</fieldset>
-			</div>
+	
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

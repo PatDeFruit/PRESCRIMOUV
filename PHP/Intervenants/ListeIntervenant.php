@@ -52,12 +52,13 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des intervenants </legend></center>
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Liste des intervenants</center></legend>'; ?>
 					<br/>
+					<div id="afficherInfosPatient">
 					<center><input type="button" id="boutonAutre" value="Ajout intervenants" onclick="self.location.href='AjoutIntervenant.php'"></center>
 					<br/><br/>
 					<center>
-						<table id="tableauPatient" class="table-hover">
+						<table id="tableauPatient" class="table-hover" width="80%">
 							<thead>
 								<th class="text-center">
 								Identifiant
@@ -81,15 +82,15 @@
 								$query->execute();
 								;
 								while($data=$query->fetch()){
-									echo '<tr><td width="15%" class="text-center">'.$data['id_intervenant'].'</td><td width="25%" class="text-center">'.$data['nom_intervenant'].'</td><td width="25%" class="text-center">'.$data['prenom_intervenant'].'</td><td width="25%" class="text-center">'.$data['email_intervenant'].'</td><td width="25%" class="text-center">'.$data['tel_intervenant'].'</td>';
-									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifIntervenant.php?idIntervenant='.$data['id_intervenant'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo '<tr><td class="text-center">'.$data['id_intervenant'].'</td><td class="text-center">'.$data['nom_intervenant'].'</td><td class="text-center">'.$data['prenom_intervenant'].'</td><td  class="text-center">'.$data['email_intervenant'].'</td><td class="text-center">'.$data['tel_intervenant'].'</td>';
+									echo'<td class="text-center" ><a class=\'btn btn-info btn-xs\' href="ModifIntervenant.php?idIntervenant='.$data['id_intervenant'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();
 							?>
 						</table>
 					</center>
-					
+					</div>
 				</fieldset>
 			</div>
 		</div>

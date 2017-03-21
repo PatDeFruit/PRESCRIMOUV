@@ -56,9 +56,10 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="#"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-pencil navbar-nav"></span></a> Coordinateur n°'.$idCoordinateur.' </center></legend>'; ?>
 					
+					<?php echo'<center><legend> <a href="ListeCoordinateur.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a><a href="ModifCoordinateur.php?idCoordinateur='.$idCoordinateur.'" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-pencil"></span></a>Coordinateur n°'.$idCoordinateur.'</center></legend>'; ?>
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE COORDINATEUR
@@ -157,6 +158,7 @@
 					</center>
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->

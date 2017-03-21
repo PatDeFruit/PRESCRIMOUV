@@ -58,9 +58,24 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> Lieu de pratique  n°'.$idCentre.' </center></legend>'; ?>
+					
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Structure  n°'.$idCentre.' </center></legend>'; ?>
+					<script>
+						function confirmFunction() {
+							var txt;
+							var r = confirm("Êtes-vous sûr ?");
+							if (r == true) {
+								txt = "OK!";
+								window.location.assign("ListeCentre.php");
+							} else {
+								txt = "Annuler!";
+							}
+							document.getElementById("demo").innerHTML = txt;
+						}
+						</script>
 					
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE LIEU DE PRATIQUE
@@ -89,7 +104,7 @@
 					
 					<div class="tab-content">
 						<div id="ficheResume" class="tab-pane fade active in">				
-							<h3>Modifier Lieu de pratique</h3> 
+							<h3>Modifier la structure</h3> 
 							
 							<form method="POST" action="ModifierCentre.php" class="form-horizontal">
 							
@@ -103,7 +118,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="nom">Nom*</label>  
+											<label class="col-md-4 control-label" for="nom">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="nom" name="nom" value="'.$nomCentre.'" class="form-control input-md" required=" " type="text">';
@@ -119,7 +134,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="adresse">Adresse*</label>  
+											<label class="col-md-4 control-label" for="adresse">Adresse <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="adresse" name="adresse" value="'.$adresseCentre.'" class="form-control input-md"  required=" " type="text">';
@@ -134,10 +149,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="CP">Code Postale*</label>  
+											<label class="col-md-4 control-label" for="CP">Code Postal <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="CP" name="CP" value="'.$cpCentre.'" class="form-control input-md"  required=" " type="number">';
+													echo '<input id="CP" name="CP" value="'.$cpCentre.'" class="form-control input-md"  required=" " type="number" maxlength="5">';
 												?>
 									
 											</div>
@@ -149,7 +164,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="ville">Ville*</label>  
+											<label class="col-md-4 control-label" for="ville">Ville <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="ville" name="ville" value="'.$villeCentre.'" class="form-control input-md"  required=" " type="text">';
@@ -165,10 +180,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="tel">Telephone*</label>  
+											<label class="col-md-4 control-label" for="tel">Telephone</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="tel" name="tel" value="'.$telCentre.'" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="tel" name="tel" value="'.$telCentre.'" class="form-control input-md"  type="text" maxlength="10" >';
 												?>
 									
 											</div>
@@ -180,10 +195,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<label class="col-md-4 control-label" for="email">Email</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="email" name="email" value="'.$mailCentre.'" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="email" name="email" value="'.$mailCentre.'" class="form-control input-md"   type="text">';
 												?>
 									
 											</div>
@@ -195,12 +210,33 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="typeCentre">Type Centre*</label>  
+											<label class="col-md-4 control-label" for="typeCentre">Type de structure <span style="color: red">*</span></label>  
 											<div class="col-md-5">
-												<?php
-													echo '<input id="typeCentre" name="typeCentre" value="'.$typeCentre.'" class="form-control input-md"  required=" " type="text">';
-												?>
-									
+											<select name="typeCentre" id="typeCentre" class="form-control"  required="" >
+											<?php
+											 echo'<option value="Privé" ';
+											 if($typeCentre == "Privé"){
+												 echo 'selected = "selected"';
+											 }
+											 echo' >Privé</option>';
+											 echo'<option value="Association fédérale" ';
+											 if($typeCentre == "Association fédérale"){
+												 echo 'selected = "selected"';
+											 }
+											 echo'>Association fédérale</option>';
+											  echo'<option value="Comité" ';
+											 if($typeCentre == "Comité"){
+												 echo 'selected = "selected"';
+											 }
+											 echo'>Comité</option>';
+											  echo'<option value="Association patients" ';
+											 if($typeCentre == "Association patients"){
+												 echo 'selected = "selected"';
+											 }
+											 echo'>Association patients</option>';
+										 
+										  ?>
+										</select>		
 											</div>
 										</div>
 									</td>
@@ -213,6 +249,7 @@
 							</form>	
 					</center>			
 				</fieldset>
+			</div>
 			</div>
 		</div>
 		

@@ -77,14 +77,33 @@
 			<div id = "ConteneurDroit">
 				<fieldset id="conteneurStat">
 					<center><legend> Statistiques </legend></center>
-					<img style="margin-left : 20px; margin-top : 17px;" src="../images/patientstats.png"/>
-					<input style="float : right; margin-right : 70px; margin-bottom : 10px; margin-top:135px;" type="button" id="boutonAutre" value="Plus de statistiques" onclick="self.location.href='Statistiques/AfficherStatistiques.php'">
+					<table width="100%">
+						<tr>
+							<td>
+							<img style="margin-left : 20px; margin-top : 17px;" src="Statistiques/benefAgeSexe.png" width="400px"/>
+							</td>
+							<td>
+							<input style="float : right; margin-right : 70px; margin-bottom : 10px; margin-top:135px;" type="button" id="boutonAutre" value="Plus de statistiques" onclick="self.location.href='Statistiques/AfficherStatistiques.php'">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphAttentePatho.png" />
+							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphInitialPatho.png" />
+							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphInterPatho.png" />
+							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphFinalPatho.png" />
+							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphArchivePatho.png" />
+							</td>
+						</tr>
+					</table>
+					
+					
 				</fieldset>
 				<fieldset id="conteneurAutre">
 					<center><legend>  Autres </legend></center>
 						<input style="margin-top : 0px" type="button" id="boutonAutre" value="Activités" onclick="self.location.href='Activites/ListeActivite.php'">
 						<input type="button" id="boutonAutre" value="Intervenants" onclick="self.location.href='Intervenants/ListeIntervenant.php'">
-						<input type="button" id="boutonAutre" value="Lieux de pratique" onclick="self.location.href='Centres/ListeCentre.php'">
+						<input type="button" id="boutonAutre" value="Structures" onclick="self.location.href='Centres/ListeCentre.php'">
 						<input type="button" id="boutonAutre" value="Créneaux" onclick="self.location.href='Creneaux/ListeCreneau.php'">
 				</fieldset>
 			</div>

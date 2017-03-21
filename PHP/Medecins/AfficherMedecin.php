@@ -56,9 +56,9 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="#"><span class="glyphicon glyphicon-arrow-left text-center navbar-nav"></span></a><a href="#"><span class="glyphicon glyphicon-pencil navbar-nav"></span></a> Mèdecin  n°'.$idMedecin.' </center></legend>'; ?>
-					
+					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a><a href="ModifMedecin.php?idMedecin='.$idMedecin.'" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-pencil"></span></a> Médecin  n°'.$idMedecin.' </center></legend>'; ?>
 					</br>
+					<div id="afficherInfosPatient">
 					<center>
 					<?php
 								// REQUETE PATIENT
@@ -200,13 +200,14 @@
 								</div>
 								</td>
 								</tr>
-
+									</table>
 									
 								 
 						
 					</center>
 				</fieldset>
 			</div>
+		</div>
 		</div>
 		
         <!-------------------------- /Container --------------------------------->
