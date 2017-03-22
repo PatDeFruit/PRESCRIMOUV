@@ -83,7 +83,7 @@
 						$query->execute();
 						$data=$query->fetch();
 			
-						if ($data['pswd'] == $_POST['pswd']) // Acces OK !
+						if ($data['pswd'] == md5($_POST['pswd']) )// Acces OK !
 						{
 							$_SESSION['email_coordinateur'] = $data['email_coordinateur'];
 							$_SESSION['nom_coordinateur'] = $data['nom_coordinateur'];

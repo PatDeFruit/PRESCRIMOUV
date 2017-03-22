@@ -3,6 +3,7 @@
 	include("../../BDD/connexionBDD.php");
 		
 	$nom=$_POST['nom'];
+	$nom = strtoupper($nom);
 	$prenom=$_POST['prenom'];
 	$email=$_POST['email'];
 	$tel=$_POST['tel'];

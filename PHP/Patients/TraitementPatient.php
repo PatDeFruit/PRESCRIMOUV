@@ -52,7 +52,7 @@
 			if($idFormulaire=="form-resume"){
 			$idPatient = $_POST['idPat'];
 			$newNomPatient = $_POST['firstname'];
-			$newNomPatient = $_POST['firstname'];
+			$newNomPatient = strtoupper($newNomPatient);
 			$newPrenomPatient = $_POST['lastname'];
 			$newHistoPatient = $_POST['histo'];
 			$query=$bdd->prepare('UPDATE patients SET nom_patient = "'.$newNomPatient.'", prenom_patient = "'.$newPrenomPatient.'", historique_patho = "'.$newHistoPatient.'" WHERE id_patient = "'.$idPatient.'"');

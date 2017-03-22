@@ -3,6 +3,7 @@
 	include("../../BDD/connexionBDD.php");
 		
 	$nomMed=$_POST['firstname'];
+	$nomMed = strtoupper($nomMed);
 	$prenomMed=$_POST['lastname'];
 	$numAdeli=$_POST['numAdeli'];
 	$adresse=$_POST['adresseMedecin'];

@@ -143,7 +143,7 @@
 							</thead>
 							<tbody>
 							<?php
-								$query=$bdd->prepare('SELECT id_patient, nom_patient, prenom_patient, statut, id_statut FROM patients JOIN statuts USING(id_statut) ORDER BY statut');
+								$query=$bdd->prepare('SELECT id_patient, nom_patient, prenom_patient, statut, id_statut FROM patients JOIN statuts USING(id_statut) WHERE id_coordinateur = "'.$id.'" ORDER BY statut');
 								$query->execute();
 								;
 								while($data=$query->fetch()){

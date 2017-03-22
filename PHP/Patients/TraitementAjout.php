@@ -50,6 +50,7 @@
 	<?php 	
 	
 				$newNomPatient = $_POST['firstname'];
+				$newNomPatient = strtoupper($newNomPatient);
 				$numSS = $_POST['numSS'];
 				$newPrenomPatient = $_POST['lastname'];
 				$newDateN = $_POST['birthdate'];

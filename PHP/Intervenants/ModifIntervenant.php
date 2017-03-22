@@ -179,12 +179,12 @@
 												<select name="diplome2" id="diplome2" class="form-control"  required="" >
 												<?php
 													$query=$bdd->prepare('SELECT id_intervenant, id_diplome, nom_diplome FROM diplomes JOIN intervenants USING(id_intervenant) WHERE id_intervenant = "'.$idIntervenant.'"');
-													$query->execute;
+													$query->execute();
 													$data = $query->fetch();
 													$idDiplome = $data['id_diplome'];
 													$query->CloseCursor();
 													 
-													$query=$bdd->prepare('SELECT id_intervenant, id_diplome, nom_diplome FROM diplomes');
+													$query=$bdd->prepare('SELECT id_diplome, nom_diplome FROM diplomes');
 													$query->execute();
 													while($data = $query->fetch()){
 													 echo'<option value="'.$data['id_diplome'].'" ';
@@ -211,7 +211,7 @@
 								  <select name="cartePro" id="cartePro" class="form-control">
 								  <?php
 													$query=$bdd->prepare('SELECT id_intervenant, cartePro FROM intervenants WHERE id_intervenant = "'.$idIntervenant.'"');
-													$query->execute;
+													$query->execute();
 													$data = $query->fetch();
 													$cartePro = $data['cartePro'];
 													$query->CloseCursor();

@@ -147,7 +147,7 @@
 												<select name="diplome" id="diplome" class="form-control"  required="" >
 												<?php
 													$query=$bdd->prepare('SELECT id_diplome, nom_diplome FROM diplomes');
-													$query->execute;
+													$query->execute();
 													while($query->fetch()){
 														echo'<option value="'.$data['id_diplome'].'">'.$data['nom_diplome'].'</option>';
 													}
