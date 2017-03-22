@@ -83,7 +83,7 @@
 						$query->bindValue(':email_coordinateur',$_POST['email_coordinateur'], PDO::PARAM_STR);
 						$query->execute();
 						$data=$query->fetch();
-			
+						
 						if ($data['pswd'] == $_POST['pswd']) // Acces OK !
 						{
 							$_SESSION['email_coordinateur'] = $data['email_coordinateur'];
@@ -113,10 +113,10 @@
     <!-- /content -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
 
 </body>
 

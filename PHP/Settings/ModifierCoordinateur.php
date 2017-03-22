@@ -16,8 +16,17 @@
 	echo $tel;
 	echo $pswd;
 
+	if($pswd==""){
+		$query=$bdd->prepare('UPDATE coordinateur SET nom_coordinateur=:nom, prenom_coordinateur=:prenom, email_coordinateur=:email, tel_coordinateur=:tel WHERE id_coordinateur=:idCoordinateur');
+	$query->bindValue(':nom',$nom,PDO::PARAM_STR);
+	$query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
+	$query->bindValue(':email',$email,PDO::PARAM_STR);
+	$query->bindValue(':tel',$tel,PDO::PARAM_STR);
+	$query->bindValue(':idCoordinateur',$idCoordinateur,PDO::PARAM_STR);
 	
-	$query=$bdd->prepare('UPDATE coordinateur SET nom_coordinateur=:nom, prenom_coordinateur=:prenom, email_coordinateur=:email, tel_coordinateur=:tel, pswd=:pswd WHERE id_coordinateur=:idCoordinateur');
+	$query->execute();
+	} else {
+		$query=$bdd->prepare('UPDATE coordinateur SET nom_coordinateur=:nom, prenom_coordinateur=:prenom, email_coordinateur=:email, tel_coordinateur=:tel, pswd=:pswd WHERE id_coordinateur=:idCoordinateur');
 	$query->bindValue(':nom',$nom,PDO::PARAM_STR);
 	$query->bindValue(':prenom',$prenom,PDO::PARAM_STR);
 	$query->bindValue(':email',$email,PDO::PARAM_STR);
@@ -26,6 +35,9 @@
 	$query->bindValue(':idCoordinateur',$idCoordinateur,PDO::PARAM_STR);
 	
 	$query->execute();
+	}
+	
+	
 	
 
 	header('Location: http://localhost/prescrimouv/PHP/Settings/ListeCoordinateur.php');

@@ -135,7 +135,7 @@
 											<label class="col-md-4 control-label" for="adresseMutuelle">Adresse</label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="adresseMutuelle" name="adresseMutuelle" value="'.$adresseMutuelle.'" class="form-control input-md"   required=""  type="text">';
+													echo '<input id="adresseMutuelle" name="adresseMutuelle" value="'.$adresseMutuelle.'" class="form-control input-md"     type="text">';
 												?>
 									
 											</div>
@@ -150,7 +150,7 @@
 											<label class="col-md-4 control-label" for="city">Code postal</label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="city" name="city" value="'.$cpMutuelle.'" class="form-control input-md"   required=""  type="number" maxlength="5">';
+													echo'<input id="city" name="city" value="'.$cpMutuelle.'" class="form-control input-md"    type="number" maxlength="5">';
 												?>
 									
 											</div>
@@ -163,7 +163,7 @@
 											<label class="col-md-4 control-label" for="state">Ville</label>  
 											<div class="col-md-5">
 											<?php
-												echo'<input id="state" name="state" value="'.$villeMutuelle.'" class="form-control input-md"   required=""  type="text">';
+												echo'<input id="state" name="state" value="'.$villeMutuelle.'" class="form-control input-md"   type="text">';
 											?>
 									
 											</div>

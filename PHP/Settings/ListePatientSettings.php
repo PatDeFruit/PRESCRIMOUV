@@ -52,7 +52,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<center><legend> Liste des bénéficiaires archivés </legend></center>
+					<center><legend><a href="Settings.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Liste des bénéficiaires archivés </legend></center>
 					<div id="afficherInfosPatient">
 					<center>
 						<table id="tableauPatient" class="table-hover">

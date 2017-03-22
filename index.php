@@ -71,6 +71,7 @@
 				else
 				{
 					$message='';
+					
 					if (empty($_POST['email_coordinateur']) || empty($_POST['pswd']) ) //Oublie d'un champ
 					{
 						header('Location: http://localhost/prescrimouv/PHP/Connexion_ErrorEmail.php');

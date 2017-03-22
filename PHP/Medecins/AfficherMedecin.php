@@ -56,7 +56,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a><a href="ModifMedecin.php?idMedecin='.$idMedecin.'" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-pencil"></span></a> Médecin  n°'.$idMedecin.' </center></legend>'; ?>
+					<?php echo'<center><legend> <a href="ListeMedecin.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a><a href="ModifMedecin.php?idMedecin='.$idMedecin.'" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-pencil"></span></a> Médecin  n°'.$idMedecin.' </center></legend>'; ?>
 					</br>
 					<div id="afficherInfosPatient">
 					<center>

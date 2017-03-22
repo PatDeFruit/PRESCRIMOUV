@@ -60,7 +60,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend> <a href="../Accueil.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Bénéficiaire  n°'.$idPatient.' </center></legend>'; ?>
+					<?php echo'<center><legend> <a href="ListePatient.php" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a>Bénéficiaire  n°'.$idPatient.' </center></legend>'; ?>
 					
 					</br>
 					<center>

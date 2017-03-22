@@ -83,7 +83,7 @@
 								;
 								while($data=$query->fetch()){
 									echo '<tr><td width="5%" class="text-center">'.$data['id_coordinateur'].'</td><td width="20%" class="text-center">'.$data['nom_coordinateur'].'</td><td width="20%" class="text-center">'.$data['prenom_coordinateur'].'</td><td width="25%" class="text-center">'.$data['email_coordinateur'].'</td><td width="20%" class="text-center">'.$data['tel_coordinateur'].'</td>';
-									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherCoordinateur.php?idCoordinateur='.$data['id_coordinateur'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="ModifCoordinateur.php?idCoordinateur='.$data['id_coordinateur'].'"><span class="glyphicon glyphicon-edit"></span> </a> <a class=\'btn btn-info btn-xs\' href="SupprimerCoordinateur.php?idCoordinateur='.$data['id_coordinateur'].'"><span class="glyphicon glyphicon-trash"></span> </a></td>';
+									echo'</td><td class="text-center" width="30%"><a class=\'btn btn-success btn-xs\' href="AfficherCoordinateur.php?idCoordinateur='.$data['id_coordinateur'].'"><span class="glyphicon glyphicon-eye-open"></span> </a> <a class=\'btn btn-info btn-xs\' href="ModifCoordinateur.php?idCoordinateur='.$data['id_coordinateur'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
 								}
 								
 								$query->CloseCursor();

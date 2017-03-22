@@ -482,3 +482,66 @@ legend {
 
 .progress-type { top: 1px } 
 .progress-completed { font-size: 12px } 
+
+.conteneurInterieur{
+	width : 1100px;
+	height : 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+	
+.conteneurInterieur table {
+  width: 100%;
+}
+
+.conteneurInterieur td, .conteneurInterieur th {
+  padding: 10px;
+}
+
+.conteneurInterieur td:first-child, .conteneurInterieur th:first-child {
+  padding-left: 20px;
+}
+
+.conteneurInterieur td:last-child, .conteneurInterieur th:last-child {
+  padding-right: 20px;
+}
+
+.conteneurInterieur th {
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  cursor: pointer;
+}
+
+.conteneurInterieur th.desc:after {
+  border-top-color: #666;
+}
+
+.conteneurInterieur th.asc:before {
+  border-bottom-color: #666;
+}
+
+.conteneurInterieur th:after, .container th:before {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px;
+  width: 0;
+  height: 0;
+}
+
+.conteneurInterieur th:after {
+  border-top-color: #ddd;
+  top: 22px;
+}
+
+.conteneurInterieur th:before {
+  border-bottom-color: #ddd;
+  top: 10px;
+}
+
+.github {
+  margin-top: 50px;
+}

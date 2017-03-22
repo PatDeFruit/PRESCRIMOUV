@@ -146,10 +146,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli <span style="color: red">*</span></label>  
+											<label class="col-md-4 control-label" for="numAdeli">Numéro Adeli </label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'"  class="form-control input-md" required="" type="text" maxlength="10">';
+													echo '<input id="numAdeli" name="numAdeli" value="'.$numAdeli.'"  class="form-control input-md" type="text" maxlength="10">';
 												?>
 									
 											</div>
@@ -230,7 +230,7 @@
 					
 								</table>
 						
-								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">'
+								<input type="submit" value="Enregistrer"  name="valid-entInitial" class="btn btn-success btn-xs">
 								
 								<br/><br/>
 							</form>	

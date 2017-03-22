@@ -175,7 +175,7 @@
 											<label class="col-md-3 control-label" for="password">Mot de passe</label>  
 											<div class="col-md-5">
 												<?php
-													echo' <input id="password" name="password" value="'.$pswd.'" class="form-control input-md" >';
+													echo' <input id="password" name="password" value="" class="form-control input-md" >';
 												?>
 									
 											</div>

@@ -43,7 +43,13 @@
 <body>
 
     <?php include("../header.php"); ?> 
+<script>
+						
+						function ouvre_popup(page) {
+						   window.open(page,"nom_popup","menubar=no, status=no, width=700, height=500");
+					   }
 
+						</script>
     <!-- Page Content -->
     <div class="container">
 
@@ -80,7 +86,10 @@
 								;
 								while($data=$query->fetch()){
 									echo '<tr><td width="15%" class="text-center">'.$data['id_creneau'].'</td><td width="15%" class="text-center">'.$data['jour_creneau'].'</td><td width="25%" class="text-center">'.$data['heure_creneau_debut'].'</td><td width="25%" class="text-center">'.$data['heure_creneau_fin'].'</td>';
-									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifCreneau.php?idCreneau='.$data['id_creneau'].'"><span class="glyphicon glyphicon-edit"></span> </a></td>';
+									echo'<td class="text-center" width="30%"><a class=\'btn btn-info btn-xs\' href="ModifCreneau.php?idCreneau='.$data['id_creneau'].'"><span class="glyphicon glyphicon-edit"></span> </a>
+									<a href="#" class="btn btn-warning btn-xs" onClick="ouvre_popup(\'../Modal/addLiaisonStructure.php?idCreneau='.$data['id_creneau'].'\')"><span class="glyphicon glyphicon-map-marker"></span></a>
+									<a href="#" class="btn btn-success btn-xs" onClick="ouvre_popup(\'../Modal/addLiaisonIntervenant.php?idCreneau='.$data['id_creneau'].'\')"><span class="glyphicon glyphicon-user"></span></a>
+									</td>';
 								}
 								
 								$query->CloseCursor();

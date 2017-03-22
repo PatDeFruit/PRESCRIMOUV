@@ -165,7 +165,7 @@
 												</th>
 											</tr>
 								<?php
-									$query = $bdd->prepare('SELECT id_patient, id_activite, activite FROM doit_pratiquer JOIN activites USING(id_activite)WHERE id_patient =:idPatient');
+									$query = $bdd->prepare('SELECT id_patient, id_activite, activite, nb_seances_effect, nb_seances_prevues FROM doit_pratiquer JOIN activites USING(id_activite)WHERE id_patient =:idPatient');
 									$query->bindValue(':idPatient',$idPatient, PDO::PARAM_STR);
 									$query->execute();
 									while($data = $query->fetch()){
@@ -175,8 +175,12 @@
 													'.$data['activite'].'
 												</td>
 												<td class="text-center">
-												<a href="#" class="btn btn-info btn-xs" onClick="ouvre_popup(\'../Modal/viewDetailsActivitePopUp.php?idAct='.$data['id_activite'].'&idPatient='.$idPatient.'\')"><span class="glyphicon glyphicon-zoom-in"></span>Plus de détails</a>
-												<a href="#" class="btn btn-success btn-xs" onClick="ouvre_popup(\'../Modal/updateDetailsActivitePopUp.php?idAct='.$data['id_activite'].'&idPatient='.$idPatient.'\')"><span class="glyphicon glyphicon-refresh"></span>Mettre à jour les séances</a>
+												<a href="#" class="btn btn-info btn-xs" onClick="ouvre_popup(\'../Modal/viewDetailsActivitePopUp.php?idAct='.$data['id_activite'].'&idPatient='.$idPatient.'\')"><span class="glyphicon glyphicon-zoom-in"></span> Plus de détails</a>';
+												if($data['nb_seances_effect'] != $data['nb_seances_prevues']){
+														echo'<a href="#" class="btn btn-success btn-xs" onClick="ouvre_popup(\'../Modal/updateDetailsActivitePopUp.php?idAct='.$data['id_activite'].'&idPatient='.$idPatient.'&nbSeanceDejaEffect='.$data['nb_seances_effect'].'&nbSeancePrevues='.$data['nb_seances_prevues'].'\')"><span class="glyphicon glyphicon-refresh"></span> Mettre à jour les séances</a>';
+												}
+												echo'
+												<a href="#" class="btn btn-warning btn-xs" onClick="ouvre_popup(\'../Modal/viewCreneaux.php?idAct='.$data['id_activite'].'\')"><span class="glyphicon glyphicon-calendar"></span> Voir les créneaux</a>
 												</td>
 											</tr>
 										';

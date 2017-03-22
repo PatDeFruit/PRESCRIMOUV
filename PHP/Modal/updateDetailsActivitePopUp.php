@@ -33,6 +33,8 @@
 	include("../../BDD/connexionBDD.php");
 	$idPatient = $_GET['idPatient'];
 	$idActivite = $_GET['idAct'];
+	$nbSeancesRealisee = $_GET['nbSeanceDejaEffect'];
+	$nbSeancesPrevues = $_GET['nbSeancePrevues'];
 ?>
 <!-- line modal -->
 			
@@ -43,7 +45,6 @@
 							
 			<form method="POST"  action ="<?php 	
 					$nb_seance = $_POST['nbSeancesRealisee'];
-					
 					$query = $bdd->prepare('UPDATE doit_pratiquer SET nb_seances_effect="'.$nb_seance.'" WHERE id_patient = "'.$idPatient.'" AND id_activite = "'.$idActivite.'"');
 					$query->execute();
 					$query->CloseCursor();
@@ -52,14 +53,8 @@
 			
 			  <div class="form-group">
 				<label for="nbSeancesRealisee">Nombre de séances réalisées</label>
-				<?php 
-
-				$query2=$bdd->prepare('SELECT nb_seances_effect FROM doit_pratiquer WHERE id_patient = "'.$idPatient.'" AND id_activite = "'.$idActivite.'"');
-				$query2->execute();
-				$data2 = $query2->fetch();
-					
-				echo'<input type="number" class="form-control" id="nbSeancesRealisee" value="'.$data2['nb_seances_effect'].'">'; 
-				$query2->CloseCursor();
+				<?php 				
+				echo'<input type="number" class="form-control" id="nbSeancesRealisee" name="nbSeancesRealisee" value="'.$nbSeancesRealisee.'" max="'.$nbSeancesPrevues.'">'; 
 				?>
 			  </div>
 			  

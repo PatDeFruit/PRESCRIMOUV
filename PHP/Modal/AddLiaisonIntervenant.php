@@ -31,58 +31,53 @@
 <?php
 
 	include("../../BDD/connexionBDD.php");
-	$idActivite = $_GET['idActivite'];
-	$query=$bdd->prepare('SELECT activite FROM activites WHERE id_activite ="'.$idActivite.'"');
-	$query->execute();
-	$data = $query->fetch();
-	$activite = $data['activite'];
-	$query->CloseCursor();
+	$idCreneau = $_GET['idCreneau'];
 ?>
 <!-- line modal -->
 			
             <!-- content goes here -->
 			<center>
-			<legend><h3>Les créneaux durant lesquels se pratique l'activité <?php echo $activite;?></h3> </legend>
+			<legend><h3>Intervenants permettant la pratique d'activité au créneau choisi</h3> </legend>
 			<form method="POST"  action ="<?php 	
-			$creneauChoisi = $_POST['act'];
+			$intervenant = $_POST['inter'];
 			
-			$query=$bdd->prepare('SELECT id_creneau FROM se_fait_a WHERE id_activite = "'.$idActivite.'" AND id_creneau="'.$creneauChoisi.'"');
+			$query=$bdd->prepare('SELECT id_intervenant FROM est_encadre_par WHERE id_creneau = "'.$idCreneau.'" AND id_intervenant="'.$intervenant.'"');
 			$query->execute();
 			$data= $query->fetch();
-			$creneauExist = $data['id_creneau'];
+			$intervenantExist = $data['id_intervenant'];
 			$query->CloseCursor();
 			
-			if($creneauExist == 0){
-			$query = $bdd->prepare('INSERT INTO se_fait_a(id_activite, id_creneau) VALUES (:idAct, :idCreneau)');
-			$query->bindValue(':idAct',$idActivite, PDO::PARAM_STR);
-			$query->bindValue(':idCreneau',$creneauChoisi, PDO::PARAM_STR);
+			if($intervenantExist == 0){
+			$query = $bdd->prepare('INSERT INTO est_encadre_par(id_creneau, id_intervenant) VALUES (:idCreneau, :idInterv)');
+			$query->bindValue(':idCreneau',$idCreneau, PDO::PARAM_STR);
+			$query->bindValue(':idInterv',$intervenant, PDO::PARAM_STR);
 			$query->execute();
 			$query->CloseCursor();
 			} 
 			
 	?>">		
-				<h4>Créneaux déjà disponibles pour cette activité</h4>
+				<h4>Intervenants disponibles à ces créneaux</h4>
 				<div class="form-group">
 				<table class="table">
 					<tr>
 					<th>
-						Jour
+						Prénom
 					</th>
 					<th>
-						Début
+						Nom
 					</th>
 					<th>
-						Fin
+						Téléphone
 					</th>
 					</tr>
 					<?php 
-						$query=$bdd->prepare('SELECT * FROM creneaux WHERE id_creneau IN (SELECT id_creneau FROM se_fait_a WHERE id_activite = "'.$idActivite.'")');
+						$query=$bdd->prepare('SELECT * FROM intervenants WHERE id_intervenant IN (SELECT id_intervenant FROM est_encadre_par WHERE id_creneau = "'.$idCreneau.'")');
 						$query->execute();
 						while($data = $query->fetch()){
 							echo '<tr>
-										<td> '.$data['jour_creneau'].' </td>
-										<td> '.$data['heure_creneau_debut'].' </td>
-										<td> '.$data['heure_creneau_fin'].' </td>
+										<td> '.$data['prenom_intervenant'].' </td>
+										<td> '.$data['nom_intervenant'].' </td>
+										<td> '.$data['tel_intervenant'].' </td>
 									</tr>';
 						}
 					$query->CloseCursor();
@@ -91,13 +86,13 @@
 				</div>
 				<br />
 				
-				<h4>Choisir un créneau pour cette activité</h4>
+				<h4>Choisir un intervenant prenant en charge ce créneau</h4>
               <div class="form-group">
-				<select name="act" id="act" class="form-control"  >
-                <?php $query=$bdd->prepare('SELECT * FROM creneaux WHERE id_creneau NOT IN (SELECT id_creneau FROM se_fait_a WHERE id_activite = "'.$idActivite.'")');
+				<select name="inter" id="inter" class="form-control"  >
+                <?php $query=$bdd->prepare('SELECT * FROM intervenants WHERE id_intervenant NOT IN (SELECT id_intervenant FROM est_encadre_par WHERE id_creneau = "'.$idCreneau.'")');
 							$query->execute();
 							while($data = $query->fetch()){
-									echo'<option value="'.$data['id_creneau'].'"> '.$data['jour_creneau'].' de '.$data['heure_creneau_debut'].' à '.$data['heure_creneau_fin'].' </option>';
+									echo'<option value="'.$data['id_intervenant'].'"> '.$data['prenom_intervenant'].' '.$data['nom_intervenant'].'</option>';
 							}
 							$query->CloseCursor();
 							?>
