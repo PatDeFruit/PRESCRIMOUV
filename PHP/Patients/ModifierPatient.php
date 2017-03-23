@@ -43,7 +43,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -67,7 +67,7 @@
         <div id="conteneurPrincipale">
 			<div id="conteneurTotal">
 				<fieldset id="conteneurInterieur">
-					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Patient  n°'.$idPatient.'</center></legend>'; ?>
+					<?php echo'<center><legend><a href="#" onClick="confirmFunction()" style="color: white; margin-right: 50px;"><span class="glyphicon glyphicon-arrow-left"></span></a> Bénéficiaire  n°'.$idPatient.'</center></legend>'; ?>
 					<script>
 						function confirmFunction() {
 							var txt;

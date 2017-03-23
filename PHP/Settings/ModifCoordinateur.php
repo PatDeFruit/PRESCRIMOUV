@@ -36,7 +36,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -114,7 +114,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-3 control-label" for="nom">Nom</label>  
+											<label class="col-md-3 control-label" for="nom">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="nom" name="nom" value="'.$nom.'" class="form-control input-md" required="" type="text">';
@@ -127,7 +127,7 @@
 									<tr>
 										<td>
 											<div class="form-group">
-												<label class="col-md-3 control-label" for="prenom">Prénom</label>  
+												<label class="col-md-3 control-label" for="prenom">Prénom <span style="color: red">*</span></label>  
 												<div class="col-md-5">
 													<?php
 														echo'<input id="prenom" name="prenom" value="'.$prenom.'" class="form-control input-md" required="" type="text">';
@@ -140,10 +140,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-3 control-label" for="email">Email</label>  
+											<label class="col-md-3 control-label" for="email">Email <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="email" name="email" value="'.$email.'" class="form-control input-md" required="" type="text">';
+													echo '<input id="email" name="email" value="'.$email.'" class="form-control input-md" required="" type="email">';
 												?>
 									
 											</div>
@@ -159,7 +159,7 @@
 											<label class="col-md-3 control-label" for="tel">Téléphone </label>  
 											<div class="col-md-3">
 												<?php
-													echo'<input id="tel" name="tel" value="'.$tel.'" class="form-control input-md" type="number">';
+													echo'<input id="tel" name="tel" value="'.$tel.'" class="form-control input-md" type="tel" maxlength="10">';
 												?>
 									
 											</div>
@@ -172,10 +172,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-3 control-label" for="password">Mot de passe</label>  
+											<label class="col-md-3 control-label" for="password">Mot de passe </label>  
 											<div class="col-md-5">
 												<?php
-													echo' <input id="password" name="password" value="" class="form-control input-md" >';
+													echo' <input id="password" name="password" value="" class="form-control input-md" type="password">';
 												?>
 									
 											</div>

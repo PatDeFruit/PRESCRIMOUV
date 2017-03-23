@@ -34,6 +34,8 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../BDD/variableSession.php");
 		include("../BDD/connexionBDD.php");
+		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -88,11 +90,26 @@
 						</tr>
 						<tr>
 							<td colspan="2">
-							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphAttentePatho.png" />
-							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphInitialPatho.png" />
-							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphInterPatho.png" />
-							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphFinalPatho.png" />
-							<img style="margin-left : 50px; margin-top : 17px;" src="Statistiques/SmallGraphArchivePatho.png" />
+							<?php 
+							$graphInitialPatho = "Statistiques/SmallGraphInitialPatho.png";
+							$graphInterPatho = "Statistiques/SmallGraphInterPatho.png";
+							$graphFinalPatho = "Statistiques/SmallGraphFinalPatho.png";
+							$graphArchivePatho = "Statistiques/SmallGraphArchivePatho.png";
+							if(file_exists($graphInitialPatho)){
+								echo '<img style="margin-left : 50px; margin-top : 17px;" src="'.$graphInitialPatho.'" />';
+							}
+							if(file_exists($graphInterPatho)){
+								echo '<img style="margin-left : 50px; margin-top : 17px;" src="'.$graphInterPatho.'" />';
+							} 
+							if(file_exists($graphFinalPatho)){
+								echo '<img style="margin-left : 50px; margin-top : 17px;" src="'.$graphFinalPatho.'" />';
+							}
+							if(file_exists($graphArchivePatho)){
+								echo '<img style="margin-left : 50px; margin-top : 17px;" src="'.$graphArchivePatho.'" />';
+							} 
+							//Si Initial existe 
+							
+							?>
 							</td>
 						</tr>
 					</table>

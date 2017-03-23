@@ -33,7 +33,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -303,6 +303,7 @@
 								<!-- Text input-->
 								<div class="form-group">
 								  <label class="col-md-2 control-label" for="med">Médecin prescripteur  <span style="color: red">*</span></span></a></label>  
+								  <a href="#" class="btn btn-success btn-xs" onClick="ouvre_popup('../Modal/addMedecinPopUp.php')"><span class="glyphicon glyphicon-plus"></span></a>
 								  <div class="col-md-5">
 										 <select name="idMed" id="idMed" class="form-control" required="">
 										

@@ -36,7 +36,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -81,7 +81,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="nom">Nom*</label>  
+											<label class="col-md-4 control-label" for="nom">Nom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="nom" name="nom" value="" class="form-control input-md" required=" " type="text">';
@@ -97,7 +97,7 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="prenom">Prénom*</label>  
+											<label class="col-md-4 control-label" for="prenom">Prénom <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
 													echo '<input id="prenom" name="prenom" value="" class="form-control input-md"  required=" " type="text">';
@@ -112,10 +112,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="email">Email*</label>  
+											<label class="col-md-4 control-label" for="email">Email <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="email" name="email" value="" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="email" name="email" value="" class="form-control input-md"  required=" " type="email">';
 												?>
 									
 											</div>
@@ -127,10 +127,10 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="tel">Téléphone*</label>  
+											<label class="col-md-4 control-label" for="tel">Téléphone <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="tel" name="tel" value="" class="form-control input-md"  required=" " type="text">';
+													echo '<input id="tel" name="tel" value="" class="form-control input-md"  required=" " type="tel">';
 												?>
 									
 											</div>
@@ -142,12 +142,11 @@
 									<td>
 									<!-- Text input-->
 										<div class="form-group">
-											<label class="col-md-4 control-label" for="password">Mot de passe*</label>  
+											<label class="col-md-4 control-label" for="password">Mot de passe <span style="color: red">*</span></label>  
 											<div class="col-md-5">
 												<?php
-													echo '<input id="password" name="password" value="" class="form-control input-md"  required=" " type="text">';
-												?>
-									
+													echo '<input id="password" name="password" value="" class="form-control input-md"  required=" " type="password">';
+												?>									
 											</div>
 										</div>
 									</td>

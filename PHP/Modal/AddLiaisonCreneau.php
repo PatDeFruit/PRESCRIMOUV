@@ -30,7 +30,13 @@
 <div class="container">
 <?php
 
-	include("../../BDD/connexionBDD.php");
+	//Cette fonction doit être appelée avant tout code html
+		session_start();
+
+		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
+		include("../../BDD/variableSession.php");
+		include("../../BDD/connexionBDD.php");
+		if($id==0){ erreur2(ERR_IS_CO); }
 	$idActivite = $_GET['idActivite'];
 	$query=$bdd->prepare('SELECT activite FROM activites WHERE id_activite ="'.$idActivite.'"');
 	$query->execute();

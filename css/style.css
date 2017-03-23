@@ -545,3 +545,18 @@ legend {
 .github {
   margin-top: 50px;
 }
+.password{
+    position: relative;
+}
+
+.password input[type="password"]{
+    padding-right: 30px;
+}
+
+.password .glyphicon,#password2 .glyphicon {
+    display:none;
+    right: 15px;
+    position: absolute;
+    top: 12px;
+    cursor:pointer;
+}

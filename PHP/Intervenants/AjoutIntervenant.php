@@ -36,7 +36,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -148,7 +148,7 @@
 												<?php
 													$query=$bdd->prepare('SELECT id_diplome, nom_diplome FROM diplomes');
 													$query->execute();
-													while($query->fetch()){
+													while($data=$query->fetch()){
 														echo'<option value="'.$data['id_diplome'].'">'.$data['nom_diplome'].'</option>';
 													}
 													$query->CloseCursor();

@@ -35,7 +35,7 @@
 		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
 		include("../../BDD/variableSession.php");
 		include("../../BDD/connexionBDD.php");
-		
+		if($id==0){ erreur2(ERR_IS_CO); }
 		?>
 
 </head>
@@ -117,12 +117,7 @@
 	while($data = $query->fetch()){
 			$arrayStat4[]=$data;
 	}
-	$query->CloseCursor();
-	$query=$bdd->prepare('select count(id_patient) AS nbPers, pathologie, statut from patients join statuts using(id_statut) join est_diagnostique using(id_patient) join pathologies using(id_pathologie) where id_statut = 4 group by pathologie, statut');
-	$query->execute();
-	while($data = $query->fetch()){
-			$arrayStat5[]=$data;
-	}
+
 	$query->CloseCursor();
 	$query=$bdd->prepare('select count(id_patient) AS nbPers, pathologie, statut from patients join statuts using(id_statut) join est_diagnostique using(id_patient) join pathologies using(id_pathologie) where id_statut = 5 group by pathologie, statut');
 	$query->execute();
@@ -191,41 +186,7 @@
 								<br /><br />
 							
 							<?php 
-							if($arrayStat5!= array()){
-								// Dataset definition   
-							 $DataSet2 = new pData;  
-							 for($i=0; $i<sizeof($arrayStat5); $i++){
-								${nbPersAttente.$i} = $arrayStat5[$i]['nbPers'];
-								$DataSet2->AddPoint(${nbPersAttente.$i}, "Serie1");
-							}
-							for($i=0; $i<sizeof($arrayStat5); $i++){
-								${nbPersAttente.$i} = $arrayStat5[$i]['pathologie'];
-								$DataSet2->AddPoint(${nbPersAttente.$i}, "Serie2");
-							}							
-							 $DataSet2->AddAllSeries();  
-							 $DataSet2->SetAbsciseLabelSerie("Serie2");  
-							  
-							 // Initialise the graph  
-							 $Graph2 = new pChart(700, 300);   
-							  
-							 // Draw the pie chart  
-							 $Graph2->setFontProperties("Fonts/tahoma.ttf",8);  
-							 $Graph2->setShadowProperties(2,2,200,200,200);  
-							 $Graph2->drawFlatPieGraphWithShadow($DataSet2->GetData(),$DataSet2->GetDataDescription(),175,125,75,PIE_PERCENTAGE,10);  
-							 $Graph2->drawPieLegend(300,30,$DataSet2->GetData(),$DataSet2->GetDataDescription(),250,250,250);  
-							 $Graph2->drawTitle(50,22,"Bénéficiaires en attente",50,50,50,585);  
-							 $Graph2->Render("benefAttentePatho.png");
-							 echo'<img src="benefAttentePatho.png" />';
-							 // Initialise the graph  
-								$MiniGraph2 = new pChart(120,100);  
-								$MiniGraph2->setFontProperties("Fonts/tahoma.ttf",8);  
-								  
-								// Draw the line graph  
-								$MiniGraph2->drawFlatPieGraphWithShadow($DataSet2->GetData(),$DataSet2->GetDataDescription(),75,50,10); 
-								  
-								// Finish the graph  
-								$MiniGraph2->Render("SmallGraphAttentePatho.png");  
-							}
+							
 							if($arrayStat2!= array()){
 								// Dataset definition   
 							 $DataSet3 = new pData;  

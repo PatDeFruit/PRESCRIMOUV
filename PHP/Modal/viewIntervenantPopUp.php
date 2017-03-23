@@ -22,8 +22,13 @@
 <body>
 <div class="container">
 <?php
+//Cette fonction doit être appelée avant tout code html
+		session_start();
 
-	include("../../BDD/connexionBDD.php");
+		//On donne ensuite un titre à la page, puis on appelle notre fichier debut.php
+		include("../../BDD/variableSession.php");
+		include("../../BDD/connexionBDD.php");
+		if($id==0){ erreur2(ERR_IS_CO); }
 	$idIntervenant = $_GET['idIntervenant'];
 ?>
 <!-- line modal -->
